@@ -1,0 +1,48 @@
+# Prompt Framework
+
+Framework reutilizable para ingeniería de prompts.
+
+Proporciona una metodología consistente para construir prompts complejos mediante la composición de componentes independientes, reutilizables y mantenibles.
+
+---
+
+## Documentación
+
+| Documento | Descripción |
+|-----------|-------------|
+| [Guía conceptual](Guides/Readme.md) | Arquitectura, filosofía y componentes del framework |
+| [Guía de usuario](Guides/User-Guide.md) | Cómo utilizar el framework para construir prompts |
+| [Guía de desarrollo](Guides/Develop-Guide.md) | Cómo extender y mantener el framework |
+
+---
+
+## Estructura
+
+```
+PromptFramework/
+├── Parameters/     # Configuración reutilizable por proyecto
+├── Rules/          # Reglas atómicas de comportamiento
+├── RuleSets/       # Conjuntos de reglas por dominio
+├── Profiles/       # Perfiles de comportamiento del agente
+├── Templates/      # Plantillas para construir prompts
+├── Prompts/        # Prompts predefinidos reutilizables
+├── Examples/       # Ejemplos concretos de uso
+└── Guides/         # Documentación del framework
+```
+
+---
+
+## Jerarquía de composición
+
+```
+Prompt → Profile → RuleSet → Rules
+       → Parameters
+```
+
+| Capa | Responde a |
+|------|------------|
+| Prompt | ¿Qué necesita el usuario? |
+| Profile | ¿Cómo se comporta el agente? |
+| RuleSet | ¿Qué reglas aplican? |
+| Rules | ¿Cuál es el comportamiento esperado? |
+| Parameters | ¿Cuál es la configuración del proyecto? |
