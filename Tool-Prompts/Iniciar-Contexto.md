@@ -23,7 +23,7 @@ Cargar en la conversación el contexto mínimo suficiente sobre `{tema}`, usando
 
 # Procedimiento
 
-1. **Localizar la ia-db**, en este orden: `<proyecto>/ia-db` del proyecto del tema → `/ia-db` en la raíz del workspace (federada) → `Parameters/Paths.md` (sección «Base de conocimiento») → glob `*/ia-db/README.md`. En una ia-db federada, usar la tabla por proyecto para bajar a los índices del proyecto del tema.
+1. **Localizar la ia-db**, en este orden: `<proyecto>/ia-db` del proyecto del tema → `/ia-db` en la raíz del workspace (federada) → glob `*/ia-db/README.md`. En una ia-db federada, usar la tabla por proyecto para bajar a los índices del proyecto del tema.
 2. **Leer solo el punto de entrada**: `ia-db/README.md`.
 3. **Seleccionar índices**: con la tabla de navegación del punto de entrada, elegir los índices temáticos que cubren `{tema}` (habitualmente 1–2, más `00_MASTER-INDEX.md` solo si el tema es transversal).
 4. **Cargar únicamente esos índices**. Ampliar a un índice adicional solo si el contexto resulta insuficiente.

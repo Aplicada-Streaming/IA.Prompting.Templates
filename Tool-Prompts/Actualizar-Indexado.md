@@ -10,7 +10,7 @@
 
 | Parámetro | Descripción | Si no se indica |
 |-----------|-------------|-----------------|
-| `{ia-db}` | Ubicación de la base de conocimiento a sincronizar | Buscar en orden: `/ia-db` (workspace federado) → `<proyecto>/ia-db` → `Parameters/Paths.md` → glob `*/ia-db/README.md` |
+| `{ia-db}` | Ubicación de la base de conocimiento a sincronizar | Buscar en orden: `/ia-db` (workspace federado) → `<proyecto>/ia-db` → glob `*/ia-db/README.md` |
 | `{proyectos}` | Subconjunto de proyectos a sincronizar (solo modo federado) | Todos los proyectos listados en el manifiesto de la ia-db |
 
 ---
@@ -56,12 +56,6 @@ Sincronizar la ia-db con el estado actual del proyecto mediante una actualizaci�
 Aplicar:
 
 - `/IA.Prompting.Templates/PromptFramework/Profiles/Knowledge-Indexing.md`
-
-## Parameters
-
-Utilizar la configuración definida en:
-
-- `/IA.Prompting.Templates/PromptFramework/Parameters`
 
 ---
 

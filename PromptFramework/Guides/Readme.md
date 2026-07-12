@@ -20,8 +20,7 @@ El Prompt Framework es una metodología para construir prompts complejos de form
 Su objetivo es estandarizar la manera en que se comunican instrucciones a un agente de inteligencia artificial, separando:
 
 - la **descripción del problema** (qué hacer);
-- el **comportamiento del agente** (cómo hacerlo);
-- la **configuración del proyecto** (en qué contexto hacerlo).
+- el **comportamiento del agente** (cómo hacerlo).
 
 El framework permite reutilizar instrucciones en múltiples proyectos sin duplicar conocimiento ni mantener múltiples versiones de las mismas reglas.
 
@@ -35,7 +34,7 @@ El framework se basa en tres principios fundamentales.
 
 Cada componente tiene una única responsabilidad bien definida.
 
-Los prompts describen el problema. Los perfiles configuran el comportamiento. Las reglas definen las restricciones. Los parámetros aportan el contexto del proyecto.
+Los prompts describen el problema. Los perfiles configuran el comportamiento. Las reglas definen las restricciones.
 
 ### Composición sobre duplicación
 
@@ -47,7 +46,7 @@ En lugar de repetir instrucciones en cada prompt, se reutilizan perfiles y regla
 
 Las reglas y perfiles son independientes de cualquier proyecto concreto.
 
-Los parámetros permiten adaptar el framework a cada proyecto sin modificar su lógica.
+El contexto específico de cada proyecto se aporta en el propio prompt, sin modificar la lógica del framework.
 
 ---
 
@@ -56,7 +55,6 @@ Los parámetros permiten adaptar el framework a cada proyecto sin modificar su l
 ```mermaid
 graph TD
     P[Prompt] --> PR[Profile]
-    P --> PA[Parameters]
     PR --> RS[RuleSet]
     RS --> R1[Rule-All]
     RS --> R2[Rule-Workflow]
@@ -65,9 +63,6 @@ graph TD
     RS --> R5[Rule-Markdown]
     RS --> R6[Rule-Evidences]
     RS --> R7[Rule-Indexing]
-    PA --> REP[Repositories]
-    PA --> PAT[Paths]
-    PA --> VAR[Variables]
 ```
 
 La arquitectura define cuatro capas:
@@ -79,26 +74,9 @@ La arquitectura define cuatro capas:
 | 3 | RuleSet | Define qué reglas aplican |
 | 4 | Rules | Establece el comportamiento esperado |
 
-Los **Parameters** no forman parte de la jerarquía de reglas sino del contexto del proyecto. Se resuelven de forma independiente.
-
 ---
 
 ## Componentes
-
-### Parameters
-
-Los parámetros representan la configuración del proyecto.
-
-Permiten que las reglas y perfiles sean independientes de implementaciones concretas.
-
-| Archivo | Propósito |
-|---------|-----------|
-| `Parameters.md` | Descripción del sistema de parámetros |
-| `Repositories.md` | Define los repositorios del proyecto |
-| `Paths.md` | Define las rutas relevantes |
-| `Variables.md` | Define variables generales |
-
-Cada proyecto que utilice el framework deberá completar estos archivos con su configuración específica.
 
 ### Rules
 
@@ -228,13 +206,7 @@ graph LR
         R2[Rule-Workflow]
         R3[...]
     end
-    subgraph Parameters
-        P1[Repositories]
-        P2[Paths]
-        P3[Variables]
-    end
     Prompt -->|aplica| Profile
-    Prompt -->|usa| Parameters
     Profile -->|aplica| RuleSet
     RuleSet -->|incluye| Rules
 ```
@@ -246,7 +218,6 @@ Un Prompt combina:
 3. **Solicitudes** — tareas a realizar
 4. **Restricciones** — limitaciones de la ejecución
 5. **Profile** — configuración del comportamiento del agente
-6. **Parameters** — configuración del proyecto
 
 ---
 
@@ -258,14 +229,12 @@ sequenceDiagram
     participant PR as Prompt
     participant PF as Profile
     participant RS as RuleSet
-    participant PA as Parameters
 
     U->>PR: Escribe el prompt con contexto y objetivo
     PR->>PF: Referencia el Profile apropiado
-    PR->>PA: Carga la configuración del proyecto
     PF->>RS: Aplica el RuleSet correspondiente
     RS->>RS: Resuelve todas las reglas incluidas
-    Note over PR,PA: El agente ejecuta con el comportamiento configurado
+    Note over PR,RS: El agente ejecuta con el comportamiento configurado
 ```
 
 ### Paso 1 — Identificar el tipo de tarea
@@ -283,19 +252,14 @@ Elegir el Profile que mejor se adapte al tipo de trabajo.
 
 Si no existe un Profile apropiado, utilizar el Template y referenciar el RuleSet adecuado.
 
-### Paso 3 — Completar los Parameters
+### Paso 3 — Construir el Prompt
 
-Asegurarse de que los archivos de Parameters estén completos para el proyecto:
-repositorios, rutas y variables relevantes.
+Utilizar un Template como estructura base y completar contexto, objetivo, solicitudes, restricciones y Profile.
 
-### Paso 4 — Construir el Prompt
-
-Utilizar un Template como estructura base y completar contexto, objetivo, solicitudes, restricciones, Profile y Parameters.
-
-### Paso 5 — Ejecutar
+### Paso 4 — Ejecutar
 
 Proporcionar el prompt al agente. El agente resolverá automáticamente la cadena:
-`Profile → RuleSet → Rules → Parameters`.
+`Profile → RuleSet → Rules`.
 
 ---
 
@@ -303,9 +267,6 @@ Proporcionar el prompt al agente. El agente resolverá automáticamente la caden
 
 ```mermaid
 graph TB
-    subgraph "Capa de Configuración"
-        PA[Parameters]
-    end
     subgraph "Capa de Comportamiento"
         PR[Profile]
         RS[RuleSet]
@@ -318,7 +279,6 @@ graph TB
         EX[Examples]
     end
     PT -->|referencia| PR
-    PT -->|usa| PA
     EX -->|demuestra| PT
     PR -->|incluye| RS
     RS -->|agrega| R

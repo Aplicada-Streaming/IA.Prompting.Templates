@@ -23,7 +23,7 @@ Esta guía define cómo el framework minimiza ese costo sin perder calidad: inde
 
 1. **Indexar una vez, recuperar muchas** — el costo de generar la ia-db se amortiza en cada conversación que evita releer las fuentes.
 2. **Recuperación incremental** — punto de entrada → índices del tema → documentos fuente, y solo si el nivel anterior resulta insuficiente.
-3. **Referenciar antes que incluir** — un prompt cita rutas de Profiles y Parameters; no copia su contenido.
+3. **Referenciar antes que incluir** — un prompt cita rutas de Profiles; no copia su contenido.
 4. **Destilar, no copiar** — un índice condensa; el detalle vive en la fuente y se referencia.
 5. **Presupuestos explícitos** — cada índice tiene un tamaño máximo orientativo; lo que no entra, se referencia.
 6. **Cargar reglas proporcionales a la tarea** — una tarea trivial no justifica resolver la cadena completa Profile → RuleSet → Rules.

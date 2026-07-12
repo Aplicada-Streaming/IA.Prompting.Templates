@@ -42,12 +42,6 @@ Aplicar el Profile que corresponda al tipo de tarea:
 
 Consultar la tabla de Profiles disponibles en `/IA.Prompting.Templates/PromptFramework/Guides/Readme.md`.
 
-## Parameters
-
-Utilizar la configuración del proyecto:
-
-- `/IA.Prompting.Templates/PromptFramework/Parameters`
-
 ---
 
 # Resultado esperado

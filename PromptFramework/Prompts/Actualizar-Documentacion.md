@@ -44,12 +44,6 @@ Aplicar:
 
 - `/IA.Prompting.Templates/PromptFramework/Profiles/Repository-Documentation.md`
 
-## Parameters
-
-Utilizar la configuración definida en:
-
-- `/IA.Prompting.Templates/PromptFramework/Parameters`
-
 ---
 
 # Resultado esperado

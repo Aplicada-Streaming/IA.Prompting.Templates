@@ -22,7 +22,6 @@ Proporciona una metodología consistente para construir prompts complejos median
 ```
 IA.Prompting.Templates/
 ├── PromptFramework/
-│   ├── Parameters/     # Configuración reutilizable por proyecto
 │   ├── Rules/          # Reglas atómicas de comportamiento
 │   ├── RuleSets/       # Conjuntos de reglas por dominio
 │   ├── Profiles/       # Perfiles de comportamiento del agente
@@ -41,7 +40,6 @@ Las referencias entre componentes usan rutas absolutas desde la raíz del worksp
 
 ```
 Prompt → Profile → RuleSet → Rules
-       → Parameters
 ```
 
 | Capa | Responde a |
@@ -50,4 +48,3 @@ Prompt → Profile → RuleSet → Rules
 | Profile | ¿Cómo se comporta el agente? |
 | RuleSet | ¿Qué reglas aplican? |
 | Rules | ¿Cuál es el comportamiento esperado? |
-| Parameters | ¿Cuál es la configuración del proyecto? |

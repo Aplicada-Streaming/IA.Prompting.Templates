@@ -20,7 +20,7 @@ Forma corta (equivalente — el agente resuelve la base `/IA.Prompting.Templates
 Ejecuta /Tool-Prompts/Iniciar-Contexto en <tema>
 ```
 
-Los valores entre `{llaves}` dentro de cada Tool-Prompt son parámetros: se completan con lo indicado en la línea de invocación o, en su defecto, se resuelven desde `/IA.Prompting.Templates/PromptFramework/Parameters`.
+Los valores entre `{llaves}` dentro de cada Tool-Prompt son parámetros: se completan con lo indicado en la línea de invocación; cada Tool-Prompt declara qué hacer cuando un parámetro no se indica.
 
 ---
 

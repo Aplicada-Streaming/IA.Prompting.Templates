@@ -4,6 +4,18 @@ Registro de cambios del framework de prompting. Formato basado en [Keep a Change
 
 ---
 
+## [1.2.0] — 2026-07-11
+
+### Eliminado
+
+- **`Parameters/`** (`Parameters.md`, `Repositories.md`, `Paths.md`, `Variables.md`): se elimina el sistema de parámetros. El contexto específico de cada proyecto se aporta ahora en el propio prompt; la jerarquía queda en `Prompt → Profile → RuleSet → Rules`.
+
+### Cambiado
+
+- Documentación, Profiles, Templates, Prompts, Examples y Tool-Prompts actualizados: removidas las secciones `## Parameters`/`## Parámetros` y toda referencia a la carpeta `Parameters/` (orden de búsqueda de la ia-db, límites de agentes y exclusiones de indexado ya no la citan).
+
+---
+
 ## [1.1.0] — 2026-07-11
 
 ### Agregado

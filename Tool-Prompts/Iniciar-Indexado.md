@@ -56,12 +56,6 @@ Aplicar:
 
 - `/IA.Prompting.Templates/PromptFramework/Profiles/Knowledge-Indexing.md`
 
-## Parameters
-
-Utilizar la configuración definida en:
-
-- `/IA.Prompting.Templates/PromptFramework/Parameters`
-
 ---
 
 # Resultado esperado

@@ -8,10 +8,6 @@ Configurar el agente para auditar infraestructuras técnicas **sin modificar su 
 
 # Framework
 
-## Parámetros
-
-- `/IA.Prompting.Templates/PromptFramework/Parameters`
-
 ## Rule Set
 
 - `/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-Audit.md`

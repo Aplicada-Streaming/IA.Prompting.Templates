@@ -7,7 +7,6 @@
 - [Usar un Prompt predefinido](#usar-un-prompt-predefinido)
 - [Construir un Prompt nuevo](#construir-un-prompt-nuevo)
 - [Seleccionar el Profile correcto](#seleccionar-el-profile-correcto)
-- [Completar los Parameters](#completar-los-parameters)
 - [Ejemplos completos](#ejemplos-completos)
 - [Errores comunes](#errores-comunes)
 - [Buenas prácticas](#buenas-prácticas)
@@ -30,7 +29,7 @@ Para comprender la arquitectura del framework antes de comenzar, consultar la [G
 
 1. Verificar si existe un Prompt en `/IA.Prompting.Templates/PromptFramework/Prompts/` que se adapte a la tarea.
 2. Copiar el contenido del Prompt.
-3. Completar el contexto y los Parameters del proyecto.
+3. Completar el contexto del proyecto.
 4. Ejecutar con el agente.
 
 ### Opción B — Construir un Prompt nuevo
@@ -38,7 +37,7 @@ Para comprender la arquitectura del framework antes de comenzar, consultar la [G
 1. Identificar el tipo de tarea y seleccionar el Profile apropiado.
 2. Abrir el Template adecuado en `/IA.Prompting.Templates/PromptFramework/Templates/`.
 3. Completar todos los campos.
-4. Referenciar el Profile y los Parameters.
+4. Referenciar el Profile.
 
 ### Opción C — Invocar un Tool-Prompt
 
@@ -70,8 +69,7 @@ Para usar un Prompt predefinido:
 
 1. Abrir el archivo del Prompt.
 2. Agregar el contexto específico del proyecto en la sección `# Contexto`.
-3. Asegurarse de que los Parameters estén completos.
-4. Ejecutar.
+3. Ejecutar.
 
 ---
 
@@ -99,10 +97,6 @@ Todo Prompt deberá tener la siguiente estructura:
 ## Profile
 Aplicar:
 - `/IA.Prompting.Templates/PromptFramework/Profiles/[Profile].md`
-
-## Parameters
-Utilizar la configuración de:
-- `/IA.Prompting.Templates/PromptFramework/Parameters`
 
 # Resultado esperado
 [Entregables esperados al finalizar]
@@ -142,10 +136,6 @@ Ejemplos comunes:
 #### 5. Seleccionar el Profile
 
 Ver sección [Seleccionar el Profile correcto](#seleccionar-el-profile-correcto).
-
-#### 6. Verificar los Parameters
-
-Ver sección [Completar los Parameters](#completar-los-parameters).
 
 ---
 
@@ -192,43 +182,6 @@ Si ningún Profile se adapta exactamente a la tarea:
 
 ---
 
-## Completar los Parameters
-
-Los Parameters contienen la configuración específica del proyecto.
-
-Antes de ejecutar cualquier Prompt, verificar que los siguientes archivos estén completos:
-
-### Repositories.md
-
-Definir los repositorios del proyecto: repositorio de código fuente, de documentación y de infraestructura.
-
-### Paths.md
-
-Definir las rutas relevantes: carpeta de documentación, base de conocimiento, ubicación de prompts y templates.
-
-### Variables.md
-
-Definir las variables generales: nombre del proyecto, entorno, configuraciones de comportamiento.
-
-### Ejemplo de configuración
-
-```markdown
-## Proyecto
-
-- Nombre del proyecto: Mi Sistema
-- Descripción: Plataforma de procesamiento de datos
-- Entorno: Producción
-- Versión: 2.1.0
-
-## Documentación
-
-- Documentación habilitada: Sí
-- Actualizar índices: Sí
-- Generar diagramas Mermaid: Sí
-```
-
----
-
 ## Ejemplos completos
 
 ### Ejemplo 1 — Documentar un servidor
@@ -262,11 +215,6 @@ Generar documentación técnica actualizada que represente fielmente el estado a
 
 Aplicar:
 - `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Documentation.md`
-
-## Parameters
-
-Utilizar la configuración de:
-- `/IA.Prompting.Templates/PromptFramework/Parameters`
 
 # Resultado esperado
 
@@ -306,12 +254,6 @@ Aplicar:
 
 Los Profiles encapsulan los RuleSets que a su vez incluyen las Rules. Referenciar Rules directamente rompe la jerarquía del framework y duplica configuración.
 
-### Omitir los Parameters
-
-El agente no puede resolver rutas ni repositorios sin los Parameters completos.
-
-Siempre verificar que `Repositories.md`, `Paths.md` y `Variables.md` estén correctamente configurados antes de ejecutar.
-
 ### Mezclar el contexto con el objetivo
 
 El **contexto** describe la situación actual.
@@ -332,26 +274,20 @@ Definir siempre qué comandos puede ejecutar, si puede modificar archivos, si pu
 1. **Usar Profiles en lugar de referenciar reglas individualmente.**
    Los Profiles garantizan que se aplique el conjunto correcto de reglas para cada tipo de tarea.
 
-2. **Completar los Parameters antes de ejecutar.**
-   Los parámetros incompletos producen resultados de menor calidad.
-
-3. **Definir restricciones explícitas.**
+2. **Definir restricciones explícitas.**
    Especialmente para tareas que involucren modificaciones en sistemas reales.
 
-4. **Usar los Prompts predefinidos cuando sea posible.**
+3. **Usar los Prompts predefinidos cuando sea posible.**
    Ahorran tiempo y garantizan consistencia con el framework.
 
-5. **Consultar los Examples antes de construir un Prompt nuevo.**
+4. **Consultar los Examples antes de construir un Prompt nuevo.**
    Los Examples muestran patrones probados y funcionales.
 
-6. **Mantener los Parameters actualizados.**
-   Si el proyecto cambia, actualizar los Parameters.
-
-7. **Describir el contexto con suficiente detalle.**
+5. **Describir el contexto con suficiente detalle.**
    No asumir que el agente conoce el proyecto. Proporcionar toda la información relevante.
 
-8. **Verificar la consistencia antes de ejecutar.**
-   El Profile, los Parameters y las solicitudes deben ser coherentes entre sí.
+6. **Verificar la consistencia antes de ejecutar.**
+   El Profile y las solicitudes deben ser coherentes entre sí.
 
-9. **Minimizar el consumo de tokens.**
+7. **Minimizar el consumo de tokens.**
    Iniciar las conversaciones con `Tool-Prompts/Iniciar-Contexto.md` y recuperar contexto desde la ia-db en lugar de releer el repositorio. Ver la [Guía de Optimización de Tokens](Token-Optimization.md).

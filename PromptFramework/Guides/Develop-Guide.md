@@ -47,7 +47,7 @@ Si una instrucción ya existe en una Rule, referenciarla. No copiarla en otro co
 
 Las Rules, RuleSets y Profiles no deben contener referencias a proyectos específicos.
 
-La configuración del proyecto pertenece exclusivamente a los Parameters.
+El contexto específico de cada proyecto se aporta en el propio Prompt.
 
 ### Jerarquía de composición
 
@@ -207,12 +207,6 @@ No crear un nuevo Profile cuando:
 
 # Framework
 
-## Parámetros
-
-Utilizar la configuración definida en:
-
-- `/IA.Prompting.Templates/PromptFramework/Parameters`
-
 ## Rule Set
 
 Aplicar:
@@ -308,11 +302,6 @@ Un Template debe:
 Aplicar:
 - `/IA.Prompting.Templates/PromptFramework/Profiles/[Profile].md`
 
-## Parameters
-
-Utilizar la configuración de:
-- `/IA.Prompting.Templates/PromptFramework/Parameters`
-
 ---
 
 # Resultado esperado
@@ -397,7 +386,7 @@ Al referenciar componentes del framework desde prompts, perfiles o reglas, utili
 `/IA.Prompting.Templates/Tool-Prompts/Iniciar-Contexto.md`
 ```
 
-Si el repositorio cambia de ubicación, actualizar la base definida en `/IA.Prompting.Templates/PromptFramework/Parameters/Paths.md` y las referencias de los documentos.
+Si el repositorio cambia de ubicación, actualizar las referencias de los documentos.
 
 Los enlaces Markdown de navegación (`[texto](ruta relativa)`) dentro de un mismo repositorio pueden permanecer relativos: están destinados a la lectura humana, no a la resolución del agente.
 
@@ -407,11 +396,6 @@ Los enlaces Markdown de navegación (`[texto](ruta relativa)`) dentro de un mism
 
 ```
 PromptFramework/
-├── Parameters/             # Configuración del proyecto
-│   ├── Parameters.md       # Descripción del sistema de parámetros
-│   ├── Repositories.md     # Repositorios del proyecto
-│   ├── Paths.md            # Rutas relevantes
-│   └── Variables.md        # Variables generales
 ├── Rules/                  # Reglas atómicas (una por dominio)
 ├── RuleSets/               # Colecciones de reglas (Default + especializados)
 ├── Profiles/               # Configuraciones de comportamiento del agente

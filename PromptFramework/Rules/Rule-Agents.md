@@ -4,7 +4,7 @@
 
 Definir cómo asignar subagentes, ajustando la estructura de delegación al tamaño y la naturaleza real de la tarea.
 
-La configuración de límites (usar subagentes, paralelismo máximo) se obtiene de `Parameters/Variables.md`, sección «Agentes».
+Los límites (usar subagentes, paralelismo máximo) pueden indicarse en el propio prompt; en su ausencia, ajustarlos a la naturaleza de la tarea.
 
 ---
 

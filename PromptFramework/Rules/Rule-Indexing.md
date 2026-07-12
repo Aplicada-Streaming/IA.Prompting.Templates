@@ -4,7 +4,7 @@
 
 Reglas para usar y mantener la base de conocimiento (`ia-db`): recuperar solo el contexto necesario, minimizar tokens y mantener la memoria sincronizada con la documentación.
 
-La ubicación de la ia-db se resuelve desde `Parameters/Paths.md`; nunca se codifica fija.
+La ubicación de la ia-db nunca se codifica fija; se resuelve buscando `<proyecto>/ia-db` o `/ia-db` en la raíz del workspace (federada).
 
 ---
 

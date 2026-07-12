@@ -8,10 +8,6 @@ Configurar el agente para revisar código fuente desde una perspectiva técnica,
 
 # Framework
 
-## Parámetros
-
-- `/IA.Prompting.Templates/PromptFramework/Parameters`
-
 ## Rule Set
 
 - `/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-Development.md`

@@ -10,12 +10,6 @@ La ia-db es la memoria operativa del proyecto. Reduce el consumo de tokens y ace
 
 # Framework
 
-## Parámetros
-
-Utilizar la configuración definida en:
-
-- `/IA.Prompting.Templates/PromptFramework/Parameters`
-
 ## Rule Set
 
 Aplicar:
@@ -125,7 +119,7 @@ Excluir siempre del escaneo y del índice:
 | Binarios y pesados | Ejecutables, librerías compiladas, comprimidos, imágenes, videos, bases de datos |
 | La propia base | `ia-db` (no autoindexarse) |
 
-Respetar además los patrones de `.gitignore` del proyecto cuando exista. Los proyectos pueden ampliar esta lista en `Parameters/Paths.md`.
+Respetar además los patrones de `.gitignore` del proyecto cuando exista. Las exclusiones adicionales pueden indicarse en el propio prompt de invocación.
 
 ---
 

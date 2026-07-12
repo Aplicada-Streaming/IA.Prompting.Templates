@@ -66,12 +66,6 @@ Aplicar:
 
 - `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Audit.md`
 
-## Parameters
-
-Utilizar la configuración definida en:
-
-- `/IA.Prompting.Templates/PromptFramework/Parameters`
-
 ---
 
 # Resultado esperado

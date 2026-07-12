@@ -8,10 +8,6 @@ Configurar el agente para documentar infraestructuras tecnológicas de forma int
 
 # Framework
 
-## Parámetros
-
-- `/IA.Prompting.Templates/PromptFramework/Parameters`
-
 ## Rule Set
 
 - `/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-Documentation.md`
