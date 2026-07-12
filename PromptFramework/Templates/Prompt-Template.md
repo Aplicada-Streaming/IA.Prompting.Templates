@@ -38,15 +38,15 @@ Indicar todo aquello que el agente no deberá hacer.
 
 Aplicar el Profile que corresponda al tipo de tarea:
 
-- `PromptFramework/Profiles/[Profile].md`
+- `/IA.Prompting.Templates/PromptFramework/Profiles/[Profile].md`
 
-Consultar la tabla de Profiles disponibles en `PromptFramework/Guides/Readme.md`.
+Consultar la tabla de Profiles disponibles en `/IA.Prompting.Templates/PromptFramework/Guides/Readme.md`.
 
 ## Parameters
 
 Utilizar la configuración del proyecto:
 
-- `PromptFramework/Parameters`
+- `/IA.Prompting.Templates/PromptFramework/Parameters`
 
 ---
 

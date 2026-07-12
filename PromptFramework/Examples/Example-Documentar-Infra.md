@@ -50,13 +50,13 @@ Generar documentación técnica completa del servidor y su infraestructura Docke
 
 Aplicar:
 
-- `PromptFramework/Profiles/Infrastructure-Documentation.md`
+- `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Documentation.md`
 
 ## Parameters
 
 Utilizar la configuración definida en:
 
-- `PromptFramework/Parameters`
+- `/IA.Prompting.Templates/PromptFramework/Parameters`
 
 ---
 

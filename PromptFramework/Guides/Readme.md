@@ -59,8 +59,8 @@ graph TD
     P --> PA[Parameters]
     PR --> RS[RuleSet]
     RS --> R1[Rule-All]
-    RS --> R2[Rule-Tasks]
-    RS --> R3[Rule-Execution]
+    RS --> R2[Rule-Workflow]
+    RS --> R3[Rule-Agents]
     RS --> R4[Rule-Documentation]
     RS --> R5[Rule-Markdown]
     RS --> R6[Rule-Evidences]
@@ -109,8 +109,8 @@ Cada regla define un conjunto de instrucciones para un dominio específico.
 | Regla | Dominio |
 |-------|---------|
 | `Rule-All.md` | Comportamiento general transversal |
-| `Rule-Tasks.md` | Planificación y descomposición de tareas |
-| `Rule-Execution.md` | Ejecución ordenada de tareas |
+| `Rule-Workflow.md` | Ciclo de trabajo: diagnóstico, plan, ejecución, validación y reporteo |
+| `Rule-Agents.md` | Asignación de subagentes autoajustada a la tarea |
 | `Rule-Documentation.md` | Generación de documentación técnica |
 | `Rule-Markdown.md` | Formato y estructura Markdown |
 | `Rule-Evidences.md` | Trazabilidad y verificabilidad |
@@ -147,6 +147,7 @@ Cada Profile referencia un RuleSet, define el enfoque de trabajo, establece los 
 | `Docker-Documentation.md` | Documentar infraestructuras Docker |
 | `Architecture-Review.md` | Analizar arquitecturas de software |
 | `Code-Review.md` | Revisar código fuente |
+| `Knowledge-Indexing.md` | Construir y mantener la base de conocimiento (ia-db) |
 
 Los Profiles son el punto de entrada recomendado para configurar el comportamiento del agente desde un Prompt.
 
@@ -171,6 +172,22 @@ Los Prompts son instrucciones predefinidas para tareas comunes y reutilizables.
 | `Documentar-Servidor.md` | Documentar un servidor Linux |
 | `Revisar-Seguridad.md` | Realizar una revisión de seguridad |
 
+### Tool-Prompts
+
+Los Tool-Prompts son prompts-herramienta de invocación directa, ubicados en `/IA.Prompting.Templates/Tool-Prompts/` (fuera de `PromptFramework/`). Se ejecutan con una sola línea en el chat, sin copiar ni completar plantillas:
+
+```
+Ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Contexto.md en <tema>
+```
+
+| Tool-Prompt | Propósito |
+|-------------|-----------|
+| `Iniciar-Indexado.md` | Generar la ia-db de uno o más proyectos (modo proyecto o workspace federado) |
+| `Actualizar-Indexado.md` | Sincronizar una ia-db existente con los cambios de sus proyectos |
+| `Iniciar-Contexto.md` | Arrancar un chat cargando el contexto mínimo de un tema |
+
+`Iniciar-Contexto.md` es autónomo (no carga Profiles ni RuleSets) para minimizar el consumo de tokens; es la excepción documentada a la jerarquía del framework. Ver la [Guía de Optimización de Tokens](Token-Optimization.md).
+
 ### Examples
 
 Los Examples son prompts completos y funcionales que demuestran el uso del framework en escenarios reales.
@@ -189,6 +206,7 @@ Las guías documentan el framework en sí.
 | `Readme.md` | Todos — arquitectura y conceptos del framework |
 | `User-Guide.md` | Usuarios — cómo usar el framework |
 | `Develop-Guide.md` | Desarrolladores — cómo extender el framework |
+| `Token-Optimization.md` | Todos — cómo minimizar el consumo de contexto (técnica ia-db) |
 
 ---
 
@@ -207,7 +225,7 @@ graph LR
     end
     subgraph Rules
         R1[Rule-All]
-        R2[Rule-Tasks]
+        R2[Rule-Workflow]
         R3[...]
     end
     subgraph Parameters
@@ -317,4 +335,5 @@ graph TB
 | ¿Cuándo usar Rules directamente? | Nunca desde un Prompt. Las Rules siempre se aplican a través de RuleSets. |
 | ¿Cuándo usar un Template? | Para construir prompts nuevos. Proveen la estructura correcta. |
 | ¿Cuándo usar un Prompt predefinido? | Cuando la tarea coincida con una tarea común en la carpeta `Prompts/`. |
+| ¿Cuándo usar un Tool-Prompt? | Para operar la ia-db o iniciar el contexto de un chat con una sola línea. |
 | ¿Cuándo consultar los Examples? | Antes de crear un prompt nuevo, para entender patrones funcionales probados. |

@@ -15,8 +15,8 @@ Las siguientes reglas se aplican en toda ejecución del framework:
 | Regla | Descripción |
 |-------|-------------|
 | `Rule-All.md` | Comportamiento general y principios transversales |
-| `Rule-Tasks.md` | Análisis, planificación y descomposición de tareas |
-| `Rule-Execution.md` | Ejecución ordenada y verificable |
+| `Rule-Workflow.md` | Ciclo de trabajo: diagnóstico, plan, ejecución, validación y reporteo |
+| `Rule-Agents.md` | Asignación de subagentes autoajustada a la tarea |
 | `Rule-Documentation.md` | Generación de documentación técnica de calidad |
 | `Rule-Markdown.md` | Formato y estructura de documentos Markdown |
 | `Rule-Evidences.md` | Trazabilidad y verificabilidad de la información |
@@ -26,13 +26,13 @@ Las siguientes reglas se aplican en toda ejecución del framework:
 
 ## Archivos
 
-- `PromptFramework/Rules/Rule-All.md`
-- `PromptFramework/Rules/Rule-Tasks.md`
-- `PromptFramework/Rules/Rule-Execution.md`
-- `PromptFramework/Rules/Rule-Documentation.md`
-- `PromptFramework/Rules/Rule-Markdown.md`
-- `PromptFramework/Rules/Rule-Evidences.md`
-- `PromptFramework/Rules/Rule-Indexing.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-All.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Workflow.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Agents.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Documentation.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Markdown.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Evidences.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Indexing.md`
 
 ---
 

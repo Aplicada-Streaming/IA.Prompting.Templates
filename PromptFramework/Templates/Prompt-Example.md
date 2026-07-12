@@ -42,13 +42,13 @@ Actualizar la documentación de la infraestructura para que represente fielmente
 
 Aplicar:
 
-- `PromptFramework/Profiles/Infrastructure-Documentation.md`
+- `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Documentation.md`
 
 ## Parameters
 
 Utilizar la configuración definida en:
 
-- `PromptFramework/Parameters`
+- `/IA.Prompting.Templates/PromptFramework/Parameters`
 
 ---
 

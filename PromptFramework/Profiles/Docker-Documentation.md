@@ -2,9 +2,7 @@
 
 ## Objetivo
 
-Este perfil configura el comportamiento del agente para analizar, comprender y documentar una infraestructura Docker de forma integral.
-
-La documentación deberá representar el estado real de la infraestructura de contenedores y preservar el conocimiento necesario para administrarla, mantenerla y reconstruirla.
+Configurar el agente para analizar, comprender y documentar una infraestructura Docker de forma integral, preservando el conocimiento necesario para administrarla, mantenerla y reconstruirla.
 
 ---
 
@@ -12,108 +10,46 @@ La documentación deberá representar el estado real de la infraestructura de co
 
 ## Parámetros
 
-Utilizar la configuración definida en:
-
-- `PromptFramework/Parameters`
+- `/IA.Prompting.Templates/PromptFramework/Parameters`
 
 ## Rule Set
 
-Aplicar:
-
-- `PromptFramework/RuleSets/RuleSet-Documentation.md`
+- `/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-Documentation.md`
 
 ---
 
 # Enfoque
 
-Antes de documentar componentes individuales, comprender la infraestructura Docker como un sistema completo.
-
-La documentación deberá construirse desde lo general hacia lo particular.
-
-Priorizar la comprensión de la arquitectura de contenedores antes que la descripción de configuraciones individuales.
+Comprender la infraestructura de contenedores como un sistema completo antes de documentar componentes individuales; de lo general a lo particular. Partir de un **inventario verificable**: imágenes y versiones, contenedores y su estado, redes, volúmenes y archivos de configuración (Compose, Dockerfiles).
 
 ---
 
 # Objetivos específicos
 
-Durante la ejecución procurar identificar y documentar, cuando corresponda:
+Identificar y documentar, cuando corresponda:
 
-- imágenes Docker utilizadas y versiones;
-- contenedores en ejecución;
-- contenedores detenidos;
-- redes Docker y sus configuraciones;
-- volúmenes y puntos de montaje;
-- archivos Docker Compose;
-- variables de entorno relevantes;
-- configuraciones de puertos expuestos;
-- dependencias entre contenedores;
-- registros de imágenes utilizados;
-- estrategias de reinicio;
-- recursos asignados;
-- mecanismos de monitoreo;
-- procesos de despliegue.
-
----
-
-# Inventario
-
-Construir un inventario verificable de la infraestructura Docker antes de documentar.
-
-Identificar:
-
-- imágenes y versiones;
-- contenedores y su estado;
-- redes y configuraciones;
-- volúmenes y puntos de montaje;
-- archivos de configuración (docker-compose, Dockerfiles).
-
----
-
-# Relaciones
-
-Documentar las relaciones existentes entre componentes.
-
-Ejemplos:
-
-- contenedores que dependen de otros contenedores;
-- servicios que comparten redes;
-- volúmenes compartidos;
-- proxys inversos y servicios expuestos;
-- bases de datos y aplicaciones que las utilizan.
-
----
-
-# Diagramas
-
-Generar diagramas Mermaid cuando aporten claridad.
-
-Ejemplos:
-
-- topología de contenedores;
-- redes Docker;
-- dependencias entre servicios;
-- flujo de tráfico;
-- arquitectura de despliegue.
+| Aspecto | Contenido |
+|---------|-----------|
+| Contenedores | En ejecución y detenidos, imágenes y versiones, registros utilizados, estrategias de reinicio, recursos asignados |
+| Red y almacenamiento | Redes Docker y configuraciones, volúmenes y puntos de montaje, puertos expuestos |
+| Configuración | Archivos Compose, Dockerfiles, variables de entorno relevantes |
+| Relaciones | Dependencias entre contenedores, servicios que comparten redes o volúmenes, proxys inversos, bases de datos y sus consumidores |
+| Operación | Monitoreo, procesos de despliegue |
 
 ---
 
 # Procedimientos
 
-Cuando corresponda, documentar procedimientos para:
+Cuando corresponda: despliegue de la infraestructura, actualización de contenedores, backup y restauración de volúmenes, resolución de problemas comunes.
 
-- despliegue de la infraestructura;
-- actualización de contenedores;
-- backup de volúmenes;
-- restauración;
-- resolución de problemas comunes.
+---
+
+# Diagramas típicos
+
+Topología de contenedores, redes Docker, dependencias entre servicios, flujo de tráfico, arquitectura de despliegue.
 
 ---
 
 # Resultado esperado
 
-Al finalizar deberá existir documentación completa de la infraestructura Docker que permita:
-
-- comprender la arquitectura de contenedores;
-- identificar todos los servicios y sus relaciones;
-- administrar la infraestructura;
-- reproducir el entorno.
+Documentación completa de la infraestructura Docker que permita comprender la arquitectura de contenedores, identificar los servicios y sus relaciones, administrarla y **reproducir el entorno**.

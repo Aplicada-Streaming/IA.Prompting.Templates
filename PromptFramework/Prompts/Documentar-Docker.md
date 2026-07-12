@@ -44,13 +44,13 @@ Generar documentación técnica completa de la infraestructura Docker, represent
 
 Aplicar:
 
-- `PromptFramework/Profiles/Docker-Documentation.md`
+- `/IA.Prompting.Templates/PromptFramework/Profiles/Docker-Documentation.md`
 
 ## Parameters
 
 Utilizar la configuración definida en:
 
-- `PromptFramework/Parameters`
+- `/IA.Prompting.Templates/PromptFramework/Parameters`
 
 ---
 

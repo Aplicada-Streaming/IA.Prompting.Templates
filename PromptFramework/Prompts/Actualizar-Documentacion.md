@@ -42,13 +42,13 @@ Actualizar la documentación existente para que represente fielmente el estado a
 
 Aplicar:
 
-- `PromptFramework/Profiles/Repository-Documentation.md`
+- `/IA.Prompting.Templates/PromptFramework/Profiles/Repository-Documentation.md`
 
 ## Parameters
 
 Utilizar la configuración definida en:
 
-- `PromptFramework/Parameters`
+- `/IA.Prompting.Templates/PromptFramework/Parameters`
 
 ---
 

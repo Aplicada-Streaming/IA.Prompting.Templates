@@ -64,13 +64,13 @@ Realizar una auditoría integral del servidor, generando un informe técnico res
 
 Aplicar:
 
-- `PromptFramework/Profiles/Infrastructure-Audit.md`
+- `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Audit.md`
 
 ## Parameters
 
 Utilizar la configuración definida en:
 
-- `PromptFramework/Parameters`
+- `/IA.Prompting.Templates/PromptFramework/Parameters`
 
 ---
 

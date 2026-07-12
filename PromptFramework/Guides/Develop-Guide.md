@@ -93,16 +93,9 @@ No crear una Rule cuando:
 # [Sección principal 2]
 
 [Instrucciones adicionales]
-
----
-
-# Principios
-
-Durante toda la ejecución deberán respetarse los siguientes principios:
-
-1. [Principio 1]
-2. [Principio 2]
 ```
+
+Escribir las Rules de forma compacta: bullets y tablas sobre prosa, sin sección final de «Principios» que repita el cuerpo, y sin duplicar instrucciones ya presentes en otra Rule (referenciarla).
 
 ### Convenciones de nomenclatura
 
@@ -114,7 +107,7 @@ Durante toda la ejecución deberán respetarse los siguientes principios:
 ### Proceso
 
 1. Verificar que no existe una Rule equivalente.
-2. Crear el archivo en `PromptFramework/Rules/`.
+2. Crear el archivo en `/IA.Prompting.Templates/PromptFramework/Rules/`.
 3. Documentar la Rule con estructura completa.
 4. Agregar la Rule al RuleSet correspondiente.
 5. Actualizar la tabla de Rules en la [Guía Conceptual](Readme.md).
@@ -150,13 +143,13 @@ No crear un nuevo RuleSet cuando:
 
 Aplica todas las reglas del RuleSet Default:
 
-- `PromptFramework/Rules/Rule-All.md`
-- `PromptFramework/Rules/Rule-Tasks.md`
-- `PromptFramework/Rules/Rule-Execution.md`
-- `PromptFramework/Rules/Rule-Documentation.md`
-- `PromptFramework/Rules/Rule-Markdown.md`
-- `PromptFramework/Rules/Rule-Evidences.md`
-- `PromptFramework/Rules/Rule-Indexing.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-All.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Workflow.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Agents.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Documentation.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Markdown.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Evidences.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Indexing.md`
 
 ---
 
@@ -180,7 +173,7 @@ Aplica todas las reglas del RuleSet Default:
 ### Proceso
 
 1. Identificar las Rules que aplican para este dominio.
-2. Crear el archivo en `PromptFramework/RuleSets/`.
+2. Crear el archivo en `/IA.Prompting.Templates/PromptFramework/RuleSets/`.
 3. Documentar el RuleSet referenciando todas las Rules aplicables.
 4. Actualizar la tabla de RuleSets en la [Guía Conceptual](Readme.md).
 
@@ -218,13 +211,13 @@ No crear un nuevo Profile cuando:
 
 Utilizar la configuración definida en:
 
-- `PromptFramework/Parameters`
+- `/IA.Prompting.Templates/PromptFramework/Parameters`
 
 ## Rule Set
 
 Aplicar:
 
-- `PromptFramework/RuleSets/RuleSet-[Nombre].md`
+- `/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-[Nombre].md`
 
 ---
 
@@ -260,7 +253,7 @@ Aplicar:
 ### Proceso
 
 1. Identificar el RuleSet más apropiado para el Profile.
-2. Crear el archivo en `PromptFramework/Profiles/`.
+2. Crear el archivo en `/IA.Prompting.Templates/PromptFramework/Profiles/`.
 3. Documentar todas las secciones del Profile.
 4. Actualizar la tabla de Profiles en la [Guía Conceptual](Readme.md).
 
@@ -313,12 +306,12 @@ Un Template debe:
 ## Profile
 
 Aplicar:
-- `PromptFramework/Profiles/[Profile].md`
+- `/IA.Prompting.Templates/PromptFramework/Profiles/[Profile].md`
 
 ## Parameters
 
 Utilizar la configuración de:
-- `PromptFramework/Parameters`
+- `/IA.Prompting.Templates/PromptFramework/Parameters`
 
 ---
 
@@ -375,6 +368,7 @@ Un Example debe:
 | Profile | `[Dominio]-[Tipo].md` | `Infrastructure-Audit.md` |
 | Template | `Prompt-[Nombre].md` | `Prompt-Template.md` |
 | Prompt | `[Verbo]-[Objeto].md` | `Documentar-Servidor.md` |
+| Tool-Prompt | `[Verbo]-[Objeto].md` (en `/IA.Prompting.Templates/Tool-Prompts/`) | `Iniciar-Contexto.md` |
 | Example | `Example-[Descripción].md` | `Example-Auditoria.md` |
 
 ### Idioma
@@ -394,13 +388,18 @@ Todo documento debe:
 
 ### Referencias cruzadas
 
-Al referenciar otros documentos del framework, utilizar siempre rutas desde la raíz del framework:
+Al referenciar componentes del framework desde prompts, perfiles o reglas, utilizar siempre rutas absolutas desde la raíz del workspace. La base de la URL incluye el repositorio `/IA.Prompting.Templates`:
 
 ```
-`PromptFramework/Rules/Rule-All.md`
-`PromptFramework/RuleSets/RuleSet-Documentation.md`
-`PromptFramework/Profiles/Repository-Documentation.md`
+`/IA.Prompting.Templates/PromptFramework/Rules/Rule-All.md`
+`/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-Documentation.md`
+`/IA.Prompting.Templates/PromptFramework/Profiles/Repository-Documentation.md`
+`/IA.Prompting.Templates/Tool-Prompts/Iniciar-Contexto.md`
 ```
+
+Si el repositorio cambia de ubicación, actualizar la base definida en `/IA.Prompting.Templates/PromptFramework/Parameters/Paths.md` y las referencias de los documentos.
+
+Los enlaces Markdown de navegación (`[texto](ruta relativa)`) dentro de un mismo repositorio pueden permanecer relativos: están destinados a la lectura humana, no a la resolución del agente.
 
 ---
 
@@ -420,7 +419,11 @@ PromptFramework/
 ├── Prompts/                # Prompts predefinidos reutilizables
 ├── Examples/               # Prompts funcionales completos
 └── Guides/                 # Documentación del framework
+
+Tool-Prompts/               # (raíz del repositorio) Prompts-herramienta de invocación directa
 ```
+
+Los Tool-Prompts deben ser parametrizables mediante placeholders `{parametro}`, invocables en una línea y declarar qué hacer cuando un parámetro no se indica.
 
 ### Principio de mínima intervención
 

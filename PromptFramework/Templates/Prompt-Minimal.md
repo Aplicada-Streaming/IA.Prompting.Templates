@@ -27,8 +27,8 @@
 ## Profile
 
 Aplicar:
-- `PromptFramework/Profiles/[Profile].md`
+- `/IA.Prompting.Templates/PromptFramework/Profiles/[Profile].md`
 
 ## Parameters
 
-- `PromptFramework/Parameters`
+- `/IA.Prompting.Templates/PromptFramework/Parameters`

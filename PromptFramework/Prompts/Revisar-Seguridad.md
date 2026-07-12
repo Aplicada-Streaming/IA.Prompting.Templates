@@ -45,13 +45,13 @@ Realizar una revisión de seguridad del sistema, identificando vulnerabilidades,
 
 Aplicar:
 
-- `PromptFramework/Profiles/Infrastructure-Audit.md`
+- `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Audit.md`
 
 ## Parameters
 
 Utilizar la configuración definida en:
 
-- `PromptFramework/Parameters`
+- `/IA.Prompting.Templates/PromptFramework/Parameters`
 
 ---
 

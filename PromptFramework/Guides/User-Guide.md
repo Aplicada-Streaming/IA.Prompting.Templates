@@ -28,7 +28,7 @@ Para comprender la arquitectura del framework antes de comenzar, consultar la [G
 
 ### Opción A — Usar un Prompt predefinido
 
-1. Verificar si existe un Prompt en `PromptFramework/Prompts/` que se adapte a la tarea.
+1. Verificar si existe un Prompt en `/IA.Prompting.Templates/PromptFramework/Prompts/` que se adapte a la tarea.
 2. Copiar el contenido del Prompt.
 3. Completar el contexto y los Parameters del proyecto.
 4. Ejecutar con el agente.
@@ -36,15 +36,28 @@ Para comprender la arquitectura del framework antes de comenzar, consultar la [G
 ### Opción B — Construir un Prompt nuevo
 
 1. Identificar el tipo de tarea y seleccionar el Profile apropiado.
-2. Abrir el Template adecuado en `PromptFramework/Templates/`.
+2. Abrir el Template adecuado en `/IA.Prompting.Templates/PromptFramework/Templates/`.
 3. Completar todos los campos.
 4. Referenciar el Profile y los Parameters.
+
+### Opción C — Invocar un Tool-Prompt
+
+Para operar la base de conocimiento (ia-db) o iniciar el contexto de un chat, no hace falta construir nada: se invoca con una sola línea.
+
+```
+Ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Contexto.md en <tema>
+Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Indexado.md en <proyecto>
+Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Indexado.md de <proyecto-a> y <proyecto-b> y deja la indexación en la raíz /
+Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Actualizar-Indexado.md de <proyecto>
+```
+
+Ver `/IA.Prompting.Templates/Tool-Prompts/README.md` y la [Guía de Optimización de Tokens](Token-Optimization.md).
 
 ---
 
 ## Usar un Prompt predefinido
 
-Los Prompts predefinidos se encuentran en `PromptFramework/Prompts/`.
+Los Prompts predefinidos se encuentran en `/IA.Prompting.Templates/PromptFramework/Prompts/`.
 
 | Prompt | Cuándo usarlo |
 |--------|---------------|
@@ -85,11 +98,11 @@ Todo Prompt deberá tener la siguiente estructura:
 
 ## Profile
 Aplicar:
-- `PromptFramework/Profiles/[Profile].md`
+- `/IA.Prompting.Templates/PromptFramework/Profiles/[Profile].md`
 
 ## Parameters
 Utilizar la configuración de:
-- `PromptFramework/Parameters`
+- `/IA.Prompting.Templates/PromptFramework/Parameters`
 
 # Resultado esperado
 [Entregables esperados al finalizar]
@@ -150,6 +163,7 @@ El Profile determina **cómo** se comporta el agente durante la ejecución.
 | Documentar infraestructura Docker | `Docker-Documentation.md` |
 | Analizar la arquitectura de un sistema | `Architecture-Review.md` |
 | Revisar código fuente | `Code-Review.md` |
+| Crear o mantener la base de conocimiento (ia-db) | `Knowledge-Indexing.md` |
 
 ### Cuándo usar cada Profile
 
@@ -164,6 +178,8 @@ El Profile determina **cómo** se comporta el agente durante la ejecución.
 **Architecture-Review** — Para analizar y documentar la arquitectura de un sistema de software, con foco en responsabilidades, dependencias y decisiones de diseño.
 
 **Code-Review** — Para revisar código fuente con perspectiva técnica, arquitectónica y de mantenibilidad.
+
+**Knowledge-Indexing** — Para generar o actualizar la base de conocimiento (ia-db) de un proyecto. Normalmente no se usa directamente: lo aplican los Tool-Prompts `Iniciar-Indexado.md` y `Actualizar-Indexado.md`.
 
 ### Cuando no existe un Profile adecuado
 
@@ -245,12 +261,12 @@ Generar documentación técnica actualizada que represente fielmente el estado a
 ## Profile
 
 Aplicar:
-- `PromptFramework/Profiles/Infrastructure-Documentation.md`
+- `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Documentation.md`
 
 ## Parameters
 
 Utilizar la configuración de:
-- `PromptFramework/Parameters`
+- `/IA.Prompting.Templates/PromptFramework/Parameters`
 
 # Resultado esperado
 
@@ -262,11 +278,11 @@ Utilizar la configuración de:
 
 ### Ejemplo 2 — Auditoría de infraestructura
 
-Consultar `PromptFramework/Examples/Example-Auditoria.md` para un ejemplo completo de auditoría de servidor Linux.
+Consultar `/IA.Prompting.Templates/PromptFramework/Examples/Example-Auditoria.md` para un ejemplo completo de auditoría de servidor Linux.
 
 ### Ejemplo 3 — Documentación de infraestructura con Docker
 
-Consultar `PromptFramework/Examples/Example-Documentar-Infra.md` para un ejemplo completo de documentación de infraestructura Linux con Docker.
+Consultar `/IA.Prompting.Templates/PromptFramework/Examples/Example-Documentar-Infra.md` para un ejemplo completo de documentación de infraestructura Linux con Docker.
 
 ---
 
@@ -277,15 +293,15 @@ Consultar `PromptFramework/Examples/Example-Documentar-Infra.md` para un ejemplo
 **Incorrecto:**
 ```markdown
 ## Reglas
-- `PromptFramework/Rules/Rule-All.md`
-- `PromptFramework/Rules/Rule-Tasks.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-All.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Workflow.md`
 ```
 
 **Correcto:**
 ```markdown
 ## Profile
 Aplicar:
-- `PromptFramework/Profiles/Infrastructure-Documentation.md`
+- `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Documentation.md`
 ```
 
 Los Profiles encapsulan los RuleSets que a su vez incluyen las Rules. Referenciar Rules directamente rompe la jerarquía del framework y duplica configuración.
@@ -336,3 +352,6 @@ Definir siempre qué comandos puede ejecutar, si puede modificar archivos, si pu
 
 8. **Verificar la consistencia antes de ejecutar.**
    El Profile, los Parameters y las solicitudes deben ser coherentes entre sí.
+
+9. **Minimizar el consumo de tokens.**
+   Iniciar las conversaciones con `Tool-Prompts/Iniciar-Contexto.md` y recuperar contexto desde la ia-db en lugar de releer el repositorio. Ver la [Guía de Optimización de Tokens](Token-Optimization.md).

@@ -12,13 +12,13 @@ Una auditoría tiene como finalidad obtener una representación fiel del estado 
 
 Durante toda la ejecución deberán aplicarse las siguientes reglas del Prompt Framework:
 
-- `PromptFramework/Rules/Rule-All.md`
-- `PromptFramework/Rules/Rule-Tasks.md`
-- `PromptFramework/Rules/Rule-Execution.md`
-- `PromptFramework/Rules/Rule-Documentation.md`
-- `PromptFramework/Rules/Rule-Markdown.md`
-- `PromptFramework/Rules/Rule-Evidences.md`
-- `PromptFramework/Rules/Rule-Indexing.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-All.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Workflow.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Agents.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Documentation.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Markdown.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Evidences.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Indexing.md`
 
 ---
 
