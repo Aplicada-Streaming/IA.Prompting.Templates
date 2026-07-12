@@ -4,6 +4,15 @@ Registro de cambios del framework de prompting. Formato basado en [Keep a Change
 
 ---
 
+## [1.4.0] — 2026-07-12
+
+### Agregado
+
+- **Guía `Guides/Quick-User-Guide.md`** — guía rápida para escribir un prompt leyendo de arriba hacia abajo, sección por sección (`Contexto` → `Objetivo` → `Solicitudes` → `Restricciones` → `Framework` → `Resultado esperado` → `Observaciones`). Cada sección incluye definición, pregunta guía y frases de ejemplo para copiar y adaptar.
+- `Templates/README.md` — placeholder de catálogo de la carpeta de Templates.
+
+---
+
 ## [1.3.0] — 2026-07-12
 
 ### Agregado
