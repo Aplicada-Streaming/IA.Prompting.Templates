@@ -4,6 +4,21 @@ Registro de cambios del framework de prompting. Formato basado en [Keep a Change
 
 ---
 
+## [1.3.0] — 2026-07-12
+
+### Agregado
+
+- **READMEs de catálogo por carpeta** con tabla de selección rápida (jerarquía `Prompt → Profile → RuleSet → Rules`):
+  - `Profiles/README.md` — catálogo de los 7 Profiles con RuleSet asociado y criterio de elección.
+  - `RuleSets/Readme.md` — catálogo de los 4 RuleSets, qué extienden y cuándo usarlos.
+  - `Rules/README.md` — catálogo de las 7 Rules atómicas y su ámbito de aplicación.
+  - `Prompts/README.md` — placeholder de la carpeta de Prompts.
+- **Ejemplos** (`/Examples/`):
+  - `Consulta-Ciclo-Inicio-Server.md` — comportamiento de Docker ante ciclos de apagado/encendido del host y propuesta de servicio de energía ininterrumpida (UPS/SAI).
+  - `Reconfiguracion-IP-Host.md` — reconfiguración de IP propia del contenedor `portainer` siguiendo el modelo de `discord-bot-moderador`.
+
+---
+
 ## [1.2.0] — 2026-07-11
 
 ### Eliminado
