@@ -125,6 +125,8 @@ Cada Profile referencia un RuleSet, define el enfoque de trabajo, establece los 
 | `Infrastructure-Documentation.md` | Documentar infraestructuras tecnológicas |
 | `Infrastructure-Audit.md` | Auditar infraestructuras sin modificarlas |
 | `Docker-Documentation.md` | Documentar infraestructuras Docker |
+| `Database-Documentation.md` | Documentar bases de datos (diccionario + ER en dbml) |
+| `QA-Test-Design.md` | Derivar casos y datos de prueba desde el modelo de datos |
 | `Architecture-Review.md` | Analizar arquitecturas de software |
 | `Code-Review.md` | Revisar código fuente |
 | `Knowledge-Indexing.md` | Construir y mantener la base de conocimiento (ia-db) |
@@ -158,6 +160,8 @@ Ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Contexto.md en <tema>
 | `Actualizar-Indexado.md` | Sincronizar una ia-db existente con los cambios de sus proyectos |
 | `Documentar-Servidor.md` | Documentar un servidor Linux |
 | `Documentar-Docker.md` | Documentar una infraestructura Docker |
+| `Documentar-BaseDatos.md` | Documentar la estructura de una base de datos (diccionario + ER en dbml) |
+| `Derivar-Casos-Prueba.md` | Derivar casos y datos de prueba (QA) desde el modelo de datos |
 | `Actualizar-Documentacion.md` | Actualizar documentación existente de un proyecto |
 | `Revisar-Seguridad.md` | Revisión de seguridad (solo lectura) |
 

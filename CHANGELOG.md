@@ -4,6 +4,21 @@ Registro de cambios del framework de prompting. Formato basado en [Keep a Change
 
 ---
 
+## [1.7.0] — 2026-07-14
+
+### Agregado
+
+- **Profile `Profiles/Database-Documentation.md`** (RuleSet Documentation) — documenta una base de datos de forma regenerable: introspección del esquema real (`information_schema` / catálogo) → diccionario de datos + modelo ER como código dbml, enriquecidos con semántica de negocio, con PII y retención marcadas, **solo lectura y sin credenciales ni datos**. Instancia los `doc_type` `data-dictionary` y `er-model` del manifiesto (Marco §12.2).
+- **Profile `Profiles/QA-Test-Design.md`** (RuleSet Documentation) — deriva **casos y datos de prueba desde el modelo de datos**: a partir del diccionario + ER genera una matriz de casos `TC-` trazables a `RF-`/`RNF-` (equivalencia, valores de borde, integridad referencial, casos negativos) y **fixtures sintéticos PII-safe**, con reporte de gaps de cobertura. Consume `Database-Documentation` como fuente; instancia el `doc_type` `test-data-matrix` (Marco §12.2).
+- **Tool-Prompts `Tool-Prompts/Documentar-BaseDatos.md` y `Tool-Prompts/Derivar-Casos-Prueba.md`** — invocación de una línea que reutilizan los Profiles anteriores; siguen el núcleo de 5 secciones y la cabecera `> **Invocación**`.
+- Los dos Profiles y los dos Tool-Prompts quedan registrados en `Profiles/README.md`, `Tool-Prompts/README.md` y las tablas de la Guía Conceptual.
+
+### Cambiado
+
+- **`Referencias/Marco-Documentacion-Software-v1.md` → v2.2.0** (desde 2.0.0): añade §13 (extracción de piezas de código representativas: transclusión / copia verificada con procedencia), §14 (documentación de BD → diccionario + ER en dbml) y §15 (derivación de casos y datos de prueba desde el modelo de datos, para QA); fichas `A.18 dbml` y `A.19 ISO/IEC/IEEE 29119`; nuevos `doc_type` (`data-dictionary`, `er-model`, `test-data-matrix`) y artefactos en `03-data/`; validaciones de CI (dbml renderizable, frescura de snippets). El checklist operativo pasa a §16. Los Profiles y Tool-Prompts nuevos operacionalizan §14 y §15.
+
+---
+
 ## [1.6.0] — 2026-07-14
 
 ### Agregado

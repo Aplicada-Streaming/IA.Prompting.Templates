@@ -1,7 +1,7 @@
 ---
 doc_id: FRAME-000
 title: Marco de Documentación de Soluciones de Software
-version: 2.0.0
+version: 2.2.0
 status: draft
 owner: equipo-arquitectura
 last_review: 2026-07-14
@@ -38,7 +38,10 @@ Este documento es un **marco de documentación** con doble propósito:
 | 10 | Criterios para código asistido por IA |
 | 11 | Ciclo de vida, versionado y registro de actualizaciones |
 | 12 | Optimización para agentes de documentación automática |
-| 13 | Checklist operativo |
+| 13 | Extracción de piezas de código representativas |
+| 14 | Documentación de base de datos: conexión → diccionario y ER (dbml) |
+| 15 | Derivación de casos y datos de prueba desde el modelo de datos (QA) |
+| 16 | Checklist operativo |
 | Anexo A | Referencia breve de normas y marcos (fichas parseables) |
 
 ```mermaid
@@ -144,6 +147,8 @@ La tabla resume cuándo aplica cada estándar o marco. La **descripción breve d
 | WCAG 2.x | Norma | La pieza tiene interfaz de usuario web | [A.15](#a15-wcag-2x) |
 | OWASP ASVS | Marco | Se documenta seguridad de aplicaciones | [A.16](#a16-owasp-asvs) |
 | **Perfil regulado** (PCI-DSS, SOX, normativa financiera local, salud, etc.) | Regulación | El dominio lo exige | [A.17](#a17-perfil-de-dominio-regulado) |
+| dbml (Database Markup Language) | Especificación | Se documenta el modelo de datos como código (§14) | [A.18](#a18-dbml-database-markup-language) |
+| ISO/IEC/IEEE 29119 | Norma | Se diseñan y documentan casos de prueba (§15) | [A.19](#a19-isoiecieee-29119) |
 
 ### Preguntas guía
 
@@ -222,10 +227,12 @@ solution-docs/
 │   │   ├── non-functional/          # ISO 25010
 │   │   └── traceability-matrix.md
 │   ├── 03-data/
-│   │   ├── data-dictionary.md
-│   │   ├── er-diagrams/
+│   │   ├── data-dictionary.md       # Diccionario de datos (generado desde el esquema, §14)
+│   │   ├── er-diagrams/             # Modelo ER como código en dbml (§14)
 │   │   ├── access-policies.md       # Roles y permisos sobre BD (SIN credenciales)
-│   │   └── data-retention.md
+│   │   ├── data-retention.md
+│   │   ├── test-data-matrix.md      # Casos de prueba derivados del modelo (QA), §15
+│   │   └── fixtures/                # Datos de prueba sintéticos PII-safe (§15)
 │   ├── 04-decisions/                # ADRs (inmutables, numerados)
 │   ├── 05-apis/
 │   │   ├── api-guidelines.md        # Convenciones REST de la organización (§6)
@@ -250,7 +257,7 @@ solution-docs/
 │   ├── configuration.md   # Variables, feature flags (sin secretos)
 │   ├── local-dev.md
 │   ├── architecture.md    # C4-L3 local + decisiones locales (adr/)
-│   └── <específicos según tipo de pieza — ver §7>
+│   └── <específicos según tipo de pieza — ver §7; ejemplos de código §13>
 └── src/
 ```
 
@@ -388,7 +395,7 @@ Cada tipo de pieza exige artefactos propios **además** de la base común (§5.3
 | `library` (dominio/utilitaria) | API pública documentada (docstrings→referencia generada), guía de migración entre versiones mayores, matriz de compatibilidad | SemVer estricto, Keep a Changelog |
 | `service` (REST/eventos) | `openapi.yaml` / AsyncAPI, SLOs, runbook propio, dependencias declaradas | OpenAPI, RFC 9457 |
 | `batch/worker` | Calendario/disparadores, contratos de entrada/salida (archivos, colas), política de reintentos e idempotencia, procedimiento de reproceso | — |
-| `database` | Diccionario, ER, políticas de acceso, plan de migraciones, retención | — |
+| `database` | Diccionario, ER, políticas de acceso, plan de migraciones, retención | dbml (A.18); proceso §14 |
 
 ### 7.2 Ejemplo: entrada del catálogo de una librería de componentes
 
@@ -762,6 +769,18 @@ doc_types:
     path_pattern: "docs/components/*.md"
     template: docs/09-agents/prompts/component.md
     max_age_days: 120
+  data-dictionary:
+    path_pattern: "docs/03-data/data-dictionary.md"
+    template: docs/09-agents/prompts/data-dictionary.md
+    max_age_days: 120
+  er-model:
+    path_pattern: "docs/03-data/er-diagrams/*.dbml"
+    template: docs/09-agents/prompts/dbml.md
+    max_age_days: 120
+  test-data-matrix:
+    path_pattern: "docs/03-data/test-data-matrix.md"
+    template: docs/09-agents/prompts/test-data-matrix.md
+    max_age_days: 120
 agent_policy: docs/09-agents/agent-policy.md
 ```
 
@@ -803,6 +822,8 @@ Define el perímetro de acción. Contenido mínimo:
 | Contratos OpenAPI | Spectral |
 | Secretos en el repo | gitleaks / detect-secrets |
 | Gap documental vs. manifiesto | script del agente (reporte en PR) |
+| Modelo de datos (dbml) válido y renderizable | @dbml/cli / dbml-renderer |
+| Frescura de snippets (sin drift con el fuente) | script de re-extracción + diff en CI |
 
 ```mermaid
 flowchart LR
@@ -833,7 +854,303 @@ validaciones:
 
 ---
 
-## 13. Checklist operativo de arranque
+## 13. Extracción de piezas de código representativas
+
+### 13.1 Principio: el ejemplo ilustra, no reemplaza al código
+
+El objetivo es un **corpus curado de fragmentos de código representativos** que hagan concreta la documentación (uso canónico, ejemplos de contrato, puntos de extensión), **sin convertir la doc en un espejo desactualizado del fuente**. Esto tensiona con dos reglas del marco —SSOT (§3.1) y «una afirmación, un lugar» (§12.3)—: código copiado a mano se desincroniza. Por eso la regla es:
+
+> **Un snippet en la doc es una *proyección* del fuente, con procedencia y garantía de frescura; nunca una copia manual que vive su propia vida.**
+
+Dos mecanismos, en orden de preferencia:
+
+1. **Inclusión por referencia (preferido):** el fragmento se *transcluye* desde el archivo fuente en tiempo de build (marcadores de región / `literalinclude` / snippets de mkdocs — coherente con el `mkdocs.yml` de §5.2). La doc guarda la **ruta + rango**, no el texto; nunca se desincroniza.
+2. **Copia verificada (cuando la transclusión no es viable):** se pega el fragmento con una **marca de procedencia** (`src: ruta#Lx-Ly @<sha>`) y CI re-extrae y compara; si difiere, falla el build.
+
+### 13.2 Qué es "representativo" (y qué no)
+
+| Incluir (representativo) | Evitar |
+|---|---|
+| Uso canónico / *happy path* mínimo de una API pública | Archivos o clases enteras (la doc no es un mirror del `src/`) |
+| Ejemplo de contrato: request/response, props de componente, invocación pública | Lógica trivial o *boilerplate* sin valor explicativo |
+| Punto de extensión / hook / configuración | Lo que el generador de referencia (docstrings→API) ya cubre |
+| Invariante o validación crítica (el «por qué» del código) | Fragmentos con secretos, PII o topología sensible (§10) |
+| Caso borde que documenta una decisión → enlaza al ADR | Snippets sin procedencia ni contexto («cajón de sastre») |
+
+### 13.3 Dónde viven los snippets
+
+Coherente con §5.4: los ejemplos viven **lo más cerca de lo que documentan** —en la doc de la pieza (`<pieza>/docs/`) o embebidos en el artefacto de perfil que ya los exige: catálogo de componentes (§7.2), ejemplos de OpenAPI (§6.3), referencia de librería (§7.1)—. El **repo central no duplica snippets: enlaza** (§5.4 regla 2).
+
+### 13.4 Procedimiento manual (humano)
+
+1. Identificar el *punto de contacto* a ilustrar (API pública, componente, flujo de punta a punta).
+2. Elegir el **fragmento mínimo** que transmite el concepto (criterios §13.2); recortar lo accesorio con `// …` marcando la elisión.
+3. Preferir **transclusión**: marcar una región en el fuente y referenciarla. Si no es viable, pegar con marca de procedencia (`src @sha`).
+4. Acompañar cada snippet con: qué demuestra, precondiciones, resultado esperado y enlaces (ADR / contrato / glosario).
+5. Registrar el ejemplo en el **artefacto de perfil** correspondiente (no crear un archivo suelto de snippets).
+6. Verificar que el ejemplo **compila/corre** — idealmente es un test ejecutable (*doc test*), de modo que romper el ejemplo rompe el build.
+
+### 13.5 Procedimiento asistido por IA (agente)
+
+Bajo el principio de §10 (*la IA propone, un humano dispone*) y la política de §12.4:
+
+1. Barrer *exports* públicos, rutas y componentes; **proponer candidatos con justificación** (por qué cada uno es representativo).
+2. Extraer con marcadores de región o procedencia (`src @sha`); **nunca reescribir el código fuente** para que «quede lindo» en la doc.
+3. Minimizar: recortar a lo esencial y marcar las elisiones.
+4. Redactar el texto acompañante en `status: draft`, `origin: ai-assisted`, con enlaces.
+5. **Nunca inventar API** que no existe en el fuente (alucinación §10 crit. 2): validar cada símbolo contra el fuente real.
+6. Marcar snippets **huérfanos** (fuente movida o borrada) para poda.
+
+### 13.6 Ejemplo (transclusión con procedencia)
+
+```markdown
+> Ejemplo — uso canónico de `BookingClient.reserve`
+> Fuente: `booking-sdk/src/client.ts` L42–L58 @a1b2c3d · Demuestra: reserva idempotente
+
+​```ts
+--8<-- "booking-sdk/src/client.ts:reserve-basic"   # transclusión por región (mkdocs snippets)
+​```
+
+Precondición: cliente autenticado (scope `appointments.write`).
+Resultado: `201` o `409` gestionado en UI. Ver ADR-0009 y contrato §6.3.
+```
+
+### Preguntas guía
+
+- ¿Este snippet se actualiza solo si cambia el código, o es una copia que envejecerá en silencio?
+- ¿Ilustra una decisión o un contrato, o es relleno que el lector podría leer del fuente?
+- ¿El ejemplo compila? ¿Está cubierto por un test?
+
+### 🤖 Para agentes — sección 13
+
+```yaml
+entradas: [código fuente, exports públicos, artefactos de perfil (catálogo, openapi), docs-manifest.yaml]
+salidas:  [snippets con procedencia insertados en el artefacto de perfil, en status: draft]
+validaciones:
+  - todo snippet inline tiene marca de procedencia (ruta + rango + sha) o es una transclusión por región
+  - CI re-extrae y compara: fallar si el snippet copiado difiere del fuente (drift)
+  - ningún snippet contiene secretos ni PII (reusar el detector de §12.5)
+  - el símbolo referenciado existe en el fuente (no API alucinada)
+  - no duplicar en el repo central lo que ya vive en la doc de la pieza (§5.4)
+```
+
+---
+
+## 14. Documentación de base de datos: de la conexión al diccionario y ER (dbml)
+
+### 14.1 Principio y alcance
+
+Esta sección **operacionaliza** el perfil `database` (§7.1) y la «arqueología de fuentes / ingeniería inversa asistida» (§9, pasos 3 y 5) en un *pipeline repetible* que produce `03-data/data-dictionary.md` + `03-data/er-diagrams/*.dbml`. Aplica tanto a **greenfield** (dbml-first: se diseña el modelo en dbml y de ahí se derivan migraciones) como a **legacy** (esquema real → dbml). No duplica §7/§9: los concreta.
+
+Dos reglas de oro del marco, aquí reafirmadas:
+
+- **Nunca credenciales en el repo (§5.4 regla 3):** la conexión usa un **rol de solo lectura** provisto por el gestor de secretos; se documenta *cómo obtenerlas y quién autoriza*, jamás el secreto.
+- **Solo metadatos, no datos:** se extrae **estructura** (`information_schema` / catálogo del motor), **nunca filas con PII**. Si se necesitan datos de ejemplo, se usan sintéticos.
+
+### 14.2 Insumos y salidas
+
+| Insumo | Detalle |
+|---|---|
+| Fuente de verdad (estructura) | Catálogo del motor: tablas, columnas, tipos, `nullability`, PK/FK, índices, checks, comentarios (`COMMENT`) — vía `information_schema` / `pg_catalog` u herramienta |
+| Semántica de negocio | Lo que el esquema **no** tiene: descripciones, dominios de valores, unidades, reglas, marca de PII → la aporta humano/IA desde `GLOSSARY.md` y requisitos |
+
+| Salida | Ubicación |
+|---|---|
+| Diccionario de datos | `03-data/data-dictionary.md` |
+| Modelo ER como código | `03-data/er-diagrams/<área>.dbml` (+ render SVG) |
+| Políticas de acceso | `03-data/access-policies.md` (roles→permisos, **sin credenciales**) |
+| Enlace a migraciones/retención | `data-retention.md` + plan de migraciones (§7.1) |
+
+### 14.3 Flujo
+
+```mermaid
+flowchart LR
+    S[Gestor de secretos<br/>rol solo-lectura] --> C[Conexión efímera]
+    C --> Q[Introspección<br/>information_schema / catálogo]
+    Q --> R[dbml crudo<br/>sql2dbml / db2dbml]
+    R --> E[Enriquecer: descripciones,<br/>dominios, PII — humano/IA]
+    E --> D1[03-data/data-dictionary.md]
+    E --> D2[03-data/er-diagrams/*.dbml]
+    D2 --> V[Render SVG + lint]
+    D1 --> PR[PR draft<br/>origin: reverse-engineered]
+    D2 --> PR
+```
+
+### 14.4 Procedimiento manual (humano)
+
+1. **Acceso mínimo:** solicitar un rol de **solo lectura** al ambiente adecuado (preferir réplica/no-producción; si es producción, solo introspección del catálogo, sin `SELECT` de datos). Registrar quién autoriza.
+2. **Introspección:** extraer tablas, columnas, tipos, claves, índices, constraints y comentarios del catálogo, o correr una herramienta (`tbls`, SchemaSpy, `@dbml/cli`).
+3. **Generar dbml base:** `sql2dbml` desde un dump DDL, o `db2dbml` desde conexión → `er-diagrams/<área>.dbml`.
+4. **Particionar por área/bounded-context** si el modelo es grande (un dbml por área, no un monolito ilegible).
+5. **Enriquecer el diccionario:** descripción de cada tabla/columna, dominio de valores, unidades, reglas, **PII marcada**, retención (enlaza §7.1 `database` + `data-retention.md`).
+6. **Actualizar `access-policies.md`** (roles→permisos), sin credenciales.
+7. **Cerrar el ciclo:** el dbml se versiona; los cambios de esquema pasan por migraciones **y** por el diff del dbml en el PR (*Definition of Done* §8.4).
+
+### 14.5 Procedimiento asistido por IA (agente)
+
+Bajo §10 y `agent-policy.md` (§12.4):
+
+1. Conectarse **solo** con credenciales de solo lectura inyectadas por el entorno; **jamás en el prompt ni en el repo** (§10 crit. 3).
+2. Introspección **determinística**; generar dbml + esqueleto de diccionario en `status: draft`, `origin: reverse-engineered`, con `confidence` por sección.
+3. Proponer descripciones semánticas a partir de nombres + `GLOSSARY.md` + uso en el código, marcando las inferidas de baja confianza.
+4. **Detectar y reportar** discrepancias esquema↔migraciones↔código; nunca «corregirlas» en silencio (§9 y §12.4 regla 5).
+5. Marcar columnas **candidatas a PII** para clasificación y retención (activa A.17 si `solution.regulated == true`).
+6. **Nunca** extraer, imprimir ni pegar filas de datos.
+
+### 14.6 Ejemplo (dbml + fila de diccionario)
+
+```dbml
+// er-diagrams/turnos.dbml — origin: reverse-engineered, confidence: media
+Table appointments {
+  id           uuid        [pk]
+  patient_id   varchar(16) [not null, ref: > patients.id, note: 'PII: seudónimo']
+  slot_id      varchar(64) [not null]
+  status       varchar(16) [not null, note: 'reserved|cancelled|done']
+  row_version  int         [not null, note: 'bloqueo optimista — ver ADR-0009']
+  created_at   timestamptz [not null]
+
+  indexes { (slot_id) [unique, name: 'ux_slot'] }
+  Note: 'Turnos reservados. Retención: 5 años (ver data-retention.md).'
+}
+```
+
+```markdown
+| Tabla | Columna | Tipo | Nulo | PII | Descripción | Traza |
+|---|---|---|---|---|---|---|
+| appointments | row_version | int | no | no | Versión de fila para bloqueo optimista | ADR-0009, RNF-DISP-01 |
+```
+
+### Preguntas guía
+
+- ¿La conexión usa un rol de solo lectura y las credenciales salen del gestor de secretos, nunca del repo?
+- ¿El ER se **regenera** desde el esquema (diffeable) o es un dibujo que ya mintió?
+- ¿Marqué qué columnas son PII y su retención?
+- ¿El diccionario agrega *semántica* que el esquema no tiene, o solo repite los tipos?
+
+### 🤖 Para agentes — sección 14
+
+```yaml
+entradas: [rol solo-lectura del gestor de secretos, information_schema/catálogo, migraciones, GLOSSARY.md, código de acceso a datos]
+salidas:  [er-diagrams/*.dbml + data-dictionary.md en draft (origin: reverse-engineered), diff propuesto de access-policies.md]
+validaciones:
+  - ninguna credencial ni fila de datos aparece en la salida (solo metadatos de esquema)
+  - el dbml pasa lint/render sin errores y cada tabla tiene Note/descripción
+  - toda FK del esquema está representada como `ref` en el dbml
+  - discrepancias esquema↔migraciones↔código reportadas, no auto-resueltas
+  - columnas candidatas a PII marcadas para clasificación (activar A.17 si regulated)
+```
+
+---
+
+## 15. Derivación de casos y datos de prueba desde el modelo de datos (QA)
+
+### 15.1 Principio y alcance
+
+Esta sección **consume** el `data-dictionary.md` + ER (§14) y las reglas de negocio (ADRs, `RNF-`) para producir, de forma **reproducible**, dos artefactos que habilitan a QA:
+
+1. Una **matriz de casos** derivados del modelo —clases de equivalencia, valores de borde, integridad referencial y reglas— con IDs `TC-` **trazables** a `RF-`/`RNF-`.
+2. **Datos de prueba sintéticos PII-safe** (fixtures/seed) que materializan esas clases.
+
+Operacionaliza la **Fase 5 (Pruebas)** de §8.2 y aplica técnicas de diseño basadas en especificación (ISO/IEC/IEEE 29119, A.19). **No usa datos productivos**: coherente con §14 («datos de ejemplo solo sintéticos»), la PII se sustituye por datos generados.
+
+> **Regla:** el modelo es el *input*; la matriz y los fixtures son **proyecciones derivadas** del diccionario + ER. Si el esquema cambia, se regeneran (igual que el dbml de §14). No sustituyen las pruebas de comportamiento: cubren lo que el **modelo de datos** puede afirmar.
+
+### 15.2 De qué elemento del modelo sale cada caso
+
+| Elemento del modelo (diccionario / ER) | Técnica | Casos que produce |
+|---|---|---|
+| Tipo + rango/dominio de valores + checks | Partición de equivalencia + valores de borde | Válido representativo, límites (mín/máx, off-by-one), inválido |
+| `nullability` / obligatoriedad | Presencia/ausencia | `null` vs `not-null`; requerido faltante |
+| Unicidad / índices únicos | Colisión | Duplicado que debe rechazarse |
+| PK/FK + cardinalidad (ER) | Integridad referencial | Huérfano, cascada de borrado, cardinalidad `0..1`/`1..N` |
+| Enum / estado (`status`) | Valor de dominio | Valores válidos e inválidos del conjunto |
+| Reglas de negocio (enlazadas a ADR) | Caso negativo | Violación de invariante (p. ej. bloqueo optimista → `409`) |
+
+### 15.3 Datos de prueba (fixtures) sintéticos y PII-safe
+
+- **Generados, nunca copiados de producción;** la PII se sustituye por datos sintéticos con formato válido (seudónimos, documentos falsos bien formados).
+- **Reproducibles** (`seed` fijo) y versionados junto al modelo.
+- **Referencial-consistentes:** respetan constraints y FKs para poder cargarse.
+- Cubren las clases y bordes de §15.2; incluyen un set mínimo «feliz» y sets negativos.
+
+### 15.4 Flujo
+
+```mermaid
+flowchart LR
+    DD[data-dictionary.md + ER dbml §14] --> A[Clases de equivalencia y bordes]
+    DD --> B[Casos de integridad referencial]
+    RG[Reglas / invariantes + ADR] --> C[Casos negativos]
+    A --> M[matriz TC- trazable a RF-/RNF-]
+    B --> M
+    C --> M
+    M --> F[Fixtures sintéticos PII-safe]
+    M --> TM[Actualizar traceability-matrix.md]
+```
+
+### 15.5 Procedimiento manual (humano)
+
+1. Partir del `data-dictionary.md` + ER (§14) y de las reglas/invariantes (ADRs, `RNF-`).
+2. Por cada **columna**: derivar clases de equivalencia y valores de borde (§15.2).
+3. Por cada **FK/cardinalidad**: derivar casos de integridad referencial.
+4. Por cada **regla de negocio**: derivar su caso negativo.
+5. Asignar `TC-` a cada caso y **enlazarlo al `RF-`/`RNF-`** que verifica; volcarlo en `test-data-matrix.md` y en `traceability-matrix.md`.
+6. Generar **fixtures sintéticos PII-safe** (`seed` fijo) que materialicen esas clases; nunca datos reales.
+7. Marcar la **cobertura**: qué columnas/constraints/FKs quedan sin caso (gap de prueba).
+
+### 15.6 Procedimiento asistido por IA (agente)
+
+Bajo §10 y `agent-policy.md` (§12.4):
+
+1. Leer diccionario + ER + reglas; proponer la matriz `TC-` con **justificación por caso** (qué elemento del modelo lo origina).
+2. Generar fixtures sintéticos; **nunca** derivar datos de instancias reales ni pegar PII (coherente con §14).
+3. Emitir en `status: draft`, `origin: ai-assisted`; **los casos los valida QA** (la IA no es juez y parte, §10 crit. 6).
+4. **Reportar gaps** de cobertura (columnas/constraints/FKs sin caso) y reglas sin invariante testeable.
+5. No promover a `approved` sin revisión de QA registrada.
+
+### 15.7 Ejemplo (fila de matriz + fixture)
+
+Partiendo de la tabla `appointments` de §14.6:
+
+```markdown
+| TC | Origen (modelo) | Técnica | Entrada | Esperado | Traza |
+|---|---|---|---|---|---|
+| TC-041 | appointments.slot_id (unique ux_slot) | Colisión de unicidad | 2 reservas mismo slot_id | 2.ª rechazada (409) | RF-021, ADR-0009 |
+| TC-042 | appointments.status (enum) | Valor de dominio inválido | status='pending' | Rechazo por dominio | RF-021 |
+| TC-043 | appointments.patient_id → patients.id (FK) | Integridad referencial | patient_id inexistente | Rechazo FK | RNF-INT-01 |
+```
+
+```yaml
+# fixtures/appointments.seed.yaml — sintético, PII-safe, seed: 42
+- id: "00000000-0000-0000-0000-000000000001"
+  patient_id: "PAC-SEUDO-0001"        # seudónimo sintético, NO PII real
+  slot_id: "2026-08-01T10:30:00-03:00__box3"
+  status: "reserved"
+  row_version: 1
+```
+
+### Preguntas guía
+
+- ¿Cada columna con dominio/constraint tiene al menos un caso válido, uno de borde y uno inválido?
+- ¿Cada FK tiene un caso de integridad referencial (huérfano/cascada)?
+- ¿Los fixtures son sintéticos, reproducibles (`seed`) y consistentes con las FKs?
+- ¿Cada `TC-` traza a un `RF-`/`RNF-` en la matriz?
+
+### 🤖 Para agentes — sección 15
+
+```yaml
+entradas: [data-dictionary.md, er-diagrams/*.dbml, reglas/ADRs, requisitos RF-/RNF-, traceability-matrix.md]
+salidas:  [test-data-matrix.md (TC-* en draft), fixtures sintéticos PII-safe, actualización de traceability-matrix.md]
+validaciones:
+  - todo TC- traza a un RF-/RNF- existente
+  - cada columna con dominio/constraint tiene casos de equivalencia y borde; reportar las que no (gap)
+  - cada FK del ER tiene al menos un caso de integridad referencial
+  - los fixtures no contienen PII ni datos productivos (solo sintéticos, reproducibles por seed)
+  - la IA no marca casos como aprobados: revisión de QA registrada (§10 crit. 6, §12.4)
+```
+
+---
+
+## 16. Checklist operativo de arranque
 
 - [ ] Crear repo central con la estructura §5.2 + `docs-manifest.yaml` + `GLOSSARY.md`.
 - [ ] Adoptar plantillas con frontmatter §12.1 (ADR, SRS, runbook, README, CHANGELOG).
@@ -843,6 +1160,9 @@ validaciones:
 - [ ] Inventariar y priorizar el legacy (§9, pasos 1–2).
 - [ ] Publicar `ai-usage-policy.md` (§10) y `agent-policy.md` (§12.4).
 - [ ] Configurar CI de validación documental (§12.5) y SemVer+changelog (§11).
+- [ ] Definir el método de extracción de snippets (transclusión o copia verificada en CI) y sus reglas de procedencia (§13).
+- [ ] Configurar el pipeline BD→dbml + diccionario con rol de solo lectura del gestor de secretos (§14).
+- [ ] Derivar la matriz de casos y fixtures sintéticos desde el modelo de datos y trazarlos a RF-/RNF- (§15).
 - [ ] Si el dominio es regulado: activar perfil A.17 y validar retención con Cumplimiento.
 - [ ] Asignar owner y ciclo de revisión a cada documento.
 
@@ -954,6 +1274,18 @@ validaciones:
 - **Artefacto:** `06-security-compliance/regulatory-mapping.md` (mapeo norma→control→evidencia), políticas de retención reforzadas, segregación de funciones en aprobaciones, evidencia de auditoría inmutable.
 - **Nota de uso:** ⚠️ la normativa local cambia: **validar la versión vigente con Cumplimiento/Legales**; este marco no reemplaza esa validación.
 
+### A.18 dbml (Database Markup Language)
+- **Qué es:** lenguaje declarativo y abierto para describir esquemas de base de datos como texto (tablas, columnas, tipos, claves, `ref`, índices, notas), que renderiza a diagramas ER y convierte desde/hacia SQL.
+- **Trigger:** `type == database || la solución tiene un modelo de datos que documentar`.
+- **Artefacto:** `03-data/er-diagrams/*.dbml` + `data-dictionary.md` (proceso en §14).
+- **Nota de uso:** diagrama-como-código diffeable (§12.3); se genera con `@dbml/cli` (`sql2dbml` desde DDL, `db2dbml` desde conexión) y se enriquece con la semántica de negocio a mano. Herramientas de introspección alternativas: `tbls`, SchemaSpy.
+
+### A.19 ISO/IEC/IEEE 29119
+- **Qué es:** familia de normas de pruebas de software: procesos, documentación y **técnicas de diseño de casos** (partición de equivalencia, análisis de valores límite, tablas de decisión, transición de estados).
+- **Trigger:** `se diseñan y documentan casos de prueba`.
+- **Artefacto:** `03-data/test-data-matrix.md` (casos derivados del modelo) y la trazabilidad `TC-`↔`RF-`/`RNF-` en `traceability-matrix.md` (proceso en §15).
+- **Nota de uso:** usar sus técnicas como checklist de cobertura; en §15 se aplican sobre el modelo de datos para generar casos y fixtures sintéticos (no sustituye las pruebas de comportamiento derivadas de requisitos).
+
 ---
 
-*Fin del documento. Nombres, tecnologías y ejemplos (gestión de turnos, componentes UI) son ilustrativos y deben adaptarse a cada solución. Versión 2.0.0 — reemplaza a la guía v1.0 orientada exclusivamente al dominio bancario.*
+*Fin del documento. Nombres, tecnologías y ejemplos (gestión de turnos, componentes UI) son ilustrativos y deben adaptarse a cada solución. Versión 2.2.0 — añade §15 (derivación de casos y datos de prueba desde el modelo de datos) y la ficha A.19 sobre la 2.1.0 (que había añadido §13 y §14); reemplaza a la guía v1.0 orientada exclusivamente al dominio bancario.*
