@@ -36,6 +36,7 @@ Prompts-herramienta invocables en una línea (catálogo en [Tool-Prompts/README.
 Ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Contexto.md en <tema>
 Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Indexado.md en <proyecto>
 Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Documentar-Servidor.md en <servidor>
+Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Documentar-Fuentes-Software.md en la solución <origen> y deja en: <destino>
 Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Actualizar-Indexado.md de <proyecto>
 ```
 

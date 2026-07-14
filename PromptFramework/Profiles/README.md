@@ -10,6 +10,7 @@ Referencia: [Guía conceptual](../Guides/Readme.md) · [README del framework](..
 
 | Profile | Para qué sirve | RuleSet | Elegir cuando la tarea… |
 |---------|----------------|---------|-------------------------|
+| [Solution-Documentation](Solution-Documentation.md) | Evaluar y documentar una pieza de software de cualquier escala (proyecto, solución multi-proyecto o workspace) conforme al Marco de Documentación de Software, orquestando subagentes por tipo de pieza. | Solution-Documentation | …debe producir el conjunto documental completo de una solución, para humanos y agentes de IA. |
 | [Repository-Documentation](Repository-Documentation.md) | Documentar un repositorio de software: organización, arquitectura, componentes, convenciones, procesos y relaciones. | Documentation | …necesita entender y documentar un repo completo para mantenerlo y evolucionarlo. |
 | [Architecture-Review](Architecture-Review.md) | Analizar y documentar la arquitectura de un sistema: estructura, responsabilidades, dependencias y decisiones de diseño, con visión global. | Documentation | …busca comprender el diseño de alto nivel más que la implementación. |
 | [Code-Review](Code-Review.md) | Revisar código fuente en calidad, arquitectura, seguridad, rendimiento y mantenibilidad, separando hechos, inferencias y propuestas. | Development | …requiere una revisión técnica del código con recomendaciones fundadas. |
@@ -24,6 +25,7 @@ Referencia: [Guía conceptual](../Guides/Readme.md) · [README del framework](..
 
 ## Cómo elegir
 
+- **Documentar una solución completa conforme al Marco**: `Solution-Documentation` (orquesta a los demás perfiles de documentación por tipo de pieza).
 - **Documentar software**: `Repository-Documentation` (repo completo) o `Architecture-Review` (solo diseño de alto nivel).
 - **Revisar código**: `Code-Review`.
 - **Documentar infraestructura**: `Infrastructure-Documentation` (general) o `Docker-Documentation` (contenedores Docker).
@@ -32,4 +34,4 @@ Referencia: [Guía conceptual](../Guides/Readme.md) · [README del framework](..
 - **Auditar sin tocar**: `Infrastructure-Audit` (único de solo lectura, RuleSet Audit).
 - **Construir/actualizar la ia-db**: `Knowledge-Indexing`.
 
-Los Profiles no se combinan entre sí: cada ejecución adopta uno. Si el trabajo abarca varios enfoques, delegar cada uno en un subagente con su Profile (ver [Rule-Agents](../Rules/Rule-Agents.md)). Todos, salvo `Code-Review` (Development) e `Infrastructure-Audit` (Audit), se apoyan en el RuleSet Documentation.
+Los Profiles no se combinan entre sí: cada ejecución adopta uno. Si el trabajo abarca varios enfoques, delegar cada uno en un subagente con su Profile (ver [Rule-Agents](../Rules/Rule-Agents.md)); `Solution-Documentation` formaliza justamente esa orquestación para documentar soluciones completas. Todos se apoyan en el RuleSet Documentation, salvo `Code-Review` (Development), `Infrastructure-Audit` (Audit) y `Solution-Documentation` (Solution-Documentation, que extiende Documentation).

@@ -4,6 +4,27 @@ Registro de cambios del framework de prompting. Formato basado en [Keep a Change
 
 ---
 
+## [1.8.0] — 2026-07-14
+
+### Agregado
+
+- **Tool-Prompt `Tool-Prompts/Documentar-Fuentes-Software.md`** — evalúa y documenta una pieza de software de cualquier escala (proyecto, solución multi-proyecto, workspace o conjunto de soluciones: librerías, webs, REST APIs, apps móviles, bases de datos, batch) conforme al Marco de Documentación. Estrategia en 5 fases: indexar (`{destino}/ia-db` vía Knowledge-Indexing) → clasificar (`system-map` + `docs-manifest.yaml` con `type` por pieza, Marco §7) → documentar por pieza con subagentes → nivel solución (C4, runtime views, ADRs reconstruidos) → consolidar (gap documental + sincronización de la ia-db). Parámetros: `{origen}`, `{destino}` (default `<origen>.Documentacion`), `{conexiones}` (solo lectura) y `{énfasis}` (flujos QA con datos, snippets/SDD, guías de implementación).
+- **Profile `Profiles/Solution-Documentation.md`** (RuleSet Solution-Documentation) — orquestador documental: aplica el Marco como **política raíz** (§2.2), define la estructura de destino (`{destino}/ia-db` + `<nombre>-docs/` según §5.2, con adaptación declarada: la doc de pieza se espeja en `pieces/<pieza>/` porque el origen no se modifica), delega por `type` de pieza en los Profiles especializados (`Knowledge-Indexing`, `Database-Documentation`, `QA-Test-Design`) y fija puntos de control de deriva por fase.
+- **Rule `Rules/Rule-Dual-Audience.md`** — documentación de doble audiencia: cara humana (resumen ejecutivo, narrativa de flujos de punta a punta con datos sintéticos, analogías, preguntas guía) y cara agente (frontmatter YAML, IDs estables, anclas predecibles, diagramas como código, bloques `entradas/salidas/validaciones`, snippets con procedencia), con coherencia entre caras (única fuente de verdad).
+- **Rule `Rules/Rule-Drift-Control.md`** — control de deriva de agentes: contrato de ejecución (objetivo, alcance, rutas de escritura, presupuesto), **sensores de deriva** (alcance, escritura, objetivo, invención, presupuesto, profundidad) con acción por señal, puntos de control por fase, re-anclaje/corte y reporte de derivas.
+- **RuleSet `RuleSets/RuleSet-Solution-Documentation.md`** — Documentation + `Rule-Dual-Audience` + `Rule-Drift-Control`; mantiene el consumo de tokens proporcional (las tareas de documentación simples siguen usando Documentation).
+- Todo registrado en `Rules/README.md`, `RuleSets/Readme.md`, `Profiles/README.md`, `Tool-Prompts/README.md`, las tablas de la Guía Conceptual y el uso rápido del README raíz.
+
+### Cambiado
+
+- `Profiles/README.md`: la nota final sobre RuleSets reconoce la excepción de `Solution-Documentation` y su rol de orquestación formalizada.
+
+### Corregido
+
+- `RuleSets/RuleSet-Documentation.md`: la enumeración de Profiles que aplican el RuleSet estaba desactualizada desde 1.7.0 — se agregan `Database-Documentation` y `QA-Test-Design`, y se referencia `RuleSet-Solution-Documentation` como extensión para documentación orquestada.
+
+---
+
 ## [1.7.0] — 2026-07-14
 
 ### Agregado

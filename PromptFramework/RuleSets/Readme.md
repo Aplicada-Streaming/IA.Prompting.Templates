@@ -13,6 +13,7 @@ Referencia: [Guía conceptual](../Guides/Readme.md) · [README del framework](..
 | [RuleSet-Lean](RuleSet-Lean.md) | All, Workflow | …es simple, puntual o de análisis rápido; no genera documentación ni toca la ia-db. |
 | [RuleSet-Default](RuleSet-Default.md) | All, Workflow, Evidences, Markdown | …es genérica pero produce un entregable escrito con evidencia. |
 | [RuleSet-Documentation](RuleSet-Documentation.md) | Default + Documentation, Indexing, Agents | …genera o mantiene documentación técnica de calidad. |
+| [RuleSet-Solution-Documentation](RuleSet-Solution-Documentation.md) | Documentation + Dual-Audience, Drift-Control | …documenta una solución completa conforme a un marco maestro, con subagentes orquestados. |
 | [RuleSet-Development](RuleSet-Development.md) | Default + Agents | …analiza o revisa código y arquitectura. |
 | [RuleSet-Audit](RuleSet-Audit.md) | Default + Indexing, Agents | …inspecciona un entorno y reporta hallazgos sin alterar su estado. |
 
@@ -25,6 +26,7 @@ Cada RuleSet carga **solo las Rules que su dominio necesita**: una tarea simple 
 - **Tarea simple / análisis rápido**: `RuleSet-Lean`.
 - **Tarea genérica con entregable escrito**: `RuleSet-Default`.
 - **Documentar**: `RuleSet-Documentation`.
+- **Documentar una solución completa (marco maestro + orquestación)**: `RuleSet-Solution-Documentation`.
 - **Revisar/analizar código**: `RuleSet-Development`.
 - **Auditar sin tocar el entorno**: `RuleSet-Audit`.
 

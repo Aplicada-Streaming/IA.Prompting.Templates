@@ -4,7 +4,7 @@
 
 Reglas para tareas de documentación técnica. Extiende `RuleSet-Default` con las reglas de documentación, indexación y delegación.
 
-El énfasis y los criterios de calidad los fija el Profile que aplica este RuleSet (`Repository-Documentation`, `Infrastructure-Documentation`, `Docker-Documentation`, `Architecture-Review`, `Knowledge-Indexing`).
+El énfasis y los criterios de calidad los fija el Profile que aplica este RuleSet (`Repository-Documentation`, `Architecture-Review`, `Infrastructure-Documentation`, `Docker-Documentation`, `Database-Documentation`, `QA-Test-Design`, `Knowledge-Indexing`). Para la documentación orquestada de soluciones completas, `RuleSet-Solution-Documentation` extiende este conjunto.
 
 ---
 

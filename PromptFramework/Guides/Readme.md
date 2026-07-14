@@ -94,6 +94,8 @@ Cada regla define un conjunto de instrucciones para un dominio específico.
 | `Rule-Markdown.md` | Formato y estructura Markdown |
 | `Rule-Evidences.md` | Trazabilidad y verificabilidad |
 | `Rule-Indexing.md` | Gestión de la base de conocimiento |
+| `Rule-Dual-Audience.md` | Documentación de doble audiencia: humanos y agentes de IA |
+| `Rule-Drift-Control.md` | Control de deriva: contrato de ejecución, sensores y re-anclaje |
 
 Las reglas no se utilizan directamente en los prompts. Se aplican a través de RuleSets.
 
@@ -106,6 +108,7 @@ Un RuleSet es **solo una lista de Rules** agrupadas para un tipo de tarea; el é
 | `RuleSet-Lean.md` | All, Workflow (tier liviano para tareas simples) |
 | `RuleSet-Default.md` | All, Workflow, Evidences, Markdown |
 | `RuleSet-Documentation.md` | Default + Documentation, Indexing, Agents |
+| `RuleSet-Solution-Documentation.md` | Documentation + Dual-Audience, Drift-Control |
 | `RuleSet-Development.md` | Default + Agents |
 | `RuleSet-Audit.md` | Default + Indexing, Agents |
 
@@ -121,6 +124,7 @@ Cada Profile referencia un RuleSet, define el enfoque de trabajo, establece los 
 
 | Profile | Propósito |
 |---------|-----------|
+| `Solution-Documentation.md` | Documentar soluciones completas conforme al Marco de Documentación (orquestación por pieza) |
 | `Repository-Documentation.md` | Documentar repositorios de software |
 | `Infrastructure-Documentation.md` | Documentar infraestructuras tecnológicas |
 | `Infrastructure-Audit.md` | Auditar infraestructuras sin modificarlas |
@@ -162,6 +166,7 @@ Ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Contexto.md en <tema>
 | `Documentar-Docker.md` | Documentar una infraestructura Docker |
 | `Documentar-BaseDatos.md` | Documentar la estructura de una base de datos (diccionario + ER en dbml) |
 | `Derivar-Casos-Prueba.md` | Derivar casos y datos de prueba (QA) desde el modelo de datos |
+| `Documentar-Fuentes-Software.md` | Evaluar y documentar una solución, proyecto o workspace completo (ia-db + conjunto documental) |
 | `Actualizar-Documentacion.md` | Actualizar documentación existente de un proyecto |
 | `Revisar-Seguridad.md` | Revisión de seguridad (solo lectura) |
 

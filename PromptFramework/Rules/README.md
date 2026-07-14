@@ -17,6 +17,8 @@ Referencia: [Guía conceptual](../Guides/Readme.md) · [README del framework](..
 | [Rule-Indexing](Rule-Indexing.md) | Uso y mantenimiento de la base de conocimiento `ia-db`: recuperación incremental, sincronización y minimización de tokens. | …puede aprovechar contexto ya documentado o genera/actualiza conocimiento indexado. |
 | [Rule-Documentation](Rule-Documentation.md) | Generación de documentación técnica: contenido real, procedimientos, arquitectura, única fuente de verdad. | …produce o actualiza documentación técnica del sistema. |
 | [Rule-Markdown](Rule-Markdown.md) | Formato y estructura Markdown: jerarquía de encabezados, redacción, tablas/código/diagramas, validación. | …genera cualquier entregable en Markdown. |
+| [Rule-Dual-Audience](Rule-Dual-Audience.md) | Documentación de doble audiencia: recursos narrativos para humanos y contrato máquina-legible (frontmatter, IDs, anclas, diagramas como código) para agentes de IA. | …genera documentación que también consumirán agentes de IA. |
+| [Rule-Drift-Control](Rule-Drift-Control.md) | Control de deriva: contrato de ejecución, sensores (alcance, escritura, objetivo, invención, presupuesto, profundidad), puntos de control y re-anclaje. | …es larga, multi-fase o delega en subagentes y debe mantenerse dentro del alcance. |
 
 ---
 
@@ -28,5 +30,7 @@ Referencia: [Guía conceptual](../Guides/Readme.md) · [README del framework](..
 - **Entregable escrito**: sumar `Rule-Markdown`; si es documentación técnica, además `Rule-Documentation`.
 - **Contexto/memoria del proyecto**: sumar `Rule-Indexing`.
 - **Tarea grande o paralelizable**: sumar `Rule-Agents`.
+- **Documentación consumida también por IA**: sumar `Rule-Dual-Audience`.
+- **Ejecución larga, multi-fase o delegada**: sumar `Rule-Drift-Control`.
 
 Las reglas se combinan; no son excluyentes. Un RuleSet típico agrupa las que apliquen a un dominio.

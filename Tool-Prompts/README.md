@@ -37,6 +37,7 @@ Los valores entre `{llaves}` son parámetros: se completan con lo indicado en la
 | [Documentar-Docker.md](Documentar-Docker.md) | Documentar una infraestructura Docker | Docker-Documentation | `Lee y ejecuta /Tool-Prompts/Documentar-Docker en <proyecto>` |
 | [Documentar-BaseDatos.md](Documentar-BaseDatos.md) | Documentar la estructura de una base de datos (diccionario + ER en dbml) | Database-Documentation | `Lee y ejecuta /Tool-Prompts/Documentar-BaseDatos en <proyecto>` |
 | [Derivar-Casos-Prueba.md](Derivar-Casos-Prueba.md) | Derivar casos y datos de prueba (QA) desde el modelo de datos | QA-Test-Design | `Lee y ejecuta /Tool-Prompts/Derivar-Casos-Prueba en <proyecto>` |
+| [Documentar-Fuentes-Software.md](Documentar-Fuentes-Software.md) | Evaluar y documentar una solución, proyecto o workspace completo conforme al Marco de Documentación (ia-db + conjunto documental) | Solution-Documentation | `Lee y ejecuta /Tool-Prompts/Documentar-Fuentes-Software en la solución <origen> y deja en: <destino>` |
 | [Actualizar-Documentacion.md](Actualizar-Documentacion.md) | Actualizar documentación existente de un proyecto | Repository-Documentation | `Lee y ejecuta /Tool-Prompts/Actualizar-Documentacion en <proyecto>` |
 | [Revisar-Seguridad.md](Revisar-Seguridad.md) | Revisión de seguridad (solo lectura) | Infrastructure-Audit | `Lee y ejecuta /Tool-Prompts/Revisar-Seguridad en <sistema>` |
 
