@@ -14,6 +14,7 @@ Referencia: [Cómo escribir cada sección](../Guides/How-To.md) · [Templates](.
 |---------|-----------|-----------|
 | [Example-Auditoria](Example-Auditoria.md) | Auditoría técnica de un servidor Linux (solo lectura) | Profile `Infrastructure-Audit` |
 | [Example-Documentar-Infra](Example-Documentar-Infra.md) | Documentación de infraestructura Linux con Docker | Profile `Infrastructure-Documentation` |
+| [Example-Mantener-Guias](Example-Mantener-Guias.md) | Mantenimiento de las guías del framework: secciones para agentes automáticos + coherencia | RuleSet `Documentation` |
 | [Reconfiguracion-IP-Host](Reconfiguracion-IP-Host.md) | Reconfigurar la IP propia de un contenedor siguiendo un modelo | Profile `Architecture-Review` |
 | [Analisis-Comportamiento-Software](Analisis-Comportamiento-Software.md) | Diagnóstico de un bug de UI en una app MAUI | RuleSet `Lean` |
 | [Analisis-MyAI-NoUpdate](Analisis-MyAI-NoUpdate.md) | Investigación de alternativas para correr IA local en un servidor | RuleSet `Lean` |

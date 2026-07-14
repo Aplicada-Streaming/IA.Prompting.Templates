@@ -74,18 +74,7 @@ Aplicar:
 - `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Documentation.md`
 ```
 
-Guía rápida de selección:
-
-| Si la tarea es… | Profile |
-|-----------------|---------|
-| Documentar un repositorio de software | `Repository-Documentation.md` |
-| Documentar infraestructura | `Infrastructure-Documentation.md` |
-| Auditar (solo lectura) | `Infrastructure-Audit.md` |
-| Documentar Docker | `Docker-Documentation.md` |
-| Analizar arquitectura | `Architecture-Review.md` |
-| Revisar código | `Code-Review.md` |
-| Indexar (crear/actualizar ia-db) | `Knowledge-Indexing.md` |
-| Análisis simple, sin Profile | RuleSet `Lean` (referencia directa) |
+Guía rápida de selección: la tabla — para qué sirve cada Profile y cuándo elegirlo — vive en el catálogo [`/IA.Prompting.Templates/PromptFramework/Profiles/README.md`](../Profiles/README.md).
 
 ## Ejemplo mínimo completo
 
@@ -138,7 +127,7 @@ Una Rule = un dominio de comportamiento, atómica y transversal. Archivo: `Rules
 - [Otra instrucción; sin duplicar lo que ya dice otra Rule — referenciala.]
 ```
 
-Después: agregala a los RuleSets que la necesiten y al catálogo `Rules/README.md`.
+Después: completá el [checklist de actualización](Develop-Guide.md#uso-por-agentes-automáticos) de la fila **Rule**.
 
 ## Crear un RuleSet
 
@@ -164,7 +153,7 @@ Default (`Rule-All`, `Rule-Workflow`, `Rule-Evidences`, `Rule-Markdown`) más [l
 - `/IA.Prompting.Templates/PromptFramework/Rules/Rule-[Extra].md`
 ```
 
-Después: actualizá el catálogo `RuleSets/Readme.md`.
+Después: completá el [checklist de actualización](Develop-Guide.md#uso-por-agentes-automáticos) de la fila **RuleSet**.
 
 ## Crear un Profile
 
@@ -204,7 +193,7 @@ Un Profile = comportamiento completo del agente para un rol. Referencia **un** R
 [Entregables y estado final esperado.]
 ```
 
-Después: actualizá el catálogo `Profiles/README.md`.
+Después: completá el [checklist de actualización](Develop-Guide.md#uso-por-agentes-automáticos) de la fila **Profile**.
 
 ## Crear un Tool-Prompt
 
@@ -245,7 +234,23 @@ Aplicar:
 - `/IA.Prompting.Templates/PromptFramework/Profiles/[Profile].md`
 ```
 
-Después: agregalo al catálogo `Tool-Prompts/README.md`.
+Después: completá el [checklist de actualización](Develop-Guide.md#uso-por-agentes-automáticos) de la fila **Tool-Prompt**.
+
+---
+
+## Uso por agentes automáticos
+
+Flujo «De una idea a un Tool-Prompt», definido en el [README raíz](../../README.md): el usuario plantea una idea en lenguaje natural y el agente construye el prompt siguiendo esta guía.
+
+| Paso | Acción | Fuente |
+|------|--------|--------|
+| 1 | Elegir la capa de comportamiento: el Profile que represente la tarea, o `RuleSet-Lean` si es un análisis simple | Catálogo `/IA.Prompting.Templates/PromptFramework/Profiles/README.md` |
+| 2 | Completar el núcleo de 5 secciones respondiendo la pregunta guía de cada una; los entregables van dentro de `# Solicitudes`, con su ruta | Parte 1 de esta guía |
+| 3 | Si la tarea es recurrente, darle forma de Tool-Prompt: parámetros `{placeholder}`, cabecera de invocación y qué hacer cuando un parámetro no se indica | Esqueletos de la Parte 2 |
+| 4 | Proponer dónde guardarlo: `/IA.Prompting.Templates/Tool-Prompts/` (herramienta reutilizable) o `/IA.Prompting.Templates/PromptFramework/Examples/` (caso puntual que quedó funcionando) | README raíz |
+| 5 | Actualizar los artefactos de la pieza creada | [Checklist de la Guía de Desarrollo](Develop-Guide.md#uso-por-agentes-automáticos) |
+
+No agregar secciones fuera del núcleo (en particular, ninguna sección «Resultado esperado» separada) ni referenciar Rules directamente desde el prompt.
 
 ---
 

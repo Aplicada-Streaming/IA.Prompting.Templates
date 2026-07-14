@@ -10,6 +10,7 @@
 - [Ejemplos completos](#ejemplos-completos)
 - [Errores comunes](#errores-comunes)
 - [Buenas prácticas](#buenas-prácticas)
+- [Uso por agentes automáticos](#uso-por-agentes-automáticos)
 
 ---
 
@@ -53,17 +54,9 @@ Buscar un escenario parecido en `/IA.Prompting.Templates/PromptFramework/Example
 
 ## Usar un Tool-Prompt
 
-Los Tool-Prompts están en `/IA.Prompting.Templates/Tool-Prompts/` y se invocan en una línea.
+Los Tool-Prompts están en `/IA.Prompting.Templates/Tool-Prompts/` y se invocan en una línea. Cada uno declara su invocación y sus parámetros en su cabecera.
 
-| Tool-Prompt | Cuándo usarlo |
-|-------------|---------------|
-| `Actualizar-Documentacion.md` | Actualizar documentación existente del proyecto |
-| `Documentar-Docker.md` | Documentar una infraestructura Docker |
-| `Documentar-Servidor.md` | Documentar un servidor Linux |
-| `Revisar-Seguridad.md` | Realizar una revisión de seguridad |
-| `Iniciar-Contexto.md` · `Iniciar-Indexado.md` · `Actualizar-Indexado.md` | Operar la base de conocimiento `ia-db` |
-
-Cada uno declara su invocación y sus parámetros en su cabecera. Catálogo completo: [`Tool-Prompts/README.md`](../../Tool-Prompts/README.md).
+El catálogo — cuándo usar cada uno, qué Profile aplica y su ejemplo de invocación — vive en un solo lugar: [`Tool-Prompts/README.md`](../../Tool-Prompts/README.md).
 
 ---
 
@@ -91,10 +84,9 @@ Todo Prompt deberá tener la siguiente estructura:
 ## Profile
 Aplicar:
 - `/IA.Prompting.Templates/PromptFramework/Profiles/[Profile].md`
-
-# Resultado esperado
-[Entregables esperados al finalizar]
 ```
+
+Los entregables van dentro de `# Solicitudes`, como tareas verificables con su ruta; no existe una sección «Resultado esperado» separada. Cómo completar cada sección: [How-To](How-To.md).
 
 ### Paso a paso
 
@@ -137,33 +129,9 @@ Ver sección [Seleccionar el Profile correcto](#seleccionar-el-profile-correcto)
 
 El Profile determina **cómo** se comporta el agente durante la ejecución.
 
-### Tabla de selección
+### Catálogo de selección
 
-| Si la tarea es... | Profile recomendado |
-|-------------------|---------------------|
-| Documentar un repositorio de software | `Repository-Documentation.md` |
-| Documentar infraestructura general | `Infrastructure-Documentation.md` |
-| Auditar una infraestructura (solo lectura) | `Infrastructure-Audit.md` |
-| Documentar infraestructura Docker | `Docker-Documentation.md` |
-| Analizar la arquitectura de un sistema | `Architecture-Review.md` |
-| Revisar código fuente | `Code-Review.md` |
-| Crear o mantener la base de conocimiento (ia-db) | `Knowledge-Indexing.md` |
-
-### Cuándo usar cada Profile
-
-**Repository-Documentation** — Para proyectos de software donde se necesita documentar la organización, arquitectura, componentes y procesos del repositorio.
-
-**Infrastructure-Documentation** — Para servidores y entornos de infraestructura donde se necesita documentar el estado completo del sistema.
-
-**Infrastructure-Audit** — Similar a Infrastructure-Documentation pero con restricciones estrictas de solo lectura. Usar cuando el objetivo es auditar sin modificar.
-
-**Docker-Documentation** — Especializado en infraestructuras Docker. Cubre contenedores, redes, volúmenes y archivos Compose.
-
-**Architecture-Review** — Para analizar y documentar la arquitectura de un sistema de software, con foco en responsabilidades, dependencias y decisiones de diseño.
-
-**Code-Review** — Para revisar código fuente con perspectiva técnica, arquitectónica y de mantenibilidad.
-
-**Knowledge-Indexing** — Para generar o actualizar la base de conocimiento (ia-db) de un proyecto. Normalmente no se usa directamente: lo aplican los Tool-Prompts `Iniciar-Indexado.md` y `Actualizar-Indexado.md`.
+La tabla de selección — para qué sirve cada Profile, qué RuleSet aplica y cuándo elegirlo — vive en un solo lugar: el catálogo [`/IA.Prompting.Templates/PromptFramework/Profiles/README.md`](../Profiles/README.md).
 
 ### Cuando no existe un Profile adecuado
 
@@ -209,13 +177,6 @@ Generar documentación técnica actualizada que represente fielmente el estado a
 
 Aplicar:
 - `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Documentation.md`
-
-# Resultado esperado
-
-- Inventario actualizado.
-- Documentación técnica.
-- Diagramas de arquitectura.
-- Índices actualizados.
 ```
 
 ### Ejemplo 2 — Auditoría de infraestructura
@@ -285,3 +246,24 @@ Definir siempre qué comandos puede ejecutar, si puede modificar archivos, si pu
 
 7. **Minimizar el consumo de tokens.**
    Iniciar las conversaciones con `Tool-Prompts/Iniciar-Contexto.md` y recuperar contexto desde la ia-db en lugar de releer el repositorio. Ver la [Guía de Optimización de Tokens](Token-Optimization.md).
+
+---
+
+## Uso por agentes automáticos
+
+Al recibir un prompt para ejecutar, el agente valida su estructura antes de resolver la capa de comportamiento:
+
+| Verificación | Criterio |
+|--------------|----------|
+| Núcleo de 5 secciones | El prompt contiene `# Contexto`, `# Objetivo`, `# Solicitudes`, `# Restricciones` y `# Framework` |
+| Entregables | Van dentro de `# Solicitudes` como tareas verificables con su ruta; no hay sección «Resultado esperado» separada |
+| Capa de comportamiento | `# Framework` referencia un Profile (caso general) o un RuleSet directo (`RuleSet-Lean` para análisis simple) |
+| Jerarquía | El prompt no referencia Rules directamente (ver [Errores comunes](#errores-comunes)) |
+| Restricciones | Explícitas cuando la tarea toca sistemas reales: modificación de archivos, commit/push, alcance |
+
+Con la estructura validada:
+
+1. Resolver la cadena `Profile → RuleSet → Rules` según la [Guía Conceptual](Readme.md#uso-por-agentes-automáticos).
+2. Si `# Framework` está vacío o el componente referenciado no encaja con la tarea, seleccionar el Profile con el catálogo `/IA.Prompting.Templates/PromptFramework/Profiles/README.md` y señalarlo al usuario.
+3. Señalar las secciones faltantes o inconsistencias detectadas antes de ejecutar; no completar con suposiciones lo que el prompt no dice.
+4. Aplicar por defecto las prácticas de la [Guía de Optimización de Tokens](Token-Optimization.md#uso-por-agentes-automáticos).

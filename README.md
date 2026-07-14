@@ -52,6 +52,7 @@ Empezá por la [documentación del framework](PromptFramework/README.md).
 | [Guía de usuario](PromptFramework/Guides/User-Guide.md) | Cómo usar el framework |
 | [Guía de desarrollo](PromptFramework/Guides/Develop-Guide.md) | Cómo extender y mantener el framework |
 | [Optimización de tokens](PromptFramework/Guides/Token-Optimization.md) | Minimizar el consumo de contexto (ia-db) |
+| [Referencias](Referencias/README.md) | Documentación de referencia externa al framework, fuente de características para prompts |
 
 ---
 

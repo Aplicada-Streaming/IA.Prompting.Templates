@@ -4,6 +4,31 @@ Registro de cambios del framework de prompting. Formato basado en [Keep a Change
 
 ---
 
+## [1.6.0] — 2026-07-14
+
+### Agregado
+
+- **Sección `## Uso por agentes automáticos` en las cinco guías**, adaptada al rol de cada una:
+  - `Readme.md` (Guía Conceptual) — cómo el agente resuelve la cadena `Profile → RuleSet → Rules` al recibir un prompt y cuándo consultar la Referencia rápida.
+  - `How-To.md` — flujo «De una idea a un Tool-Prompt» en 5 pasos (elegir capa de comportamiento → núcleo de 5 secciones → forma de Tool-Prompt → dónde guardarlo → actualizar artefactos).
+  - `User-Guide.md` — validaciones de estructura que el agente aplica antes de ejecutar un prompt (núcleo de 5 secciones, entregables en `Solicitudes`, jerarquía, restricciones explícitas).
+  - `Develop-Guide.md` — **checklist único de actualización** por pieza (Rule, RuleSet, Profile, Template, Example, Tool-Prompt): archivo + catálogos + tablas de la Guía Conceptual. Los «Después:» del How-To y los procesos de la propia guía ahora remiten acá.
+  - `Token-Optimization.md` — prácticas que el agente aplica por defecto (carga proporcional, ia-db antes que el repositorio, recuperación incremental, sincronización al cierre).
+- **`Examples/Example-Mantener-Guias.md`** — prompt de mantenimiento de las guías (agregar las secciones de agentes automáticos y revisar coherencia); referencia `RuleSet-Documentation` directo. Registrado en el catálogo de Examples y en la Guía Conceptual.
+- **Carpeta `Referencias/`** — documentación de referencia externa al framework, fuente de características para prompts (no define comportamiento del agente). Incluye su `README.md` de catálogo y `Marco-Documentacion-Software-v1.md` (marco de documentación de soluciones de software multi-proyecto). Enlazada desde el README raíz.
+
+### Cambiado
+
+- **Deduplicación de catálogos**: la tabla de selección de Profiles (duplicada en `How-To.md` y `User-Guide.md`, con descripciones extensas en esta última) y la tabla de Tool-Prompts de `User-Guide.md` se reemplazan por referencias a sus catálogos (`Profiles/README.md` y `Tool-Prompts/README.md`) — un dato vive en un solo lugar.
+- `Token-Optimization.md` ya no cita la ia-db de `Discord.Bot.Moderador.Core` como implementación de referencia (ruta externa al repositorio); la resolución es genérica: `<proyecto>/ia-db` o `/ia-db` según `Rule-Indexing.md`.
+- Guía Conceptual: descripción de Examples ampliada (distingue `Example-*` pulidos de prompts reales) con enlace al catálogo completo.
+
+### Corregido
+
+- **Restos de «Resultado esperado»** en `User-Guide.md`: la estructura de prompt y los ejemplos completos aún mostraban la sección eliminada en 1.5.0; los entregables quedan dentro de `# Solicitudes`.
+
+---
+
 ## [1.5.0] — 2026-07-14
 
 ### Cambiado

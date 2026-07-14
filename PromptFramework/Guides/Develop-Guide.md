@@ -12,6 +12,7 @@
 - [Convenciones](#convenciones)
 - [Organización recomendada](#organización-recomendada)
 - [Criterios de diseño](#criterios-de-diseño)
+- [Uso por agentes automáticos](#uso-por-agentes-automáticos)
 
 ---
 
@@ -109,8 +110,7 @@ Escribir las Rules de forma compacta: bullets y tablas sobre prosa, sin sección
 1. Verificar que no existe una Rule equivalente.
 2. Crear el archivo en `/IA.Prompting.Templates/PromptFramework/Rules/`.
 3. Documentar la Rule con estructura completa.
-4. Agregar la Rule al RuleSet correspondiente.
-5. Actualizar la tabla de Rules en la [Guía Conceptual](Readme.md).
+4. Completar el [checklist de actualización](#uso-por-agentes-automáticos) de la fila **Rule**.
 
 ---
 
@@ -165,7 +165,7 @@ Composición actual de los RuleSets: ver [`RuleSets/Readme.md`](../RuleSets/Read
 1. Identificar las Rules que aplican para este dominio.
 2. Crear el archivo en `/IA.Prompting.Templates/PromptFramework/RuleSets/`.
 3. Documentar el RuleSet referenciando todas las Rules aplicables.
-4. Actualizar la tabla de RuleSets en la [Guía Conceptual](Readme.md).
+4. Completar el [checklist de actualización](#uso-por-agentes-automáticos) de la fila **RuleSet**.
 
 ---
 
@@ -239,7 +239,7 @@ Aplicar:
 1. Identificar el RuleSet más apropiado para el Profile.
 2. Crear el archivo en `/IA.Prompting.Templates/PromptFramework/Profiles/`.
 3. Documentar todas las secciones del Profile.
-4. Actualizar la tabla de Profiles en la [Guía Conceptual](Readme.md).
+4. Completar el [checklist de actualización](#uso-por-agentes-automáticos) de la fila **Profile**.
 
 ---
 
@@ -432,3 +432,26 @@ Un componente bien diseñado permite responder: ¿Cómo sabemos que este compone
 Todos los componentes del framework deben seguir las mismas convenciones, estructuras y estilos.
 
 Un framework inconsistente es difícil de usar y mantener.
+
+---
+
+## Uso por agentes automáticos
+
+Checklist verificable que el agente completa al crear o modificar una pieza del framework. Es la **lista única de artefactos a actualizar**: los «Después:» del [How-To](How-To.md) y los procesos de esta guía remiten acá.
+
+| Pieza | Archivo | Además actualizar |
+|-------|---------|-------------------|
+| Rule | `/IA.Prompting.Templates/PromptFramework/Rules/Rule-[Dominio].md` | RuleSets que la necesiten · catálogo `Rules/README.md` · tabla de Rules de la [Guía Conceptual](Readme.md) |
+| RuleSet | `/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-[Dominio].md` | Catálogo `RuleSets/Readme.md` · tabla de RuleSets de la Guía Conceptual |
+| Profile | `/IA.Prompting.Templates/PromptFramework/Profiles/[Dominio]-[Tipo].md` | Catálogo `Profiles/README.md` · tabla de Profiles de la Guía Conceptual |
+| Template | `/IA.Prompting.Templates/PromptFramework/Templates/Prompt-[Nombre].md` | Catálogo `Templates/README.md` · tabla de Templates de la Guía Conceptual |
+| Example | `/IA.Prompting.Templates/PromptFramework/Examples/Example-[Descripción].md` | Catálogo `Examples/README.md` · tabla de Examples de la Guía Conceptual |
+| Tool-Prompt | `/IA.Prompting.Templates/Tool-Prompts/[Verbo]-[Objeto].md` | Catálogo `Tool-Prompts/README.md` · tabla de Tool-Prompts de la Guía Conceptual |
+
+Las rutas de los catálogos son relativas a `/IA.Prompting.Templates/PromptFramework/`, salvo `Tool-Prompts/`, que está en la raíz del repositorio.
+
+Verificación final antes de dar por terminada la pieza:
+
+- [ ] La pieza respeta las [convenciones](#convenciones): nomenclatura, idioma, separadores `---` y rutas absolutas con base `/IA.Prompting.Templates`.
+- [ ] Todos los artefactos de la fila correspondiente quedaron actualizados y sus enlaces apuntan a archivos existentes.
+- [ ] No se duplicó contenido: si otra pieza ya lo dice, se referencia (ver [Composición sobre duplicación](#principios-arquitectónicos)).

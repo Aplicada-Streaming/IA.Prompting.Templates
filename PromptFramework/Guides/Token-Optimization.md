@@ -8,6 +8,7 @@
 - [Qué cargar según la tarea](#qué-cargar-según-la-tarea)
 - [Prácticas al escribir componentes](#prácticas-al-escribir-componentes)
 - [Prácticas al ejecutar prompts](#prácticas-al-ejecutar-prompts)
+- [Uso por agentes automáticos](#uso-por-agentes-automáticos)
 
 ---
 
@@ -32,7 +33,7 @@ Esta guía define cómo el framework minimiza ese costo sin perder calidad: inde
 
 ## La técnica ia-db
 
-Implementación de referencia: `/Discord.Bot.Moderador.Core.Documentos/ia-db`. Estructura canónica definida en `/IA.Prompting.Templates/PromptFramework/Profiles/Knowledge-Indexing.md`.
+Estructura canónica definida en `/IA.Prompting.Templates/PromptFramework/Profiles/Knowledge-Indexing.md`; la ia-db de cada proyecto se resuelve buscando `<proyecto>/ia-db` o `/ia-db` en la raíz del workspace (ver `Rule-Indexing.md`).
 
 ```mermaid
 graph LR
@@ -93,3 +94,17 @@ Regla general: cargar reglas proporcionales a la tarea. Una tarea trivial usa `R
 - No cargar la totalidad de la documentación cuando solo se necesita una parte (ver `Rule-Indexing.md`).
 - Ampliar contexto solo ante insuficiencia comprobada, no preventivamente.
 - Al finalizar tareas que cambien el conocimiento del proyecto, actualizar la ia-db (o proponer ejecutar `Actualizar-Indexado`) para que la próxima conversación arranque barata.
+
+---
+
+## Uso por agentes automáticos
+
+Prácticas que el agente aplica por defecto, sin que el usuario las pida:
+
+| Práctica | Aplicación por defecto |
+|----------|------------------------|
+| Carga proporcional a la tarea | Análisis simple → `RuleSet-Lean` (2 reglas); documentación, auditoría o revisión completa → cadena `Profile → RuleSet → Rules` (ver [Qué cargar según la tarea](#qué-cargar-según-la-tarea)) |
+| ia-db antes que el repositorio | Ante una tarea sobre un proyecto, consultar primero su ia-db (punto de entrada → índices del tema) y explorar las fuentes solo ante insuficiencia comprobada |
+| Recuperación incremental | Cargar 1–2 índices del tema consultado, no la documentación completa |
+| Referenciar antes que incluir | Citar rutas de componentes; no copiar su contenido en prompts ni entregables |
+| Sincronización al cierre | Si la tarea cambió el conocimiento del proyecto, actualizar la ia-db o proponer ejecutar `/IA.Prompting.Templates/Tool-Prompts/Actualizar-Indexado.md` |

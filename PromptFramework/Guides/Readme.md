@@ -10,6 +10,7 @@
 - [Flujo de trabajo](#flujo-de-trabajo)
 - [Interacción entre componentes](#interacción-entre-componentes)
 - [Referencia rápida](#referencia-rápida)
+- [Uso por agentes automáticos](#uso-por-agentes-automáticos)
 
 ---
 
@@ -166,12 +167,15 @@ Ver el catálogo completo con invocación y Profile de cada uno en `/IA.Promptin
 
 ### Examples
 
-Los Examples son prompts completos y funcionales que demuestran el uso del framework en escenarios reales.
+Los Examples son prompts completos y funcionales que demuestran el uso del framework en escenarios reales. Los `Example-*` son ejemplos pulidos que reutilizan un Profile o RuleSet; la carpeta también guarda prompts reales que quedaron funcionando.
 
 | Ejemplo | Escenario |
 |---------|-----------|
 | `Example-Auditoria.md` | Auditoría técnica de un servidor Linux |
 | `Example-Documentar-Infra.md` | Documentación de una infraestructura Linux con Docker |
+| `Example-Mantener-Guias.md` | Mantenimiento de las guías del framework |
+
+Catálogo completo (incluidos los prompts reales): `/IA.Prompting.Templates/PromptFramework/Examples/README.md`.
 
 ### Guides
 
@@ -296,3 +300,26 @@ graph TB
 | ¿Cuándo usar un Tool-Prompt? | Para tareas recurrentes (documentar, indexar, auditar, iniciar contexto) invocables en una línea. |
 | ¿Cuándo referenciar un RuleSet directo? | Solo si ningún Profile encaja; típico de `Lean` en análisis simple. |
 | ¿Cuándo consultar los Examples? | Antes de crear un prompt nuevo, para entender patrones funcionales probados. |
+
+---
+
+## Uso por agentes automáticos
+
+Al recibir un prompt del framework, el agente resuelve la cadena `Profile → RuleSet → Rules` antes de ejecutar:
+
+| Paso | Acción |
+|------|--------|
+| 1 | Leer la sección `# Framework` del prompt: referencia un Profile (caso general) o un RuleSet directo (típico de `RuleSet-Lean` en análisis simple). |
+| 2 | Cargar el Profile referenciado y localizar su sección `## Rule Set`. Si el prompt referencia un RuleSet directo, omitir este paso. |
+| 3 | Cargar el RuleSet: es solo una lista de Rules. |
+| 4 | Cargar todas las Rules listadas y ejecutar con ese comportamiento. El énfasis y los criterios de calidad los fija el Profile; sin Profile, aplican las Rules y lo que el propio prompt indique. |
+
+Las rutas de los componentes son absolutas con base `/IA.Prompting.Templates` (ver las [convenciones de la Guía de Desarrollo](Develop-Guide.md#convenciones)).
+
+Cuándo consultar la [Referencia rápida](#referencia-rápida):
+
+| Situación | Qué resuelve |
+|-----------|--------------|
+| El prompt no referencia ningún componente | Qué nivel referenciar: Profile → RuleSet; nunca Rules directas |
+| Hay que construir o proponer un prompt nuevo | Qué Template usar y qué Examples consultar |
+| La tarea es recurrente | Si existe un Tool-Prompt que ya la resuelva en una línea |
