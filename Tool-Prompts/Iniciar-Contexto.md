@@ -39,8 +39,4 @@ Cargar en la conversación el contexto mínimo suficiente sobre `{tema}`, usando
 - No modificar ningún archivo.
 - Si el proyecto no tiene ia-db, informarlo y proponer ejecutar `/IA.Prompting.Templates/Tool-Prompts/Iniciar-Indexado.md` — no improvisar un barrido del repositorio.
 
----
-
-# Resultado esperado
-
-Un mensaje breve de confirmación de contexto y el agente a la espera de la tarea, habiendo consumido únicamente el punto de entrada más los índices estrictamente necesarios.
+El paso 5 del procedimiento es la condición de finalización: un mensaje breve de confirmación de contexto, con el agente a la espera de la tarea y habiendo consumido solo el punto de entrada más los índices estrictamente necesarios.

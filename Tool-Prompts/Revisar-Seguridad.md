@@ -1,41 +1,47 @@
+# Tool-Prompt — Revisar Seguridad
+
+> **Invocación**:
+> - `Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Revisar-Seguridad.md en {sistema}`
+
+---
+
+# Parámetros de invocación
+
+| Parámetro | Descripción | Si no se indica |
+|-----------|-------------|-----------------|
+| `{sistema}` | Servidor, host o proyecto sobre el que se hace la revisión de seguridad | Solicitarlo al usuario antes de comenzar |
+
+---
+
 # Contexto
 
-El proyecto requiere una revisión de seguridad para identificar posibles vulnerabilidades, configuraciones inadecuadas y oportunidades de mejora en la postura de seguridad del sistema.
+`{sistema}` requiere una revisión de seguridad para identificar vulnerabilidades, configuraciones inadecuadas y oportunidades de mejora en su postura de seguridad. La revisión es de solo lectura.
 
 ---
 
 # Objetivo
 
-Realizar una revisión de seguridad del sistema, identificando vulnerabilidades, configuraciones incorrectas y recomendaciones de mejora, respaldadas por evidencia verificable.
+Identificar vulnerabilidades, configuraciones incorrectas y recomendaciones de mejora, respaldadas por evidencia verificable y diferenciando hallazgos verificados de riesgos potenciales.
 
 ---
 
 # Solicitudes
 
-- Revisar configuración de SSH y acceso remoto.
-- Revisar reglas de firewall y políticas de red.
-- Revisar usuarios, grupos y permisos.
-- Revisar servicios expuestos.
-- Revisar configuraciones de autenticación.
-- Revisar gestión de secretos y credenciales.
-- Identificar software con versiones obsoletas.
-- Revisar configuraciones de contenedores Docker (si aplica).
-- Identificar configuraciones inseguras.
-- Documentar vulnerabilidades encontradas.
-- Generar recomendaciones de mejora.
-- Actualizar la documentación de seguridad.
-- Registrar evidencias de cada hallazgo.
+- Revisar configuración de SSH y acceso remoto, reglas de firewall y políticas de red.
+- Revisar usuarios, grupos, permisos y servicios expuestos.
+- Revisar configuraciones de autenticación y gestión de secretos y credenciales.
+- Identificar software con versiones obsoletas y configuraciones inseguras (incluidos contenedores Docker, si aplica).
+- Documentar cada vulnerabilidad con su severidad y su evidencia de respaldo.
+- Generar recomendaciones de mejora priorizadas y actualizar la documentación de seguridad.
+- Diferenciar los hallazgos en: vulnerabilidades verificadas, configuraciones inadecuadas, riesgos potenciales y recomendaciones.
 
 ---
 
 # Restricciones
 
-- No modificar configuraciones durante la revisión.
-- No instalar software.
+- No modificar configuraciones durante la revisión ni instalar software.
 - No ejecutar comandos destructivos.
-- No inventar vulnerabilidades.
-- Toda observación deberá estar respaldada por evidencia.
-- Diferenciar claramente hallazgos verificados de riesgos potenciales.
+- No inventar vulnerabilidades; toda observación debe estar respaldada por evidencia.
 
 ---
 
@@ -46,23 +52,3 @@ Realizar una revisión de seguridad del sistema, identificando vulnerabilidades,
 Aplicar:
 
 - `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Audit.md`
-
----
-
-# Resultado esperado
-
-Al finalizar deberán existir:
-
-- inventario de hallazgos de seguridad;
-- descripción de vulnerabilidades identificadas;
-- evaluación de severidad de cada hallazgo;
-- evidencias que respalden cada observación;
-- recomendaciones de mejora priorizadas;
-- documentación de seguridad actualizada.
-
-Todos los hallazgos deberán diferenciarse claramente entre:
-
-- vulnerabilidades verificadas;
-- configuraciones inadecuadas;
-- riesgos potenciales;
-- recomendaciones de mejora.

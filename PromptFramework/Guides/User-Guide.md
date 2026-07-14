@@ -4,7 +4,7 @@
 
 - [Introducción](#introducción)
 - [Inicio rápido](#inicio-rápido)
-- [Usar un Prompt predefinido](#usar-un-prompt-predefinido)
+- [Usar un Tool-Prompt](#usar-un-tool-prompt)
 - [Construir un Prompt nuevo](#construir-un-prompt-nuevo)
 - [Seleccionar el Profile correcto](#seleccionar-el-profile-correcto)
 - [Ejemplos completos](#ejemplos-completos)
@@ -25,51 +25,45 @@ Para comprender la arquitectura del framework antes de comenzar, consultar la [G
 
 ## Inicio rápido
 
-### Opción A — Usar un Prompt predefinido
+### Opción A — Invocar un Tool-Prompt
 
-1. Verificar si existe un Prompt en `/IA.Prompting.Templates/PromptFramework/Prompts/` que se adapte a la tarea.
-2. Copiar el contenido del Prompt.
-3. Completar el contexto del proyecto.
-4. Ejecutar con el agente.
+Para tareas recurrentes (documentar, indexar, auditar, iniciar contexto) no hace falta construir nada: se invocan con una sola línea.
+
+```
+Ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Contexto.md en <tema>
+Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Indexado.md en <proyecto>
+Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Documentar-Servidor.md en <servidor>
+Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Revisar-Seguridad.md en <sistema>
+```
+
+Ver el catálogo en `/IA.Prompting.Templates/Tool-Prompts/README.md` y la [Guía de Optimización de Tokens](Token-Optimization.md).
 
 ### Opción B — Construir un Prompt nuevo
 
 1. Identificar el tipo de tarea y seleccionar el Profile apropiado.
 2. Abrir el Template adecuado en `/IA.Prompting.Templates/PromptFramework/Templates/`.
-3. Completar todos los campos.
+3. Completar el núcleo de 5 secciones (ver [How-To](How-To.md)).
 4. Referenciar el Profile.
 
-### Opción C — Invocar un Tool-Prompt
+### Opción C — Partir de un Example
 
-Para operar la base de conocimiento (ia-db) o iniciar el contexto de un chat, no hace falta construir nada: se invoca con una sola línea.
-
-```
-Ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Contexto.md en <tema>
-Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Indexado.md en <proyecto>
-Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Indexado.md de <proyecto-a> y <proyecto-b> y deja la indexación en la raíz /
-Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Actualizar-Indexado.md de <proyecto>
-```
-
-Ver `/IA.Prompting.Templates/Tool-Prompts/README.md` y la [Guía de Optimización de Tokens](Token-Optimization.md).
+Buscar un escenario parecido en `/IA.Prompting.Templates/PromptFramework/Examples/`, copiarlo, reemplazar los datos concretos y ejecutar.
 
 ---
 
-## Usar un Prompt predefinido
+## Usar un Tool-Prompt
 
-Los Prompts predefinidos se encuentran en `/IA.Prompting.Templates/PromptFramework/Prompts/`.
+Los Tool-Prompts están en `/IA.Prompting.Templates/Tool-Prompts/` y se invocan en una línea.
 
-| Prompt | Cuándo usarlo |
-|--------|---------------|
+| Tool-Prompt | Cuándo usarlo |
+|-------------|---------------|
 | `Actualizar-Documentacion.md` | Actualizar documentación existente del proyecto |
 | `Documentar-Docker.md` | Documentar una infraestructura Docker |
 | `Documentar-Servidor.md` | Documentar un servidor Linux |
 | `Revisar-Seguridad.md` | Realizar una revisión de seguridad |
+| `Iniciar-Contexto.md` · `Iniciar-Indexado.md` · `Actualizar-Indexado.md` | Operar la base de conocimiento `ia-db` |
 
-Para usar un Prompt predefinido:
-
-1. Abrir el archivo del Prompt.
-2. Agregar el contexto específico del proyecto en la sección `# Contexto`.
-3. Ejecutar.
+Cada uno declara su invocación y sus parámetros en su cabecera. Catálogo completo: [`Tool-Prompts/README.md`](../../Tool-Prompts/README.md).
 
 ---
 
@@ -277,7 +271,7 @@ Definir siempre qué comandos puede ejecutar, si puede modificar archivos, si pu
 2. **Definir restricciones explícitas.**
    Especialmente para tareas que involucren modificaciones en sistemas reales.
 
-3. **Usar los Prompts predefinidos cuando sea posible.**
+3. **Usar los Tool-Prompts cuando sea posible.**
    Ahorran tiempo y garantizan consistencia con el framework.
 
 4. **Consultar los Examples antes de construir un Prompt nuevo.**

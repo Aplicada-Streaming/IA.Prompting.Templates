@@ -4,6 +4,28 @@ Registro de cambios del framework de prompting. Formato basado en [Keep a Change
 
 ---
 
+## [1.5.0] — 2026-07-14
+
+### Cambiado
+
+- **Núcleo de 5 secciones** como estructura canónica de todo prompt: `Contexto · Objetivo · Solicitudes · Restricciones · Framework (Profile)`. Se elimina la sección «Resultado esperado» (los entregables pasan a `Solicitudes` como tareas verificables con ruta) y «Observaciones» queda como nota opcional. Propagado a `Templates/` (con **pregunta guía embebida** por sección), `Tool-Prompts/` y `Examples/`.
+- **RuleSets reorganizados como pura lista de Rules**: se quitan las secciones `## Énfasis` y `## Criterios de calidad` (su intención vive en los Profiles). Cada RuleSet carga **solo las Rules que su dominio necesita**, para que el consumo de tokens sea proporcional a la tarea. Nueva composición: Default = `All, Workflow, Evidences, Markdown`; Documentation = Default + `Documentation, Indexing, Agents`; Development = Default + `Agents`; Audit = Default + `Indexing, Agents`.
+- **Tool-Prompts normalizados**: los cuatro «clásicos» (`Documentar-Servidor`, `Documentar-Docker`, `Actualizar-Documentacion`, `Revisar-Seguridad`) adoptan la cabecera `> **Invocación**` + tabla de parámetros y el núcleo de 5 secciones, igualando a los operativos de indexado.
+- **Examples**: cabecera `> **Uso**` en todos; los `Example-*` reutilizan Profile; los prompts reales de análisis simple pasan a referenciar `RuleSet-Lean`.
+- **Guía `Guides/Quick-User-Guide.md` renombrada a `Guides/How-To.md`** y generalizada: además de las frases por sección, incorpora una parte «Extender el framework» con esqueletos copy-paste para crear Rules, RuleSets, Profiles y Tool-Prompts.
+- **README raíz** reescrito con el método de trabajo **idea → Tool-Prompt**.
+
+### Agregado
+
+- **`RuleSets/RuleSet-Lean.md`** — tier liviano (`Rule-All` + `Rule-Workflow`) para tareas simples o de análisis rápido.
+- **`Templates/README.md`** (antes vacío) y **`Examples/README.md`** — catálogos de sus carpetas.
+
+### Corregido
+
+- **Carpeta fantasma `PromptFramework/Prompts/`**: no existía, pero README, Guía Conceptual y User-Guide la citaban. Se elimina toda referencia; los prompts predefinidos son Tool-Prompts en `/Tool-Prompts/`.
+
+---
+
 ## [1.4.0] — 2026-07-12
 
 ### Agregado

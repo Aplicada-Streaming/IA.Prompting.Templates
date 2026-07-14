@@ -11,6 +11,7 @@ Proporciona una metodología consistente para construir prompts complejos median
 | Documento | Descripción |
 |-----------|-------------|
 | [Guía conceptual](Guides/Readme.md) | Arquitectura, filosofía y componentes del framework |
+| [How-To](Guides/How-To.md) | Escribir prompts y extender el framework (esquemas copy-paste) |
 | [Guía de usuario](Guides/User-Guide.md) | Cómo utilizar el framework para construir prompts |
 | [Guía de desarrollo](Guides/Develop-Guide.md) | Cómo extender y mantener el framework |
 | [Guía de optimización de tokens](Guides/Token-Optimization.md) | Cómo minimizar el consumo de contexto (técnica ia-db) |
@@ -22,14 +23,13 @@ Proporciona una metodología consistente para construir prompts complejos median
 ```
 IA.Prompting.Templates/
 ├── PromptFramework/
-│   ├── Rules/          # Reglas atómicas de comportamiento
-│   ├── RuleSets/       # Conjuntos de reglas por dominio
+│   ├── Rules/          # Reglas atómicas de comportamiento (7)
+│   ├── RuleSets/       # Conjuntos de reglas por dominio (Lean + Default + 3)
 │   ├── Profiles/       # Perfiles de comportamiento del agente
 │   ├── Templates/      # Plantillas para construir prompts
-│   ├── Prompts/        # Prompts predefinidos reutilizables
-│   ├── Examples/       # Ejemplos concretos de uso
+│   ├── Examples/       # Prompts funcionales completos de ejemplo
 │   └── Guides/         # Documentación del framework
-└── Tool-Prompts/       # Prompts-herramienta de invocación directa (ia-db)
+└── Tool-Prompts/       # Prompts-herramienta de invocación directa (una línea)
 ```
 
 Las referencias entre componentes usan rutas absolutas desde la raíz del workspace, con base `/IA.Prompting.Templates`.

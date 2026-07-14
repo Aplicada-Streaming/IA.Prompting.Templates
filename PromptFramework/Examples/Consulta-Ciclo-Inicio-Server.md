@@ -1,5 +1,9 @@
 
- # Contexto
+> **Uso**: copiá este prompt, reemplazá los datos y rutas por los de tu entorno y ejecutá.
+
+---
+
+# Contexto
 
 La documentación generada deberá permitir comprender como responde el servidor ante los ciclos de apagado con respecto a los contenedores y encontrar una mecanismo para administrar los sistemas de energía ininterrumpida del host.
 

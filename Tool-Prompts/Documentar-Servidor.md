@@ -1,8 +1,22 @@
+# Tool-Prompt — Documentar Servidor
+
+> **Invocación**:
+> - `Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Documentar-Servidor.md en {servidor}`
+
+---
+
+# Parámetros de invocación
+
+| Parámetro | Descripción | Si no se indica |
+|-----------|-------------|-----------------|
+| `{servidor}` | Servidor o host Linux a documentar (acceso, nombre o proyecto que lo administra) | Solicitarlo al usuario antes de comenzar |
+| `{destino}` | Dónde escribir la documentación | El repositorio del proyecto que administra el servidor |
+
+---
+
 # Contexto
 
-El proyecto administra un servidor Linux que requiere documentación técnica actualizada.
-
-La documentación debe representar el estado real del servidor para facilitar su administración, mantenimiento, auditabilidad y eventual reconstrucción.
+El servidor Linux `{servidor}` requiere documentación técnica que represente su estado real, para facilitar su administración, mantenimiento, auditabilidad y eventual reconstrucción.
 
 ---
 
@@ -15,33 +29,22 @@ Generar documentación técnica completa del servidor, representando fielmente s
 # Solicitudes
 
 - Construir un inventario completo del servidor.
-- Documentar sistema operativo y versión.
-- Documentar hardware y recursos disponibles.
-- Identificar aplicaciones instaladas.
-- Documentar servicios configurados y en ejecución.
+- Documentar sistema operativo, versión, hardware y recursos disponibles.
+- Identificar aplicaciones instaladas y servicios configurados y en ejecución.
 - Documentar infraestructura Docker (si aplica).
-- Documentar configuración de red.
-- Documentar almacenamiento y sistemas de archivos.
-- Documentar usuarios y grupos.
-- Documentar configuración de SSH.
-- Documentar reglas de firewall.
-- Documentar tareas programadas.
-- Documentar mecanismos de backup.
-- Documentar monitoreo.
+- Documentar red, almacenamiento y sistemas de archivos.
+- Documentar usuarios, grupos, configuración de SSH y reglas de firewall.
+- Documentar tareas programadas, mecanismos de backup y monitoreo.
 - Generar diagramas de arquitectura.
-- Actualizar la base de conocimiento.
-- Actualizar los índices.
+- Actualizar la base de conocimiento y los índices en `{destino}`.
 
 ---
 
 # Restricciones
 
-- No modificar el estado del servidor.
-- Ejecutar únicamente comandos de lectura.
-- No instalar software.
-- No reiniciar servicios.
-- No inventar información.
-- Toda afirmación deberá estar respaldada por evidencia verificable.
+- No modificar el estado del servidor; ejecutar únicamente comandos de lectura.
+- No instalar software ni reiniciar servicios.
+- No inventar información; toda afirmación debe estar respaldada por evidencia verificable.
 
 ---
 
@@ -52,19 +55,3 @@ Generar documentación técnica completa del servidor, representando fielmente s
 Aplicar:
 
 - `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Documentation.md`
-
----
-
-# Resultado esperado
-
-Al finalizar deberán existir:
-
-- inventario del servidor;
-- documentación de infraestructura;
-- documentación de servicios;
-- documentación de red;
-- documentación de seguridad;
-- documentación de monitoreo;
-- diagramas de arquitectura;
-- base de conocimiento actualizada;
-- índices actualizados.

@@ -68,11 +68,11 @@ Los Tool-Prompts operativos de la técnica:
 | Situación | Qué cargar | Qué no cargar |
 |-----------|------------|----------------|
 | Inicio de conversación sobre un tema | `Iniciar-Contexto` (ia-db: entrada + índices del tema) | Profiles, RuleSets, código fuente |
-| Consulta puntual y acotada | `Prompt-Minimal.md` + Profile | Índices no relacionados con el tema |
+| Análisis simple o consulta puntual | `Prompt-Minimal.md` + `RuleSet-Lean` (solo `Rule-All` + `Rule-Workflow`) | Profiles pesados, Rules de documentación/indexado |
 | Documentación, auditoría o revisión completa | `Prompt-Template.md` + Profile (cadena completa) | Documentos fuente que la ia-db ya condensa, salvo verificación |
 | Creación o actualización de la ia-db | Tool-Prompt de indexado + Profile `Knowledge-Indexing` | — |
 
-Regla general: el Profile determina el **comportamiento** y se carga una vez; el **contexto del proyecto** se recupera vía ia-db según el tema, no por barrido del repositorio.
+Regla general: cargar reglas proporcionales a la tarea. Una tarea trivial usa `RuleSet-Lean` (2 reglas) en lugar de resolver la cadena completa Profile → RuleSet → Rules. El Profile determina el **comportamiento** y se carga una vez; el **contexto del proyecto** se recupera vía ia-db según el tema, no por barrido del repositorio.
 
 ---
 

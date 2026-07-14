@@ -1,6 +1,6 @@
 # RuleSets
 
-Conjuntos de reglas por dominio. Un RuleSet agrupa las Rules que aplican a un tipo de trabajo; el `Default` es la base y los especializados lo extienden añadiendo énfasis y restricciones. Los Profiles referencian un RuleSet según la jerarquía `Prompt → Profile → RuleSet → Rules`.
+Conjuntos de reglas por dominio. Un RuleSet es **solo una lista de Rules**: agrupa las que aplican a un tipo de trabajo. `Default` es la base y los especializados lo extienden agregando las Rules de su dominio; `Lean` es un tier más liviano para tareas simples. El **énfasis y los criterios de calidad los define el Profile**, no el RuleSet. Jerarquía: `Prompt → Profile → RuleSet → Rules`.
 
 Referencia: [Guía conceptual](../Guides/Readme.md) · [README del framework](../README.md) · [Catálogo de Rules](../Rules/README.md)
 
@@ -8,22 +8,24 @@ Referencia: [Guía conceptual](../Guides/Readme.md) · [README del framework](..
 
 ## Catálogo de selección rápida
 
-| RuleSet | Para qué sirve | Extiende | Elegir cuando la tarea… |
-|---------|----------------|----------|-------------------------|
-| [RuleSet-Default](RuleSet-Default.md) | Conjunto base aplicado en toda operación: las 7 Rules del framework. Los demás RuleSets parten de aquí. | — (es la base) | …es genérica o no encaja en un dominio especializado. |
-| [RuleSet-Documentation](RuleSet-Documentation.md) | Documentación técnica: comprender el sistema, ir de lo general a lo particular, diagramas Mermaid, sincronizar la base de conocimiento. | Default | …genera o mantiene documentación técnica de calidad. |
-| [RuleSet-Development](RuleSet-Development.md) | Desarrollo de software: revisión de código, análisis de arquitectura y evaluación técnica, con recomendaciones justificadas. | Default | …analiza o revisa código y arquitectura. |
-| [RuleSet-Audit](RuleSet-Audit.md) | Auditoría técnica **solo lectura**: inventario, inconsistencias y evidencia verificable sin modificar el entorno. | Default | …inspecciona un entorno y reporta hallazgos sin alterar su estado. |
+| RuleSet | Rules que carga | Elegir cuando la tarea… |
+|---------|-----------------|-------------------------|
+| [RuleSet-Lean](RuleSet-Lean.md) | All, Workflow | …es simple, puntual o de análisis rápido; no genera documentación ni toca la ia-db. |
+| [RuleSet-Default](RuleSet-Default.md) | All, Workflow, Evidences, Markdown | …es genérica pero produce un entregable escrito con evidencia. |
+| [RuleSet-Documentation](RuleSet-Documentation.md) | Default + Documentation, Indexing, Agents | …genera o mantiene documentación técnica de calidad. |
+| [RuleSet-Development](RuleSet-Development.md) | Default + Agents | …analiza o revisa código y arquitectura. |
+| [RuleSet-Audit](RuleSet-Audit.md) | Default + Indexing, Agents | …inspecciona un entorno y reporta hallazgos sin alterar su estado. |
 
-Los cuatro aplican las mismas 7 Rules del framework; se diferencian por el **énfasis** y, en Audit, por **restricciones adicionales** (solo mecanismos de inspección y lectura).
+Cada RuleSet carga **solo las Rules que su dominio necesita**: una tarea simple con `Lean` paga 2 reglas, no 7. Así el consumo de tokens es proporcional a la tarea.
 
 ---
 
 ## Cómo elegir
 
-- **Tarea genérica**: `RuleSet-Default`.
+- **Tarea simple / análisis rápido**: `RuleSet-Lean`.
+- **Tarea genérica con entregable escrito**: `RuleSet-Default`.
 - **Documentar**: `RuleSet-Documentation`.
 - **Revisar/analizar código**: `RuleSet-Development`.
 - **Auditar sin tocar el entorno**: `RuleSet-Audit`.
 
-Un RuleSet no se elige directamente en el prompt: lo fija el [Profile](../Profiles/README.md) que uses. Consultá el catálogo de Profiles para ver qué RuleSet aplica cada uno.
+Un RuleSet normalmente no se elige directo en el prompt: lo fija el [Profile](../Profiles/README.md) que uses. Solo se referencia un RuleSet directamente cuando ningún Profile encaja (típico de `Lean` en prompts de análisis simple). Consultá el catálogo de Profiles para ver qué RuleSet aplica cada uno.

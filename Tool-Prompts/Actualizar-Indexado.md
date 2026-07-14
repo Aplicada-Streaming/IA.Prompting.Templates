@@ -59,13 +59,7 @@ Aplicar:
 
 ---
 
-# Resultado esperado
-
-- Índices afectados sincronizados con el estado real de los proyectos del alcance.
-- Manifiesto con fecha y versión actualizadas.
-- Resumen de cambios informado al usuario.
-
-## Verificación de finalización
+# Verificación de finalización
 
 - [ ] Ningún índice contradice el estado actual de los proyectos.
 - [ ] Los índices no afectados no fueron modificados.

@@ -1,5 +1,9 @@
 
- # Contexto
+> **Uso**: copiá este prompt, reemplazá las rutas por las de tu proyecto y ejecutá.
+
+---
+
+# Contexto
 
 
 lee `/Ejemplos_Maui\Ejemplos_Maui_Devices.Documentacion\ia-db\README.md`. 
@@ -25,7 +29,7 @@ En `/Ejemplos_Maui\Ejemplos_Maui_Devices\Ejemplos_Devices\Integrada\Ejemplo_Maui
 
 ## Rule Set
 
-- `/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-Default.md`
+- `/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-Lean.md`
 
 
 

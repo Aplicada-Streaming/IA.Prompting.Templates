@@ -1,8 +1,21 @@
+# Tool-Prompt — Actualizar Documentación
+
+> **Invocación**:
+> - `Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Actualizar-Documentacion.md en {proyecto}`
+
+---
+
+# Parámetros de invocación
+
+| Parámetro | Descripción | Si no se indica |
+|-----------|-------------|-----------------|
+| `{proyecto}` | Proyecto cuya documentación técnica se actualiza | Solicitarlo al usuario antes de comenzar |
+
+---
+
 # Contexto
 
-El proyecto dispone de documentación técnica existente que puede haber quedado desactualizada respecto del estado real del sistema.
-
-La documentación debe mantenerse sincronizada con la infraestructura y el código para que sea útil como fuente de conocimiento del proyecto.
+La documentación técnica de `{proyecto}` puede haber quedado desactualizada respecto del estado real del sistema. Debe mantenerse sincronizada con la infraestructura y el código para seguir siendo útil como fuente de conocimiento.
 
 ---
 
@@ -14,25 +27,20 @@ Actualizar la documentación existente para que represente fielmente el estado a
 
 # Solicitudes
 
-- Revisar la documentación existente.
-- Verificar que el contenido refleje el estado actual del sistema.
-- Identificar secciones desactualizadas.
-- Identificar información faltante.
-- Identificar documentos obsoletos.
+- Revisar la documentación existente y verificar que refleje el estado actual del sistema.
+- Identificar secciones desactualizadas, información faltante y documentos obsoletos.
 - Actualizar la documentación afectada.
-- Actualizar la base de conocimiento.
-- Actualizar los índices.
+- Actualizar la base de conocimiento, los índices y las referencias cruzadas.
 - Actualizar el changelog documental.
-- Verificar consistencia del repositorio documental.
+- Verificar la consistencia del repositorio documental.
 
 ---
 
 # Restricciones
 
 - No eliminar documentación útil sin reemplazarla.
-- No inventar información.
-- Toda afirmación deberá estar respaldada por evidencia.
 - No modificar el estado del sistema durante la verificación.
+- No inventar información; toda afirmación debe estar respaldada por evidencia.
 
 ---
 
@@ -43,16 +51,3 @@ Actualizar la documentación existente para que represente fielmente el estado a
 Aplicar:
 
 - `/IA.Prompting.Templates/PromptFramework/Profiles/Repository-Documentation.md`
-
----
-
-# Resultado esperado
-
-Al finalizar deberán haberse actualizado:
-
-- documentos técnicos desactualizados;
-- índices y referencias cruzadas;
-- base de conocimiento;
-- changelog documental.
-
-La documentación deberá ser consistente con el estado actual del sistema.

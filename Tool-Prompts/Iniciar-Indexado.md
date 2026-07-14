@@ -58,12 +58,7 @@ Aplicar:
 
 ---
 
-# Resultado esperado
-
-- `{destino}/README.md` con instrucción para IA, tabla de navegación, resumen ejecutivo, estructura, restricciones y manifiesto de generación.
-- `{destino}/indexes/` con el índice maestro (o `00_WORKSPACE-INDEX.md` en modo federado) y un índice temático por dominio.
-
-## Verificación de finalización
+# Verificación de finalización
 
 - [ ] Un agente puede responder «¿de qué trata y con qué stack?» leyendo solo `README.md`.
 - [ ] Cada índice cubre un único dominio, referencia sus fuentes y nada está duplicado.

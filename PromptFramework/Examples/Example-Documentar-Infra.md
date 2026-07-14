@@ -1,6 +1,10 @@
 # Documentación de infraestructura Linux con Docker
 
-## Contexto
+> **Uso**: copiá este prompt, reemplazá los datos concretos por los de tu entorno y ejecutá.
+
+---
+
+# Contexto
 
 El proyecto administra un servidor Linux de producción que aloja múltiples servicios basados en Docker.
 
@@ -27,8 +31,8 @@ Generar documentación técnica completa del servidor y su infraestructura Docke
 - Documentar la configuración de almacenamiento.
 - Documentar usuarios y grupos relevantes.
 - Generar diagramas de arquitectura con Mermaid.
-- Actualizar la base de conocimiento del proyecto.
-- Actualizar los índices documentales.
+- Actualizar la base de conocimiento del proyecto y los índices documentales.
+- Entregar la documentación (infraestructura, servicios Docker, redes, almacenamiento y diagramas) consistente con el resto del repositorio y fiel al estado real del servidor.
 
 ---
 
@@ -51,20 +55,3 @@ Generar documentación técnica completa del servidor y su infraestructura Docke
 Aplicar:
 
 - `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Documentation.md`
-
----
-
-# Resultado esperado
-
-Al finalizar deberán haberse generado o actualizado, según corresponda:
-
-- inventario del servidor;
-- documentación de infraestructura;
-- documentación de servicios Docker;
-- documentación de redes;
-- documentación de almacenamiento;
-- diagramas de arquitectura;
-- base de conocimiento;
-- índices documentales.
-
-Toda la documentación deberá ser consistente con el resto del repositorio y representar fielmente el estado real del servidor.

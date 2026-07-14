@@ -1,6 +1,10 @@
 # Auditoría técnica de un servidor Linux
 
-## Contexto
+> **Uso**: copiá este prompt, reemplazá los datos concretos por los de tu entorno y ejecutá.
+
+---
+
+# Contexto
 
 Se requiere realizar una auditoría técnica completa sobre un servidor Linux con el objetivo de conocer su estado actual, detectar configuraciones relevantes, identificar posibles inconsistencias y actualizar la documentación existente.
 
@@ -36,10 +40,8 @@ Realizar una auditoría integral del servidor, generando un informe técnico res
 - Auditar monitoreo.
 - Auditar automatizaciones.
 - Detectar inconsistencias entre la documentación existente y el estado actual del servidor.
-- Actualizar la documentación afectada.
-- Actualizar la base de conocimiento.
-- Actualizar la indexación.
-- Actualizar el changelog documental.
+- Actualizar la documentación afectada, la base de conocimiento, la indexación y el changelog documental.
+- Entregar el informe de auditoría (inventario, observaciones, inconsistencias y evidencias) consistente con el repositorio y fiel al estado real del servidor.
 
 ---
 
@@ -65,26 +67,3 @@ Realizar una auditoría integral del servidor, generando un informe técnico res
 Aplicar:
 
 - `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Audit.md`
-
----
-
-# Resultado esperado
-
-Al finalizar la auditoría deberán haberse generado o actualizado, según corresponda:
-
-- inventario del servidor;
-- documentación técnica;
-- documentación de arquitectura;
-- documentación de servicios;
-- documentación de redes;
-- documentación de almacenamiento;
-- documentación de seguridad;
-- documentación de monitoreo;
-- documentación de automatización;
-- observaciones de auditoría;
-- inconsistencias detectadas;
-- base de conocimiento;
-- índices;
-- changelog.
-
-Toda la documentación deberá representar el estado real del servidor y mantener consistencia con el resto del repositorio.

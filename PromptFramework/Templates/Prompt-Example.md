@@ -1,10 +1,8 @@
-# Prompt — Ejemplo
+<!-- Ejemplo de un prompt completo ya redactado con el núcleo de 5 secciones. -->
 
-## Contexto
+# Contexto
 
-El proyecto contiene la documentación de una infraestructura Linux basada en Docker.
-
-La documentación debe mantenerse sincronizada con el estado real del servidor para facilitar su administración, mantenimiento y reconstrucción.
+El proyecto contiene la documentación de una infraestructura Linux basada en Docker. La documentación quedó desactualizada respecto del estado real del servidor y debe volver a representarlo fielmente para facilitar su administración, mantenimiento y reconstrucción.
 
 ---
 
@@ -17,22 +15,19 @@ Actualizar la documentación de la infraestructura para que represente fielmente
 # Solicitudes
 
 - Construir un inventario del servidor.
-- Detectar tecnologías instaladas.
-- Identificar servicios y aplicaciones desplegadas.
-- Documentar la infraestructura existente.
-- Actualizar la base de conocimiento.
-- Mantener sincronizada la indexación.
+- Detectar tecnologías instaladas, servicios y aplicaciones desplegadas.
+- Documentar la infraestructura existente y sus relaciones.
+- Actualizar la base de conocimiento y mantener sincronizada la indexación.
+- Generar o actualizar, según corresponda: inventario, documentación técnica, procedimientos, diagramas, referencias cruzadas, índices y changelog.
 
 ---
 
 # Restricciones
 
-- No modificar el estado del servidor.
-- Ejecutar únicamente comandos de lectura.
+- No modificar el estado del servidor; ejecutar únicamente comandos de lectura.
 - No realizar cambios sobre proyectos de software.
 - No realizar commit, push ni pull request.
-- No inventar información.
-- Toda afirmación deberá estar respaldada por evidencias verificables.
+- No inventar información; toda afirmación debe estar respaldada por evidencia verificable.
 
 ---
 
@@ -43,20 +38,3 @@ Actualizar la documentación de la infraestructura para que represente fielmente
 Aplicar:
 
 - `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Documentation.md`
-
----
-
-# Resultado esperado
-
-Al finalizar deberán haberse generado o actualizado, según corresponda:
-
-- inventario de infraestructura;
-- documentación técnica;
-- procedimientos;
-- diagramas;
-- referencias cruzadas;
-- base de conocimiento;
-- índices;
-- changelog.
-
-Toda la documentación deberá ser consistente con el resto del repositorio y representar el estado real del proyecto.

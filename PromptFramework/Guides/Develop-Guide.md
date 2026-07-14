@@ -130,39 +130,29 @@ No crear un nuevo RuleSet cuando:
 
 ### Estructura de un RuleSet
 
+Un RuleSet es **solo una lista de Rules** (sin `## Énfasis` ni `## Criterios de calidad`: eso lo define el Profile). Carga solo las Rules que su dominio necesita.
+
 ```markdown
 # RuleSet — [Nombre]
 
 ## Objetivo
 
-[Descripción del tipo de tarea para el que aplica este RuleSet]
+[Tipo de tarea. Extiende Default con las Rules de su dominio.]
 
 ---
 
 ## Reglas
 
-Aplica todas las reglas del RuleSet Default:
+Default (`Rule-All`, `Rule-Workflow`, `Rule-Evidences`, `Rule-Markdown`) más [las que sumes]:
 
 - `/IA.Prompting.Templates/PromptFramework/Rules/Rule-All.md`
 - `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Workflow.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Agents.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Documentation.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Markdown.md`
 - `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Evidences.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Indexing.md`
-
----
-
-## Énfasis
-
-[Comportamientos que deben priorizarse para este tipo de tarea]
-
----
-
-## Criterios de calidad
-
-[Condiciones que deben cumplirse para considerar la tarea finalizada]
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Markdown.md`
+- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-[Extra].md`
 ```
+
+Composición actual de los RuleSets: ver [`RuleSets/Readme.md`](../RuleSets/Readme.md).
 
 ### Convenciones de nomenclatura
 
@@ -268,30 +258,31 @@ Un Template debe:
 
 ### Estructura de un Template
 
+Núcleo de **5 secciones**. Los entregables van dentro de `# Solicitudes` (no hay sección «Resultado esperado» separada). Cómo completar cada sección: [How-To](How-To.md).
+
 ```markdown
 # Contexto
 
-[Descripción del contexto del problema]
+[Estado actual del problema, en presente.]
 
 ---
 
 # Objetivo
 
-[Resultado esperado al finalizar]
+[Qué debe ser verdad al terminar.]
 
 ---
 
 # Solicitudes
 
-- [Tarea 1]
-- [Tarea 2]
+- [Tarea atómica y verificable.]
+- [Entregable con su ruta: «Generar el informe en `<ruta>`.»]
 
 ---
 
 # Restricciones
 
-- [Restricción 1]
-- [Restricción 2]
+- [Qué no debe hacer el agente.]
 
 ---
 
@@ -301,13 +292,6 @@ Un Template debe:
 
 Aplicar:
 - `/IA.Prompting.Templates/PromptFramework/Profiles/[Profile].md`
-
----
-
-# Resultado esperado
-
-- [Entregable 1]
-- [Entregable 2]
 ```
 
 ### Convenciones
@@ -356,13 +340,12 @@ Un Example debe:
 | RuleSet | `RuleSet-[Dominio].md` | `RuleSet-Audit.md` |
 | Profile | `[Dominio]-[Tipo].md` | `Infrastructure-Audit.md` |
 | Template | `Prompt-[Nombre].md` | `Prompt-Template.md` |
-| Prompt | `[Verbo]-[Objeto].md` | `Documentar-Servidor.md` |
 | Tool-Prompt | `[Verbo]-[Objeto].md` (en `/IA.Prompting.Templates/Tool-Prompts/`) | `Iniciar-Contexto.md` |
 | Example | `Example-[Descripción].md` | `Example-Auditoria.md` |
 
 ### Idioma
 
-- Nombres de archivos: español para Prompts y Examples, inglés para Rules y RuleSets.
+- Nombres de archivos: español para Tool-Prompts y Examples, inglés para Rules y RuleSets.
 - Contenido de todos los documentos: español.
 - Títulos: español.
 
@@ -397,10 +380,9 @@ Los enlaces Markdown de navegación (`[texto](ruta relativa)`) dentro de un mism
 ```
 PromptFramework/
 ├── Rules/                  # Reglas atómicas (una por dominio)
-├── RuleSets/               # Colecciones de reglas (Default + especializados)
+├── RuleSets/               # Listas de reglas (Lean + Default + especializados)
 ├── Profiles/               # Configuraciones de comportamiento del agente
 ├── Templates/              # Estructuras para construir prompts
-├── Prompts/                # Prompts predefinidos reutilizables
 ├── Examples/               # Prompts funcionales completos
 └── Guides/                 # Documentación del framework
 

@@ -4,8 +4,6 @@
 
 Definir el ciclo de trabajo de toda ejecución: **diagnosticar → planificar → ejecutar → validar → reportar**.
 
-Unifica las antiguas reglas de planificación y ejecución (`Rule-Tasks`, `Rule-Execution`) en un único ciclo.
-
 ---
 
 # 1. Diagnóstico

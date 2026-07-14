@@ -98,18 +98,19 @@ Las reglas no se utilizan directamente en los prompts. Se aplican a través de R
 
 ### RuleSets
 
-Un RuleSet es una colección de reglas agrupadas para un tipo de tarea.
+Un RuleSet es **solo una lista de Rules** agrupadas para un tipo de tarea; el énfasis lo define el Profile, no el RuleSet. Cada uno carga solo las Rules que su dominio necesita, para que el consumo de tokens sea proporcional a la tarea.
 
-| RuleSet | Dominio |
-|---------|---------|
-| `RuleSet-Default.md` | Conjunto base aplicado en toda operación |
-| `RuleSet-Documentation.md` | Tareas de documentación técnica |
-| `RuleSet-Development.md` | Tareas de desarrollo y revisión de código |
-| `RuleSet-Audit.md` | Auditorías técnicas de infraestructura |
+| RuleSet | Rules que carga |
+|---------|-----------------|
+| `RuleSet-Lean.md` | All, Workflow (tier liviano para tareas simples) |
+| `RuleSet-Default.md` | All, Workflow, Evidences, Markdown |
+| `RuleSet-Documentation.md` | Default + Documentation, Indexing, Agents |
+| `RuleSet-Development.md` | Default + Agents |
+| `RuleSet-Audit.md` | Default + Indexing, Agents |
 
-Todo RuleSet especializado incluye las reglas del RuleSet Default más sus comportamientos específicos.
+Los RuleSets especializados extienden Default con las Rules de su dominio; `Lean` es un subconjunto de Default.
 
-Los RuleSets no se utilizan directamente en los prompts. Se aplican a través de Profiles.
+Los RuleSets no se utilizan directamente en los prompts (se aplican a través de Profiles), salvo `Lean`, que puede referenciarse directo en prompts de análisis simple.
 
 ### Profiles
 
@@ -139,16 +140,7 @@ Los Templates son estructuras vacías que guían la construcción de nuevos prom
 | `Prompt-Minimal.md` | Estructura mínima para prompts simples |
 | `Prompt-Example.md` | Ejemplo completo de un prompt funcional |
 
-### Prompts
-
-Los Prompts son instrucciones predefinidas para tareas comunes y reutilizables.
-
-| Prompt | Propósito |
-|--------|-----------|
-| `Actualizar-Documentacion.md` | Actualizar documentación existente |
-| `Documentar-Docker.md` | Documentar una infraestructura Docker |
-| `Documentar-Servidor.md` | Documentar un servidor Linux |
-| `Revisar-Seguridad.md` | Realizar una revisión de seguridad |
+Los tres usan el **núcleo de 5 secciones** (`Contexto · Objetivo · Solicitudes · Restricciones · Framework`). Ver [How-To](How-To.md) para completarlas.
 
 ### Tool-Prompts
 
@@ -160,9 +152,15 @@ Ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Contexto.md en <tema>
 
 | Tool-Prompt | Propósito |
 |-------------|-----------|
+| `Iniciar-Contexto.md` | Arrancar un chat cargando el contexto mínimo de un tema |
 | `Iniciar-Indexado.md` | Generar la ia-db de uno o más proyectos (modo proyecto o workspace federado) |
 | `Actualizar-Indexado.md` | Sincronizar una ia-db existente con los cambios de sus proyectos |
-| `Iniciar-Contexto.md` | Arrancar un chat cargando el contexto mínimo de un tema |
+| `Documentar-Servidor.md` | Documentar un servidor Linux |
+| `Documentar-Docker.md` | Documentar una infraestructura Docker |
+| `Actualizar-Documentacion.md` | Actualizar documentación existente de un proyecto |
+| `Revisar-Seguridad.md` | Revisión de seguridad (solo lectura) |
+
+Ver el catálogo completo con invocación y Profile de cada uno en `/IA.Prompting.Templates/Tool-Prompts/README.md`.
 
 `Iniciar-Contexto.md` es autónomo (no carga Profiles ni RuleSets) para minimizar el consumo de tokens; es la excepción documentada a la jerarquía del framework. Ver la [Guía de Optimización de Tokens](Token-Optimization.md).
 
@@ -182,6 +180,7 @@ Las guías documentan el framework en sí.
 | Guía | Audiencia |
 |------|-----------|
 | `Readme.md` | Todos — arquitectura y conceptos del framework |
+| `How-To.md` | Todos — escribir prompts y extender el framework (copy-paste) |
 | `User-Guide.md` | Usuarios — cómo usar el framework |
 | `Develop-Guide.md` | Desarrolladores — cómo extender el framework |
 | `Token-Optimization.md` | Todos — cómo minimizar el consumo de contexto (técnica ia-db) |
@@ -294,6 +293,6 @@ graph TB
 | ¿Cuándo usar un RuleSet directamente? | Al construir un nuevo Profile o cuando ningún Profile existente se adapte al caso. |
 | ¿Cuándo usar Rules directamente? | Nunca desde un Prompt. Las Rules siempre se aplican a través de RuleSets. |
 | ¿Cuándo usar un Template? | Para construir prompts nuevos. Proveen la estructura correcta. |
-| ¿Cuándo usar un Prompt predefinido? | Cuando la tarea coincida con una tarea común en la carpeta `Prompts/`. |
-| ¿Cuándo usar un Tool-Prompt? | Para operar la ia-db o iniciar el contexto de un chat con una sola línea. |
+| ¿Cuándo usar un Tool-Prompt? | Para tareas recurrentes (documentar, indexar, auditar, iniciar contexto) invocables en una línea. |
+| ¿Cuándo referenciar un RuleSet directo? | Solo si ningún Profile encaja; típico de `Lean` en análisis simple. |
 | ¿Cuándo consultar los Examples? | Antes de crear un prompt nuevo, para entender patrones funcionales probados. |
