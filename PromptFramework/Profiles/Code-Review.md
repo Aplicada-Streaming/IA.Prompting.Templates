@@ -43,7 +43,7 @@ Cada recomendación: indica el problema y su evidencia (archivo, componente, mé
 
 # Diagramas típicos
 
-Dependencias, flujo de llamadas, arquitectura, secuencia, relaciones entre módulos.
+Dependencias, flujo de llamadas, arquitectura, clases, secuencia, relaciones entre módulos, E2E, wireframes.
 
 ---
 

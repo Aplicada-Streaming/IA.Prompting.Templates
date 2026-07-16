@@ -1,12 +1,16 @@
+# Tool-Prompt — Actualizar Documentación
 
-> **Uso**: copiá este prompt, reemplazá las rutas por las de tu proyecto y ejecutá.
+> **Invocación**:
+> - `Lee y ejecuta /IA.Prompting.Templates/PromptFramework/Examples/Analisis-Comportamiento-Software.md`
 
 ---
 
 # Contexto
 
 
-lee `/Ejemplos_Maui\Ejemplos_Maui_Devices.Documentacion\ia-db\README.md`. 
+Lee `/Ejemplos_Maui/Ejemplos_Maui_Devices.Documentacion/ia-db/README.md`. 
+
+
 En `/Ejemplos_Maui\Ejemplos_Maui_Devices\Ejemplos_Devices\Integrada\Ejemplo_Maui_Hibrida\Pages\MainPage.xaml` el componente refresh no se cierra al hacer el gesto.
 
 ---
