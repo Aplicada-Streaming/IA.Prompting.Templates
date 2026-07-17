@@ -176,15 +176,14 @@ Ver el catálogo completo con invocación y Profile de cada uno en `/IA/IA.Promp
 
 ### Examples
 
-Los Examples son prompts completos y funcionales que demuestran el uso del framework en escenarios reales. Los `Example-*` son ejemplos pulidos que reutilizan un Profile o RuleSet; la carpeta también guarda prompts reales que quedaron funcionando.
+Los Examples son prompts completos y funcionales que demuestran el uso del framework en escenarios reales. Los `Example-*` son ejemplos pulidos que reutilizan un Profile o RuleSet.
 
 | Ejemplo | Escenario |
 |---------|-----------|
 | `Example-Auditoria.md` | Auditoría técnica de un servidor Linux |
-| `Example-Documentar-Infra.md` | Documentación de una infraestructura Linux con Docker |
 | `Example-Mantener-Guias.md` | Mantenimiento de las guías del framework |
 
-Catálogo completo (incluidos los prompts reales): `/IA/IA.Prompts/PromptFramework/Examples/README.md`.
+Catálogo completo: `/IA/IA.Prompts/PromptFramework/Examples/README.md`.
 
 ### Guides
 

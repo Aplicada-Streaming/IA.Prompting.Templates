@@ -183,10 +183,6 @@ Aplicar:
 
 Consultar `/IA/IA.Prompts/PromptFramework/Examples/Example-Auditoria.md` para un ejemplo completo de auditoría de servidor Linux.
 
-### Ejemplo 3 — Documentación de infraestructura con Docker
-
-Consultar `/IA/IA.Prompts/PromptFramework/Examples/Example-Documentar-Infra.md` para un ejemplo completo de documentación de infraestructura Linux con Docker.
-
 ---
 
 ## Errores comunes
