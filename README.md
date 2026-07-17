@@ -3,7 +3,7 @@
 Framework reutilizable para ingeniería de prompts.
 
 Construye prompts complejos componiendo piezas independientes y reutilizables. Los prompts describen **qué** hay que hacer; los Profiles determinan **cómo** se comporta el agente. Jerarquía: `Prompt → Profile → RuleSet → Rules`.
-
+ 
 ---
 
 ## De una idea a un Tool-Prompt
