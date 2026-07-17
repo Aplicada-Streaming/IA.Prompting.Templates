@@ -1,7 +1,7 @@
 # Tool-Prompt — Actualizar Documentación
 
 > **Invocación**:
-> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Actualizar-Documentacion.md en {proyecto}`
+> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Software/Actualizar-Documentacion.md en {proyecto}`
 
 ---
 

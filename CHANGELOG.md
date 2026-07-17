@@ -4,6 +4,22 @@ Registro de cambios del framework de prompting. Formato basado en [Keep a Change
 
 ---
 
+## [1.9.0] — 2026-07-17
+
+### Agregado
+
+- **Rule `Rules/Rule-Narrative-Voice.md`** — regla atómica y reutilizable que ajusta la voz de la prosa de los entregables: técnica y formal, con ritmo y criterio de autoría humana, eliminando los patrones que delatan texto generado en serie (muletillas de relleno, conectores decorativos encadenados, ritmo de frase uniforme, listas donde va prosa, cierres genéricos, restatear el título de la sección). Aplica solo a las zonas de prosa; las zonas estructuradas (frontmatter, IDs, tablas, matrices, anclas) se mantienen rígidas por `Rule-Dual-Audience` / `Rule-Markdown`. Se suma a `RuleSet-Security-Audit`, con alta en `Rules/README.md`, la Guía Conceptual y la sección «Voz y redacción» del Profile `Web-Security-Audit`.
+- **Tool-Prompt `Tool-Prompts/Seguridad/Auditoria-Seguridad.md`** — auditoría de seguridad de un sistema web autenticado **desde su URL pública**, no desde el código fuente: reconocimiento de superficie expuesta, mapeo de funcionalidades y controles de acceso con una cuenta autorizada, pruebas por categoría del catálogo OWASP (Top 10 / WSTG) priorizando técnicas pasivas y de solo lectura, análisis de riesgo (severidad, CVSS, impacto) e informe técnico como **un único archivo Markdown** en `{destino}`, con tabla de contenidos al inicio y anexos embebidos al final del mismo documento. Parámetros: `{URL}`, `{Usuario}`, `{Clave}`, `{destino}` (ruta del `.md`).
+- **Cadena de framework para auditoría web**: `Rules/Rule-Security-Testing.md` → `RuleSets/RuleSet-Security-Audit.md` → `Profiles/Web-Security-Audit.md`, con alta en los tres catálogos y en la Guía Conceptual. Las restricciones de autorización (alcance, no destructividad, enmascarado de credenciales, no inventar hallazgos) las fija el Profile.
+
+### Cambiado
+
+- **Agrupación de `Tool-Prompts/` en carpetas por dominio**: `Indexado/`, `Software/`, `BasesDatos/`, `Docker/`, `Infra/` y `Seguridad/`. La carpeta pasa a formar parte de la ruta de invocación (`/Tool-Prompts/Indexado/Iniciar-Contexto.md`); se rebasan las cabeceras `> **Invocación**` de los 10 Tool-Prompts movidos y todas las referencias en READMEs, guías y `Profiles/Knowledge-Indexing.md`. La convención de nombres pasa a `[Categoria]/[Verbo]-[Objeto].md` en `Guides/Develop-Guide.md` y `Guides/How-To.md`.
+- **`Infra/` y `Seguridad/` se separan por objeto auditado, no por disciplina**: `Infra/Revisar-Seguridad.md` revisa la postura de un servidor o red desde adentro (Infrastructure-Audit); `Seguridad/Auditoria-Seguridad.md` audita un portal web autenticado desde su URL (Web-Security-Audit). Criterio documentado en `Tool-Prompts/README.md`.
+- **Catálogo `Tool-Prompts/README.md`**: la tabla única pasa a una tabla por categoría, más una tabla de carpetas con su dominio.
+
+---
+
 ## [1.8.1] — 2026-07-16
 
 ### Cambiado

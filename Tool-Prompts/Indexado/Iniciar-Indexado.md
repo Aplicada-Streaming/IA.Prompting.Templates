@@ -1,8 +1,8 @@
 # Tool-Prompt — Iniciar Indexado
 
 > **Invocación**:
-> - Un proyecto: `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Iniciar-Indexado.md en {proyecto}`
-> - Varios proyectos: `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Iniciar-Indexado.md de {proyecto-a} y {proyecto-b} y deja la indexación en {destino}`
+> - Un proyecto: `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Indexado/Iniciar-Indexado.md en {proyecto}`
+> - Varios proyectos: `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Indexado/Iniciar-Indexado.md de {proyecto-a} y {proyecto-b} y deja la indexación en {destino}`
 
 ---
 

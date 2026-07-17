@@ -30,6 +30,12 @@ IA.Prompts/
 │   ├── Examples/       # Prompts funcionales completos de ejemplo
 │   └── Guides/         # Documentación del framework
 └── Tool-Prompts/       # Prompts-herramienta de invocación directa (una línea)
+    ├── Indexado/       # ia-db y arranque de contexto
+    ├── Software/       # Código fuente: documentación de soluciones y QA
+    ├── BasesDatos/     # Estructura de bases de datos
+    ├── Docker/         # Infraestructura de contenedores
+    ├── Infra/          # Servidores y redes
+    └── Seguridad/      # Auditoría de seguridad de sistemas web expuestos
 ```
 
 Las referencias entre componentes usan rutas absolutas desde la raíz del workspace, con base `/IA/IA.Prompts`.

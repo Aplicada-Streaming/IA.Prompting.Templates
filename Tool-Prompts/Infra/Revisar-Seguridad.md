@@ -1,7 +1,7 @@
 # Tool-Prompt — Revisar Seguridad
 
 > **Invocación**:
-> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Revisar-Seguridad.md en {sistema}`
+> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Infra/Revisar-Seguridad.md en {sistema}`
 
 ---
 

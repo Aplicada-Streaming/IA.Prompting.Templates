@@ -1,7 +1,7 @@
 # Tool-Prompt — Documentar Base de Datos
 
 > **Invocación**:
-> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Documentar-BaseDatos.md en {proyecto}`
+> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/BasesDatos/Documentar-BaseDatos.md en {proyecto}`
 
 ---
 

@@ -340,7 +340,7 @@ Un Example debe:
 | RuleSet | `RuleSet-[Dominio].md` | `RuleSet-Audit.md` |
 | Profile | `[Dominio]-[Tipo].md` | `Infrastructure-Audit.md` |
 | Template | `Prompt-[Nombre].md` | `Prompt-Template.md` |
-| Tool-Prompt | `[Verbo]-[Objeto].md` (en `/IA/IA.Prompts/Tool-Prompts/`) | `Iniciar-Contexto.md` |
+| Tool-Prompt | `[Verbo]-[Objeto].md` (en `/IA/IA.Prompts/Tool-Prompts/[Categoria]/`) | `Indexado/Iniciar-Contexto.md` |
 | Example | `Example-[Descripción].md` | `Example-Auditoria.md` |
 
 ### Idioma
@@ -366,7 +366,7 @@ Al referenciar componentes del framework desde prompts, perfiles o reglas, utili
 `/IA/IA.Prompts/PromptFramework/Rules/Rule-All.md`
 `/IA/IA.Prompts/PromptFramework/RuleSets/RuleSet-Documentation.md`
 `/IA/IA.Prompts/PromptFramework/Profiles/Repository-Documentation.md`
-`/IA/IA.Prompts/Tool-Prompts/Iniciar-Contexto.md`
+`/IA/IA.Prompts/Tool-Prompts/Indexado/Iniciar-Contexto.md`
 ```
 
 Si el repositorio cambia de ubicación, actualizar las referencias de los documentos.
@@ -387,9 +387,15 @@ PromptFramework/
 └── Guides/                 # Documentación del framework
 
 Tool-Prompts/               # (raíz del repositorio) Prompts-herramienta de invocación directa
+├── Indexado/               # ia-db y arranque de contexto
+├── Software/               # Código fuente: documentación de soluciones y QA
+├── BasesDatos/             # Estructura de bases de datos
+├── Docker/                 # Infraestructura de contenedores
+├── Infra/                  # Servidores y redes (documentación y seguridad de infraestructura)
+└── Seguridad/              # Auditoría de seguridad de sistemas web expuestos
 ```
 
-Los Tool-Prompts deben ser parametrizables mediante placeholders `{parametro}`, invocables en una línea y declarar qué hacer cuando un parámetro no se indica.
+Los Tool-Prompts deben ser parametrizables mediante placeholders `{parametro}`, invocables en una línea y declarar qué hacer cuando un parámetro no se indica. Cada uno vive en la carpeta de su dominio, y esa carpeta forma parte de la ruta de invocación.
 
 ### Principio de mínima intervención
 
@@ -446,7 +452,7 @@ Checklist verificable que el agente completa al crear o modificar una pieza del 
 | Profile | `/IA/IA.Prompts/PromptFramework/Profiles/[Dominio]-[Tipo].md` | Catálogo `Profiles/README.md` · tabla de Profiles de la Guía Conceptual |
 | Template | `/IA/IA.Prompts/PromptFramework/Templates/Prompt-[Nombre].md` | Catálogo `Templates/README.md` · tabla de Templates de la Guía Conceptual |
 | Example | `/IA/IA.Prompts/PromptFramework/Examples/Example-[Descripción].md` | Catálogo `Examples/README.md` · tabla de Examples de la Guía Conceptual |
-| Tool-Prompt | `/IA/IA.Prompts/Tool-Prompts/[Verbo]-[Objeto].md` | Catálogo `Tool-Prompts/README.md` · tabla de Tool-Prompts de la Guía Conceptual |
+| Tool-Prompt | `/IA/IA.Prompts/Tool-Prompts/[Categoria]/[Verbo]-[Objeto].md` | Catálogo `Tool-Prompts/README.md` (tabla de su categoría) · tabla de Tool-Prompts de la Guía Conceptual |
 
 Las rutas de los catálogos son relativas a `/IA/IA.Prompts/PromptFramework/`, salvo `Tool-Prompts/`, que está en la raíz del repositorio.
 

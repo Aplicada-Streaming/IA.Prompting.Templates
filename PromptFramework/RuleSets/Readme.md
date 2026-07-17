@@ -16,6 +16,7 @@ Referencia: [Guía conceptual](../Guides/Readme.md) · [README del framework](..
 | [RuleSet-Solution-Documentation](RuleSet-Solution-Documentation.md) | Documentation + Dual-Audience, Drift-Control | …documenta una solución completa conforme a un marco maestro, con subagentes orquestados. |
 | [RuleSet-Development](RuleSet-Development.md) | Default + Agents | …analiza o revisa código y arquitectura. |
 | [RuleSet-Audit](RuleSet-Audit.md) | Default + Indexing, Agents | …inspecciona un entorno y reporta hallazgos sin alterar su estado. |
+| [RuleSet-Security-Audit](RuleSet-Security-Audit.md) | Default + Indexing, Agents, Documentation, Dual-Audience, Security-Testing | …audita la seguridad de un sistema web/API con pruebas autorizadas y produce un informe OWASP. |
 
 Cada RuleSet carga **solo las Rules que su dominio necesita**: una tarea simple con `Lean` paga 2 reglas, no 7. Así el consumo de tokens es proporcional a la tarea.
 
@@ -29,5 +30,6 @@ Cada RuleSet carga **solo las Rules que su dominio necesita**: una tarea simple 
 - **Documentar una solución completa (marco maestro + orquestación)**: `RuleSet-Solution-Documentation`.
 - **Revisar/analizar código**: `RuleSet-Development`.
 - **Auditar sin tocar el entorno**: `RuleSet-Audit`.
+- **Auditar la seguridad de un sistema web/API**: `RuleSet-Security-Audit`.
 
 Un RuleSet normalmente no se elige directo en el prompt: lo fija el [Profile](../Profiles/README.md) que uses. Solo se referencia un RuleSet directamente cuando ningún Profile encaja (típico de `Lean` en prompts de análisis simple). Consultá el catálogo de Profiles para ver qué RuleSet aplica cada uno.

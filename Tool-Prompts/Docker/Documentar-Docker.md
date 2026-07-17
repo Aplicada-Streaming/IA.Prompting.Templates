@@ -1,7 +1,7 @@
 # Tool-Prompt — Documentar Docker
 
 > **Invocación**:
-> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Documentar-Docker.md en {proyecto}`
+> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Docker/Documentar-Docker.md en {proyecto}`
 
 ---
 

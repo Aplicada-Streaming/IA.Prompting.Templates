@@ -197,13 +197,13 @@ Después: completá el [checklist de actualización](Develop-Guide.md#uso-por-ag
 
 ## Crear un Tool-Prompt
 
-Un Tool-Prompt = prompt invocable en una línea, parametrizado con `{placeholders}`. Vive en `/IA/IA.Prompts/Tool-Prompts/`. Archivo: `[Verbo]-[Objeto].md`.
+Un Tool-Prompt = prompt invocable en una línea, parametrizado con `{placeholders}`. Vive en `/IA/IA.Prompts/Tool-Prompts/[Categoria]/`, agrupado por dominio (`Indexado`, `Software`, `BasesDatos`, `Docker`, `Infra`, `Seguridad`; catálogo en [`Tool-Prompts/README.md`](../../Tool-Prompts/README.md)). Archivo: `[Verbo]-[Objeto].md`.
 
 ```markdown
 # Tool-Prompt — [Nombre]
 
 > **Invocación**:
-> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/[archivo].md en {parametro}`
+> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/[Categoria]/[archivo].md en {parametro}`
 
 ---
 

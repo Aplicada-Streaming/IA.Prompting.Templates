@@ -31,10 +31,11 @@ Para comprender la arquitectura del framework antes de comenzar, consultar la [G
 Para tareas recurrentes (documentar, indexar, auditar, iniciar contexto) no hace falta construir nada: se invocan con una sola línea.
 
 ```
-Ejecuta /IA/IA.Prompts/Tool-Prompts/Iniciar-Contexto.md en <tema>
-Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Iniciar-Indexado.md en <proyecto>
-Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Documentar-Servidor.md en <servidor>
-Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Revisar-Seguridad.md en <sistema>
+Ejecuta /IA/IA.Prompts/Tool-Prompts/Indexado/Iniciar-Contexto.md en <tema>
+Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Indexado/Iniciar-Indexado.md en <proyecto>
+Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Infra/Documentar-Servidor.md en <servidor>
+Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Infra/Revisar-Seguridad.md en <sistema>
+Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Seguridad/Auditoria-Seguridad.md en <URL> con Usuario:<Usuario> y Clave:<Clave> y deja el informe en <Destino>
 ```
 
 Ver el catálogo en `/IA/IA.Prompts/Tool-Prompts/README.md` y la [Guía de Optimización de Tokens](Token-Optimization.md).
@@ -241,7 +242,7 @@ Definir siempre qué comandos puede ejecutar, si puede modificar archivos, si pu
    El Profile y las solicitudes deben ser coherentes entre sí.
 
 7. **Minimizar el consumo de tokens.**
-   Iniciar las conversaciones con `Tool-Prompts/Iniciar-Contexto.md` y recuperar contexto desde la ia-db en lugar de releer el repositorio. Ver la [Guía de Optimización de Tokens](Token-Optimization.md).
+   Iniciar las conversaciones con `Tool-Prompts/Indexado/Iniciar-Contexto.md` y recuperar contexto desde la ia-db en lugar de releer el repositorio. Ver la [Guía de Optimización de Tokens](Token-Optimization.md).
 
 ---
 

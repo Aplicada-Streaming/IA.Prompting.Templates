@@ -1,7 +1,7 @@
 # Tool-Prompt — Derivar Casos de Prueba
 
 > **Invocación**:
-> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Derivar-Casos-Prueba.md en {proyecto}`
+> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Software/Derivar-Casos-Prueba.md en {proyecto}`
 
 ---
 

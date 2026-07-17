@@ -1,6 +1,6 @@
 # Tool-Prompt — Iniciar Contexto
 
-> **Invocación**: `Ejecuta /IA/IA.Prompts/Tool-Prompts/Iniciar-Contexto.md en {tema}`
+> **Invocación**: `Ejecuta /IA/IA.Prompts/Tool-Prompts/Indexado/Iniciar-Contexto.md en {tema}`
 >
 > **Nota de diseño**: este prompt es autónomo — no cargar Profiles, RuleSets ni Rules. Su única función es arrancar la conversación con el mínimo consumo de tokens. Es la excepción documentada a la jerarquía del framework.
 
@@ -37,6 +37,6 @@ Cargar en la conversación el contexto mínimo suficiente sobre `{tema}`, usando
 - No cargar todos los índices «por las dudas»: la recuperación es incremental.
 - No ejecutar ninguna tarea todavía: este prompt solo prepara el contexto.
 - No modificar ningún archivo.
-- Si el proyecto no tiene ia-db, informarlo y proponer ejecutar `/IA/IA.Prompts/Tool-Prompts/Iniciar-Indexado.md` — no improvisar un barrido del repositorio.
+- Si el proyecto no tiene ia-db, informarlo y proponer ejecutar `/IA/IA.Prompts/Tool-Prompts/Indexado/Iniciar-Indexado.md` — no improvisar un barrido del repositorio.
 
 El paso 5 del procedimiento es la condición de finalización: un mensaje breve de confirmación de contexto, con el agente a la espera de la tarea y habiendo consumido solo el punto de entrada más los índices estrictamente necesarios.

@@ -19,6 +19,7 @@ Referencia: [Guía conceptual](../Guides/Readme.md) · [README del framework](..
 | [Database-Documentation](Database-Documentation.md) | Documentar una base de datos: diccionario de datos y modelo ER en dbml desde el esquema real, sin credenciales ni datos (solo lectura). | Documentation | …necesita documentar la estructura de una base de datos de forma regenerable. |
 | [QA-Test-Design](QA-Test-Design.md) | Derivar casos de prueba (`TC-` trazables) y fixtures sintéticos PII-safe desde el modelo de datos (diccionario + ER). | Documentation | …necesita construir casos y datos de prueba a partir del modelo de datos. |
 | [Infrastructure-Audit](Infrastructure-Audit.md) | Auditar una infraestructura **sin modificarla**: inventario verificable, inconsistencias y evidencia por hallazgo (solo lectura). | Audit | …exige inspeccionar un entorno y reportar hallazgos sin alterar su estado. |
+| [Web-Security-Audit](Web-Security-Audit.md) | Auditar la seguridad de un sistema web autenticado con pruebas autorizadas y no destructivas, y producir un informe técnico OWASP con hallazgos priorizados por riesgo. | Security-Audit | …releva la seguridad de una web/API y genera un informe técnico conforme al estándar de la industria. |
 | [Knowledge-Indexing](Knowledge-Indexing.md) | Construir y mantener la base de conocimiento `ia-db`: índices semánticos que reducen tokens y aceleran el arranque de contexto. | Documentation | …crea o actualiza la memoria operativa del proyecto (indexado). |
 
 ---
@@ -32,6 +33,7 @@ Referencia: [Guía conceptual](../Guides/Readme.md) · [README del framework](..
 - **Documentar una base de datos**: `Database-Documentation` (diccionario + ER en dbml, solo lectura).
 - **Diseñar pruebas desde el modelo de datos**: `QA-Test-Design` (casos `TC-` + fixtures sintéticos).
 - **Auditar sin tocar**: `Infrastructure-Audit` (único de solo lectura, RuleSet Audit).
+- **Auditar la seguridad de una web/API**: `Web-Security-Audit` (pruebas autorizadas + informe OWASP, RuleSet Security-Audit).
 - **Construir/actualizar la ia-db**: `Knowledge-Indexing`.
 
-Los Profiles no se combinan entre sí: cada ejecución adopta uno. Si el trabajo abarca varios enfoques, delegar cada uno en un subagente con su Profile (ver [Rule-Agents](../Rules/Rule-Agents.md)); `Solution-Documentation` formaliza justamente esa orquestación para documentar soluciones completas. Todos se apoyan en el RuleSet Documentation, salvo `Code-Review` (Development), `Infrastructure-Audit` (Audit) y `Solution-Documentation` (Solution-Documentation, que extiende Documentation).
+Los Profiles no se combinan entre sí: cada ejecución adopta uno. Si el trabajo abarca varios enfoques, delegar cada uno en un subagente con su Profile (ver [Rule-Agents](../Rules/Rule-Agents.md)); `Solution-Documentation` formaliza justamente esa orquestación para documentar soluciones completas. Todos se apoyan en el RuleSet Documentation, salvo `Code-Review` (Development), `Infrastructure-Audit` (Audit), `Web-Security-Audit` (Security-Audit) y `Solution-Documentation` (Solution-Documentation, que extiende Documentation).

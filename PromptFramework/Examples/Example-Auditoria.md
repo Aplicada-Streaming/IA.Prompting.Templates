@@ -1,3 +1,4 @@
+
 # Auditoría técnica de un servidor Linux
 
 > **Uso**: copiá este prompt, reemplazá los datos concretos por los de tu entorno y ejecutá.
