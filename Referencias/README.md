@@ -1,6 +1,6 @@
 # Referencias
 
-Documentación de referencia **externa al framework de prompts**. No define comportamiento del agente (eso vive en `/IA.Prompting.Templates/PromptFramework`): son marcos, normas y guías de dominio que los prompts consultan como **fuente de características** para poblar sus secciones (Contexto, Restricciones, Solicitudes) o para fijar criterios de salida.
+Documentación de referencia **externa al framework de prompts**. No define comportamiento del agente (eso vive en `/IA/IA.Prompts/PromptFramework`): son marcos, normas y guías de dominio que los prompts consultan como **fuente de características** para poblar sus secciones (Contexto, Restricciones, Solicitudes) o para fijar criterios de salida.
 
 Se mantienen acá, fuera de `PromptFramework`, precisamente porque su ciclo de vida y su autoría son independientes del framework.
 
@@ -11,7 +11,7 @@ Se mantienen acá, fuera de `PromptFramework`, precisamente porque su ciclo de v
 Un prompt (o Tool-Prompt) referencia estos documentos por ruta absoluta desde la raíz del workspace y extrae de ellos las características que necesita —estructura documental, metadatos, criterios de calidad, checklists— en vez de reinventarlas.
 
 ```
-... siguiendo el marco de /IA.Prompting.Templates/Referencias/Marco-Documentacion-Software-v1.md
+... siguiendo el marco de /IA/IA.Prompts/Referencias/Marco-Documentacion-Software-v1.md
 ```
 
 ---

@@ -108,7 +108,7 @@ Escribir las Rules de forma compacta: bullets y tablas sobre prosa, sin sección
 ### Proceso
 
 1. Verificar que no existe una Rule equivalente.
-2. Crear el archivo en `/IA.Prompting.Templates/PromptFramework/Rules/`.
+2. Crear el archivo en `/IA/IA.Prompts/PromptFramework/Rules/`.
 3. Documentar la Rule con estructura completa.
 4. Completar el [checklist de actualización](#uso-por-agentes-automáticos) de la fila **Rule**.
 
@@ -145,11 +145,11 @@ Un RuleSet es **solo una lista de Rules** (sin `## Énfasis` ni `## Criterios de
 
 Default (`Rule-All`, `Rule-Workflow`, `Rule-Evidences`, `Rule-Markdown`) más [las que sumes]:
 
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-All.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Workflow.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Evidences.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Markdown.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-[Extra].md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-All.md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-Workflow.md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-Evidences.md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-Markdown.md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-[Extra].md`
 ```
 
 Composición actual de los RuleSets: ver [`RuleSets/Readme.md`](../RuleSets/Readme.md).
@@ -163,7 +163,7 @@ Composición actual de los RuleSets: ver [`RuleSets/Readme.md`](../RuleSets/Read
 ### Proceso
 
 1. Identificar las Rules que aplican para este dominio.
-2. Crear el archivo en `/IA.Prompting.Templates/PromptFramework/RuleSets/`.
+2. Crear el archivo en `/IA/IA.Prompts/PromptFramework/RuleSets/`.
 3. Documentar el RuleSet referenciando todas las Rules aplicables.
 4. Completar el [checklist de actualización](#uso-por-agentes-automáticos) de la fila **RuleSet**.
 
@@ -201,7 +201,7 @@ No crear un nuevo Profile cuando:
 
 Aplicar:
 
-- `/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-[Nombre].md`
+- `/IA/IA.Prompts/PromptFramework/RuleSets/RuleSet-[Nombre].md`
 
 ---
 
@@ -237,7 +237,7 @@ Aplicar:
 ### Proceso
 
 1. Identificar el RuleSet más apropiado para el Profile.
-2. Crear el archivo en `/IA.Prompting.Templates/PromptFramework/Profiles/`.
+2. Crear el archivo en `/IA/IA.Prompts/PromptFramework/Profiles/`.
 3. Documentar todas las secciones del Profile.
 4. Completar el [checklist de actualización](#uso-por-agentes-automáticos) de la fila **Profile**.
 
@@ -291,7 +291,7 @@ Núcleo de **5 secciones**. Los entregables van dentro de `# Solicitudes` (no ha
 ## Profile
 
 Aplicar:
-- `/IA.Prompting.Templates/PromptFramework/Profiles/[Profile].md`
+- `/IA/IA.Prompts/PromptFramework/Profiles/[Profile].md`
 ```
 
 ### Convenciones
@@ -340,7 +340,7 @@ Un Example debe:
 | RuleSet | `RuleSet-[Dominio].md` | `RuleSet-Audit.md` |
 | Profile | `[Dominio]-[Tipo].md` | `Infrastructure-Audit.md` |
 | Template | `Prompt-[Nombre].md` | `Prompt-Template.md` |
-| Tool-Prompt | `[Verbo]-[Objeto].md` (en `/IA.Prompting.Templates/Tool-Prompts/`) | `Iniciar-Contexto.md` |
+| Tool-Prompt | `[Verbo]-[Objeto].md` (en `/IA/IA.Prompts/Tool-Prompts/`) | `Iniciar-Contexto.md` |
 | Example | `Example-[Descripción].md` | `Example-Auditoria.md` |
 
 ### Idioma
@@ -360,13 +360,13 @@ Todo documento debe:
 
 ### Referencias cruzadas
 
-Al referenciar componentes del framework desde prompts, perfiles o reglas, utilizar siempre rutas absolutas desde la raíz del workspace. La base de la URL incluye el repositorio `/IA.Prompting.Templates`:
+Al referenciar componentes del framework desde prompts, perfiles o reglas, utilizar siempre rutas absolutas desde la raíz del workspace. La base de la URL incluye el repositorio `/IA/IA.Prompts`:
 
 ```
-`/IA.Prompting.Templates/PromptFramework/Rules/Rule-All.md`
-`/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-Documentation.md`
-`/IA.Prompting.Templates/PromptFramework/Profiles/Repository-Documentation.md`
-`/IA.Prompting.Templates/Tool-Prompts/Iniciar-Contexto.md`
+`/IA/IA.Prompts/PromptFramework/Rules/Rule-All.md`
+`/IA/IA.Prompts/PromptFramework/RuleSets/RuleSet-Documentation.md`
+`/IA/IA.Prompts/PromptFramework/Profiles/Repository-Documentation.md`
+`/IA/IA.Prompts/Tool-Prompts/Iniciar-Contexto.md`
 ```
 
 Si el repositorio cambia de ubicación, actualizar las referencias de los documentos.
@@ -441,17 +441,17 @@ Checklist verificable que el agente completa al crear o modificar una pieza del 
 
 | Pieza | Archivo | Además actualizar |
 |-------|---------|-------------------|
-| Rule | `/IA.Prompting.Templates/PromptFramework/Rules/Rule-[Dominio].md` | RuleSets que la necesiten · catálogo `Rules/README.md` · tabla de Rules de la [Guía Conceptual](Readme.md) |
-| RuleSet | `/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-[Dominio].md` | Catálogo `RuleSets/Readme.md` · tabla de RuleSets de la Guía Conceptual |
-| Profile | `/IA.Prompting.Templates/PromptFramework/Profiles/[Dominio]-[Tipo].md` | Catálogo `Profiles/README.md` · tabla de Profiles de la Guía Conceptual |
-| Template | `/IA.Prompting.Templates/PromptFramework/Templates/Prompt-[Nombre].md` | Catálogo `Templates/README.md` · tabla de Templates de la Guía Conceptual |
-| Example | `/IA.Prompting.Templates/PromptFramework/Examples/Example-[Descripción].md` | Catálogo `Examples/README.md` · tabla de Examples de la Guía Conceptual |
-| Tool-Prompt | `/IA.Prompting.Templates/Tool-Prompts/[Verbo]-[Objeto].md` | Catálogo `Tool-Prompts/README.md` · tabla de Tool-Prompts de la Guía Conceptual |
+| Rule | `/IA/IA.Prompts/PromptFramework/Rules/Rule-[Dominio].md` | RuleSets que la necesiten · catálogo `Rules/README.md` · tabla de Rules de la [Guía Conceptual](Readme.md) |
+| RuleSet | `/IA/IA.Prompts/PromptFramework/RuleSets/RuleSet-[Dominio].md` | Catálogo `RuleSets/Readme.md` · tabla de RuleSets de la Guía Conceptual |
+| Profile | `/IA/IA.Prompts/PromptFramework/Profiles/[Dominio]-[Tipo].md` | Catálogo `Profiles/README.md` · tabla de Profiles de la Guía Conceptual |
+| Template | `/IA/IA.Prompts/PromptFramework/Templates/Prompt-[Nombre].md` | Catálogo `Templates/README.md` · tabla de Templates de la Guía Conceptual |
+| Example | `/IA/IA.Prompts/PromptFramework/Examples/Example-[Descripción].md` | Catálogo `Examples/README.md` · tabla de Examples de la Guía Conceptual |
+| Tool-Prompt | `/IA/IA.Prompts/Tool-Prompts/[Verbo]-[Objeto].md` | Catálogo `Tool-Prompts/README.md` · tabla de Tool-Prompts de la Guía Conceptual |
 
-Las rutas de los catálogos son relativas a `/IA.Prompting.Templates/PromptFramework/`, salvo `Tool-Prompts/`, que está en la raíz del repositorio.
+Las rutas de los catálogos son relativas a `/IA/IA.Prompts/PromptFramework/`, salvo `Tool-Prompts/`, que está en la raíz del repositorio.
 
 Verificación final antes de dar por terminada la pieza:
 
-- [ ] La pieza respeta las [convenciones](#convenciones): nomenclatura, idioma, separadores `---` y rutas absolutas con base `/IA.Prompting.Templates`.
+- [ ] La pieza respeta las [convenciones](#convenciones): nomenclatura, idioma, separadores `---` y rutas absolutas con base `/IA/IA.Prompts`.
 - [ ] Todos los artefactos de la fila correspondiente quedaron actualizados y sus enlaces apuntan a archivos existentes.
 - [ ] No se duplicó contenido: si otra pieza ya lo dice, se referencia (ver [Composición sobre duplicación](#principios-arquitectónicos)).

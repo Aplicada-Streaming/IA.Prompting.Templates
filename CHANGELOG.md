@@ -4,6 +4,15 @@ Registro de cambios del framework de prompting. Formato basado en [Keep a Change
 
 ---
 
+## [1.8.1] — 2026-07-16
+
+### Cambiado
+
+- **Base de rutas del framework**: el repositorio se renombró a `IA.Prompts` y se movió bajo `/IA`, por lo que todas las referencias absolutas pasan de `/IA.Prompting.Templates` a `/IA/IA.Prompts` (165 referencias en 41 archivos). La convención sigue siendo la misma: rutas absolutas desde la raíz del workspace, documentada en `Guides/Develop-Guide.md`.
+- `PromptFramework/README.md`: la raíz del árbol de estructura y `Tool-Prompts/README.md`: el ejemplo de indexado federado, ambos usan el nombre nuevo `IA.Prompts`.
+
+---
+
 ## [1.8.0] — 2026-07-14
 
 ### Agregado

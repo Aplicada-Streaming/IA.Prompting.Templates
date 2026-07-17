@@ -37,4 +37,4 @@ Actualizar la documentación de la infraestructura para que represente fielmente
 
 Aplicar:
 
-- `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Documentation.md`
+- `/IA/IA.Prompts/PromptFramework/Profiles/Infrastructure-Documentation.md`

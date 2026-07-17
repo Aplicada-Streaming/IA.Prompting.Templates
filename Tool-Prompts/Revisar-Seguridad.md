@@ -1,7 +1,7 @@
 # Tool-Prompt — Revisar Seguridad
 
 > **Invocación**:
-> - `Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Revisar-Seguridad.md en {sistema}`
+> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Revisar-Seguridad.md en {sistema}`
 
 ---
 
@@ -51,4 +51,4 @@ Identificar vulnerabilidades, configuraciones incorrectas y recomendaciones de m
 
 Aplicar:
 
-- `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Audit.md`
+- `/IA/IA.Prompts/PromptFramework/Profiles/Infrastructure-Audit.md`

@@ -13,10 +13,10 @@ Todos siguen el núcleo de 5 secciones del framework (Contexto · Objetivo · So
 Forma completa:
 
 ```
-Ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Contexto.md en <tema>
+Ejecuta /IA/IA.Prompts/Tool-Prompts/Iniciar-Contexto.md en <tema>
 ```
 
-Forma corta (equivalente — el agente resuelve la base `/IA.Prompting.Templates` desde el workspace):
+Forma corta (equivalente — el agente resuelve la base `/IA/IA.Prompts` desde el workspace):
 
 ```
 Ejecuta /Tool-Prompts/Iniciar-Contexto en <tema>
@@ -44,7 +44,7 @@ Los valores entre `{llaves}` son parámetros: se completan con lo indicado en la
 ### Modos de indexado
 
 - **Modo proyecto** — `... Iniciar-Indexado en Discord.Bot.Moderador.Core` → genera `/Discord.Bot.Moderador.Core/ia-db`.
-- **Modo workspace (federado)** — `... Iniciar-Indexado de Discord.Bot.Moderador.Core y IA.Prompting.Templates y deja la indexación en la raíz /` → genera `/ia-db` en la raíz del workspace, con un índice por proyecto (sirve también para proyectos no versionados).
+- **Modo workspace (federado)** — `... Iniciar-Indexado de Discord.Bot.Moderador.Core y IA.Prompts y deja la indexación en la raíz /` → genera `/ia-db` en la raíz del workspace, con un índice por proyecto (sirve también para proyectos no versionados).
 
 Toda ia-db generada incluye un **manifiesto de generación** (alcance, fuentes, fecha, versión y prompt generador), de modo que la base es regenerable y actualizable a partir de sí misma.
 
@@ -55,4 +55,4 @@ Toda ia-db generada incluye un **manifiesto de generación** (alcance, fuentes, 
 - Los Tool-Prompts de documentación/auditoría (`Documentar-*`, `Actualizar-Documentacion`, `Revisar-Seguridad`, indexado) aplican el Profile correspondiente, que resuelve la cadena `Profile → RuleSet → Rules`.
 - `Iniciar-Contexto` es **autónomo por diseño**: no carga Profiles ni RuleSets, porque su única función es arrancar una conversación con el mínimo de tokens posible. Es la excepción documentada a la jerarquía del framework.
 
-Ver `/IA.Prompting.Templates/PromptFramework/Guides/Token-Optimization.md` para el racional completo.
+Ver `/IA/IA.Prompts/PromptFramework/Guides/Token-Optimization.md` para el racional completo.

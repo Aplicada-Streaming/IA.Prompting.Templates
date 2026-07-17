@@ -66,4 +66,4 @@ Realizar una auditoría integral del servidor, generando un informe técnico res
 
 Aplicar:
 
-- `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Audit.md`
+- `/IA/IA.Prompts/PromptFramework/Profiles/Infrastructure-Audit.md`

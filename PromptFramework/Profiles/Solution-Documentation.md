@@ -10,11 +10,11 @@ Configurar el agente para **evaluar y documentar una pieza de software de cualqu
 
 ## Rule Set
 
-- `/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-Solution-Documentation.md`
+- `/IA/IA.Prompts/PromptFramework/RuleSets/RuleSet-Solution-Documentation.md`
 
 ## Referencia de dominio (política raíz)
 
-- `/IA.Prompting.Templates/Referencias/Marco-Documentacion-Software-v1.md` — los agentes documentadores lo tratan como su política raíz (§2.2): estructura documental (§5), perfiles por tipo de pieza (§7), relevamiento legacy (§9), contrato máquina-legible (§12), snippets con procedencia (§13), base de datos (§14), casos de prueba (§15). Cada documento generado cumple el bloque «🤖 Para agentes» de la sección del Marco que lo gobierna.
+- `/IA/IA.Prompts/Referencias/Marco-Documentacion-Software-v1.md` — los agentes documentadores lo tratan como su política raíz (§2.2): estructura documental (§5), perfiles por tipo de pieza (§7), relevamiento legacy (§9), contrato máquina-legible (§12), snippets con procedencia (§13), base de datos (§14), casos de prueba (§15). Cada documento generado cumple el bloque «🤖 Para agentes» de la sección del Marco que lo gobierna.
 
 ## Profiles delegados
 
@@ -22,9 +22,9 @@ Para las piezas que lo requieran, los subagentes adoptan el Profile especializad
 
 | Trabajo | Profile |
 |---------|---------|
-| Indexado del origen (ia-db) | `/IA.Prompting.Templates/PromptFramework/Profiles/Knowledge-Indexing.md` |
-| Base de datos: diccionario + ER dbml (§14) | `/IA.Prompting.Templates/PromptFramework/Profiles/Database-Documentation.md` |
-| Casos y datos de prueba (§15) | `/IA.Prompting.Templates/PromptFramework/Profiles/QA-Test-Design.md` |
+| Indexado del origen (ia-db) | `/IA/IA.Prompts/PromptFramework/Profiles/Knowledge-Indexing.md` |
+| Base de datos: diccionario + ER dbml (§14) | `/IA/IA.Prompts/PromptFramework/Profiles/Database-Documentation.md` |
+| Casos y datos de prueba (§15) | `/IA/IA.Prompts/PromptFramework/Profiles/QA-Test-Design.md` |
 | Piezas restantes (según su `type`, §7) | Este Profile, con el perfil documental del Marco §7.1 |
 
 ---

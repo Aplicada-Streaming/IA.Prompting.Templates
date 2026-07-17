@@ -12,9 +12,9 @@ Las restricciones de solo lectura y los criterios de calidad de la auditoría lo
 
 Default (`Rule-All`, `Rule-Workflow`, `Rule-Evidences`, `Rule-Markdown`) más `Rule-Indexing` y `Rule-Agents`:
 
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-All.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Workflow.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Evidences.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Markdown.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Indexing.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Agents.md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-All.md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-Workflow.md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-Evidences.md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-Markdown.md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-Indexing.md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-Agents.md`

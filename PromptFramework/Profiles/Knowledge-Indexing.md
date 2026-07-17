@@ -14,7 +14,7 @@ La ia-db es la memoria operativa del proyecto. Reduce el consumo de tokens y ace
 
 Aplicar:
 
-- `/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-Documentation.md`
+- `/IA/IA.Prompts/PromptFramework/RuleSets/RuleSet-Documentation.md`
 
 Prestar especial atención a `Rule-Indexing.md` y, para indexados multi-proyecto, a `Rule-Agents.md`.
 
@@ -91,11 +91,11 @@ Sección final del README.md que captura la génesis y permite regenerar o actua
 ```markdown
 ## Manifiesto de generación
 
-- Generado por : /IA.Prompting.Templates/Tool-Prompts/Iniciar-Indexado.md
+- Generado por : /IA/IA.Prompts/Tool-Prompts/Iniciar-Indexado.md
 - Alcance      : <proyectos indexados>
 - Fuentes      : <raíces escaneadas: src/, docs/, scripts/, ...>
 - Generado     : <fecha> · Versión: <n.n>
-- Actualizar   : /IA.Prompting.Templates/Tool-Prompts/Actualizar-Indexado.md
+- Actualizar   : /IA/IA.Prompts/Tool-Prompts/Actualizar-Indexado.md
 ```
 
 ## Índices temáticos

@@ -1,7 +1,7 @@
 # Tool-Prompt — Derivar Casos de Prueba
 
 > **Invocación**:
-> - `Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Derivar-Casos-Prueba.md en {proyecto}`
+> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Derivar-Casos-Prueba.md en {proyecto}`
 
 ---
 
@@ -51,4 +51,4 @@ Generar `test-data-matrix.md` (casos `TC-` trazables a `RF-`/`RNF-`) y fixtures 
 
 Aplicar:
 
-- `/IA.Prompting.Templates/PromptFramework/Profiles/QA-Test-Design.md`
+- `/IA/IA.Prompts/PromptFramework/Profiles/QA-Test-Design.md`

@@ -71,10 +71,10 @@ Referenciá un **Profile** (no las Rules directamente). Si ningún Profile encaj
 ## Profile
 
 Aplicar:
-- `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Documentation.md`
+- `/IA/IA.Prompts/PromptFramework/Profiles/Infrastructure-Documentation.md`
 ```
 
-Guía rápida de selección: la tabla — para qué sirve cada Profile y cuándo elegirlo — vive en el catálogo [`/IA.Prompting.Templates/PromptFramework/Profiles/README.md`](../Profiles/README.md).
+Guía rápida de selección: la tabla — para qué sirve cada Profile y cuándo elegirlo — vive en el catálogo [`/IA/IA.Prompts/PromptFramework/Profiles/README.md`](../Profiles/README.md).
 
 ## Ejemplo mínimo completo
 
@@ -99,7 +99,7 @@ Generar documentación técnica que represente fielmente el estado actual del se
 
 ## Profile
 Aplicar:
-- `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Documentation.md`
+- `/IA/IA.Prompts/PromptFramework/Profiles/Infrastructure-Documentation.md`
 ```
 
 ---
@@ -146,11 +146,11 @@ Un RuleSet = **solo una lista de Rules**. El énfasis lo pone el Profile, no el 
 
 Default (`Rule-All`, `Rule-Workflow`, `Rule-Evidences`, `Rule-Markdown`) más [las que sumes]:
 
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-All.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Workflow.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Evidences.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Markdown.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-[Extra].md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-All.md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-Workflow.md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-Evidences.md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-Markdown.md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-[Extra].md`
 ```
 
 Después: completá el [checklist de actualización](Develop-Guide.md#uso-por-agentes-automáticos) de la fila **RuleSet**.
@@ -172,7 +172,7 @@ Un Profile = comportamiento completo del agente para un rol. Referencia **un** R
 
 ## Rule Set
 
-- `/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-[Nombre].md`
+- `/IA/IA.Prompts/PromptFramework/RuleSets/RuleSet-[Nombre].md`
 
 ---
 
@@ -197,13 +197,13 @@ Después: completá el [checklist de actualización](Develop-Guide.md#uso-por-ag
 
 ## Crear un Tool-Prompt
 
-Un Tool-Prompt = prompt invocable en una línea, parametrizado con `{placeholders}`. Vive en `/IA.Prompting.Templates/Tool-Prompts/`. Archivo: `[Verbo]-[Objeto].md`.
+Un Tool-Prompt = prompt invocable en una línea, parametrizado con `{placeholders}`. Vive en `/IA/IA.Prompts/Tool-Prompts/`. Archivo: `[Verbo]-[Objeto].md`.
 
 ```markdown
 # Tool-Prompt — [Nombre]
 
 > **Invocación**:
-> - `Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/[archivo].md en {parametro}`
+> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/[archivo].md en {parametro}`
 
 ---
 
@@ -231,7 +231,7 @@ Un Tool-Prompt = prompt invocable en una línea, parametrizado con `{placeholder
 
 ## Profile
 Aplicar:
-- `/IA.Prompting.Templates/PromptFramework/Profiles/[Profile].md`
+- `/IA/IA.Prompts/PromptFramework/Profiles/[Profile].md`
 ```
 
 Después: completá el [checklist de actualización](Develop-Guide.md#uso-por-agentes-automáticos) de la fila **Tool-Prompt**.
@@ -244,10 +244,10 @@ Flujo «De una idea a un Tool-Prompt», definido en el [README raíz](../../READ
 
 | Paso | Acción | Fuente |
 |------|--------|--------|
-| 1 | Elegir la capa de comportamiento: el Profile que represente la tarea, o `RuleSet-Lean` si es un análisis simple | Catálogo `/IA.Prompting.Templates/PromptFramework/Profiles/README.md` |
+| 1 | Elegir la capa de comportamiento: el Profile que represente la tarea, o `RuleSet-Lean` si es un análisis simple | Catálogo `/IA/IA.Prompts/PromptFramework/Profiles/README.md` |
 | 2 | Completar el núcleo de 5 secciones respondiendo la pregunta guía de cada una; los entregables van dentro de `# Solicitudes`, con su ruta | Parte 1 de esta guía |
 | 3 | Si la tarea es recurrente, darle forma de Tool-Prompt: parámetros `{placeholder}`, cabecera de invocación y qué hacer cuando un parámetro no se indica | Esqueletos de la Parte 2 |
-| 4 | Proponer dónde guardarlo: `/IA.Prompting.Templates/Tool-Prompts/` (herramienta reutilizable) o `/IA.Prompting.Templates/PromptFramework/Examples/` (caso puntual que quedó funcionando) | README raíz |
+| 4 | Proponer dónde guardarlo: `/IA/IA.Prompts/Tool-Prompts/` (herramienta reutilizable) o `/IA/IA.Prompts/PromptFramework/Examples/` (caso puntual que quedó funcionando) | README raíz |
 | 5 | Actualizar los artefactos de la pieza creada | [Checklist de la Guía de Desarrollo](Develop-Guide.md#uso-por-agentes-automáticos) |
 
 No agregar secciones fuera del núcleo (en particular, ninguna sección «Resultado esperado» separada) ni referenciar Rules directamente desde el prompt.

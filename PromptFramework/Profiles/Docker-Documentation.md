@@ -10,7 +10,7 @@ Configurar el agente para analizar, comprender y documentar una infraestructura 
 
 ## Rule Set
 
-- `/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-Documentation.md`
+- `/IA/IA.Prompts/PromptFramework/RuleSets/RuleSet-Documentation.md`
 
 ---
 

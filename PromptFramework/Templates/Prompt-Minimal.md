@@ -34,4 +34,4 @@
 
 <!-- Profile que represente la tarea; si ninguno encaja, un RuleSet (Lean para tareas simples). -->
 Aplicar:
-- `/IA.Prompting.Templates/PromptFramework/Profiles/[Profile].md`
+- `/IA/IA.Prompts/PromptFramework/Profiles/[Profile].md`

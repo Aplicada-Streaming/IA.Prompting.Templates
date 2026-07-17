@@ -10,10 +10,10 @@ Un RuleSet es solo una **lista de Rules**: el comportamiento y el énfasis los d
 
 ## Reglas
 
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-All.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Workflow.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Evidences.md`
-- `/IA.Prompting.Templates/PromptFramework/Rules/Rule-Markdown.md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-All.md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-Workflow.md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-Evidences.md`
+- `/IA/IA.Prompts/PromptFramework/Rules/Rule-Markdown.md`
 
 ---
 

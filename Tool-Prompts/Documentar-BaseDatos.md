@@ -1,7 +1,7 @@
 # Tool-Prompt — Documentar Base de Datos
 
 > **Invocación**:
-> - `Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Documentar-BaseDatos.md en {proyecto}`
+> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Documentar-BaseDatos.md en {proyecto}`
 
 ---
 
@@ -53,4 +53,4 @@ Generar `data-dictionary.md` y el modelo ER en `dbml` a partir del esquema real,
 
 Aplicar:
 
-- `/IA.Prompting.Templates/PromptFramework/Profiles/Database-Documentation.md`
+- `/IA/IA.Prompts/PromptFramework/Profiles/Database-Documentation.md`

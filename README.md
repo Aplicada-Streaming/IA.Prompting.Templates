@@ -1,4 +1,4 @@
-# IA.Prompting.Templates
+# Prompts IA Framework
 
 Framework reutilizable para ingeniería de prompts.
 
@@ -15,7 +15,7 @@ El flujo de trabajo recomendado: en vez de escribir el prompt a mano, le pedís 
 
    ```
    A partir de esta idea, construí un Tool-Prompt siguiendo el framework de
-   /IA.Prompting.Templates: elegí el Profile (o RuleSet Lean si es análisis simple),
+   /IA/IA.Prompts: elegí el Profile (o RuleSet Lean si es análisis simple),
    completá el núcleo de 5 secciones (Contexto, Objetivo, Solicitudes, Restricciones,
    Framework) y proponé dónde guardarlo.
 
@@ -33,11 +33,11 @@ Guía de escritura y esqueletos copy-paste: [`How-To.md`](PromptFramework/Guides
 Prompts-herramienta invocables en una línea (catálogo en [Tool-Prompts/README.md](Tool-Prompts/README.md)):
 
 ```
-Ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Contexto.md en <tema>
-Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Indexado.md en <proyecto>
-Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Documentar-Servidor.md en <servidor>
-Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Documentar-Fuentes-Software.md en la solución <origen> y deja en: <destino>
-Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Actualizar-Indexado.md de <proyecto>
+Ejecuta /IA/IA.Prompts/Tool-Prompts/Iniciar-Contexto.md en <tema>
+Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Iniciar-Indexado.md en <proyecto>
+Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Documentar-Servidor.md en <servidor>
+Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Documentar-Fuentes-Software.md en la solución <origen> y deja en: <destino>
+Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Actualizar-Indexado.md de <proyecto>
 ```
 
 ---
@@ -59,4 +59,4 @@ Empezá por la [documentación del framework](PromptFramework/README.md).
 
 ## Nota sobre referencias
 
-Las referencias internas de los prompts usan rutas absolutas desde la raíz del workspace, con base `/IA.Prompting.Templates`.
+Las referencias internas de los prompts usan rutas absolutas desde la raíz del workspace, con base `/IA/IA.Prompts`.

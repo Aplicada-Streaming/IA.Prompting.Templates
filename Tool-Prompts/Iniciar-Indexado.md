@@ -1,8 +1,8 @@
 # Tool-Prompt — Iniciar Indexado
 
 > **Invocación**:
-> - Un proyecto: `Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Indexado.md en {proyecto}`
-> - Varios proyectos: `Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Indexado.md de {proyecto-a} y {proyecto-b} y deja la indexación en {destino}`
+> - Un proyecto: `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Iniciar-Indexado.md en {proyecto}`
+> - Varios proyectos: `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Iniciar-Indexado.md de {proyecto-a} y {proyecto-b} y deja la indexación en {destino}`
 
 ---
 
@@ -54,7 +54,7 @@ Generar la ia-db de `{proyectos}` en `{destino}` conforme a la estructura canón
 
 Aplicar:
 
-- `/IA.Prompting.Templates/PromptFramework/Profiles/Knowledge-Indexing.md`
+- `/IA/IA.Prompts/PromptFramework/Profiles/Knowledge-Indexing.md`
 
 ---
 

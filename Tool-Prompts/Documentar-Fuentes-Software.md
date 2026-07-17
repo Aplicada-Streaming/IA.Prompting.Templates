@@ -1,8 +1,8 @@
 # Tool-Prompt — Documentar Fuentes de Software
 
 > **Invocación**:
-> - Una solución o proyecto: `Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Documentar-Fuentes-Software.md en la solución {origen} y deja en: {destino}`
-> - Un workspace o conjunto de soluciones: `Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Documentar-Fuentes-Software.md en el workspace {origen}, dejá la documentación en: {destino}`
+> - Una solución o proyecto: `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Documentar-Fuentes-Software.md en la solución {origen} y deja en: {destino}`
+> - Un workspace o conjunto de soluciones: `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Documentar-Fuentes-Software.md en el workspace {origen}, dejá la documentación en: {destino}`
 > - Con acceso a datos: agregar a la línea dónde están las cadenas de conexión (p. ej. «en los appsettings.json de cada proyecto están las cadenas de conexión»).
 
 ---
@@ -58,7 +58,7 @@ Evaluar `{origen}` y generar en `{destino}` su conjunto documental conforme al M
 
 Aplicar:
 
-- `/IA.Prompting.Templates/PromptFramework/Profiles/Solution-Documentation.md`
+- `/IA/IA.Prompts/PromptFramework/Profiles/Solution-Documentation.md`
 
 ---
 

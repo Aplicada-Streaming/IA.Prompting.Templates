@@ -1,8 +1,8 @@
 # Tool-Prompt — Actualizar Indexado
 
 > **Invocación**:
-> - `Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Actualizar-Indexado.md de {proyecto}`
-> - `Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Actualizar-Indexado.md del workspace` (ia-db federada en `/ia-db`)
+> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Actualizar-Indexado.md de {proyecto}`
+> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Actualizar-Indexado.md del workspace` (ia-db federada en `/ia-db`)
 
 ---
 
@@ -55,7 +55,7 @@ Sincronizar la ia-db con el estado actual del proyecto mediante una actualizaci�
 
 Aplicar:
 
-- `/IA.Prompting.Templates/PromptFramework/Profiles/Knowledge-Indexing.md`
+- `/IA/IA.Prompts/PromptFramework/Profiles/Knowledge-Indexing.md`
 
 ---
 

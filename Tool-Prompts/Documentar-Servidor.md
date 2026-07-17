@@ -1,7 +1,7 @@
 # Tool-Prompt — Documentar Servidor
 
 > **Invocación**:
-> - `Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Documentar-Servidor.md en {servidor}`
+> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Documentar-Servidor.md en {servidor}`
 
 ---
 
@@ -54,4 +54,4 @@ Generar documentación técnica completa del servidor, representando fielmente s
 
 Aplicar:
 
-- `/IA.Prompting.Templates/PromptFramework/Profiles/Infrastructure-Documentation.md`
+- `/IA/IA.Prompts/PromptFramework/Profiles/Infrastructure-Documentation.md`

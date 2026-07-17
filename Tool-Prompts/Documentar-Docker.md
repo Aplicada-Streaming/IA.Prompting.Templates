@@ -1,7 +1,7 @@
 # Tool-Prompt — Documentar Docker
 
 > **Invocación**:
-> - `Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Documentar-Docker.md en {proyecto}`
+> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Documentar-Docker.md en {proyecto}`
 
 ---
 
@@ -50,4 +50,4 @@ Generar documentación técnica completa de la infraestructura Docker, represent
 
 Aplicar:
 
-- `/IA.Prompting.Templates/PromptFramework/Profiles/Docker-Documentation.md`
+- `/IA/IA.Prompts/PromptFramework/Profiles/Docker-Documentation.md`

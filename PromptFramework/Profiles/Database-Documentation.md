@@ -10,11 +10,11 @@ Configurar el agente para documentar una base de datos de forma integral y **reg
 
 ## Rule Set
 
-- `/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-Documentation.md`
+- `/IA/IA.Prompts/PromptFramework/RuleSets/RuleSet-Documentation.md`
 
 ## Referencia de dominio
 
-- `/IA.Prompting.Templates/Referencias/Marco-Documentacion-Software-v1.md` — §14 (pipeline BD → diccionario + ER), §7.1 (perfil `database`), §5.4 (reglas de oro: nunca credenciales), Anexo A.18 (dbml).
+- `/IA/IA.Prompts/Referencias/Marco-Documentacion-Software-v1.md` — §14 (pipeline BD → diccionario + ER), §7.1 (perfil `database`), §5.4 (reglas de oro: nunca credenciales), Anexo A.18 (dbml).
 
 ---
 

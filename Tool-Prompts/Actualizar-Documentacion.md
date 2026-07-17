@@ -1,7 +1,7 @@
 # Tool-Prompt — Actualizar Documentación
 
 > **Invocación**:
-> - `Lee y ejecuta /IA.Prompting.Templates/Tool-Prompts/Actualizar-Documentacion.md en {proyecto}`
+> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Actualizar-Documentacion.md en {proyecto}`
 
 ---
 
@@ -50,4 +50,4 @@ Actualizar la documentación existente para que represente fielmente el estado a
 
 Aplicar:
 
-- `/IA.Prompting.Templates/PromptFramework/Profiles/Repository-Documentation.md`
+- `/IA/IA.Prompts/PromptFramework/Profiles/Repository-Documentation.md`

@@ -10,15 +10,15 @@ Configurar el agente para **derivar casos y datos de prueba desde el modelo de d
 
 ## Rule Set
 
-- `/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-Documentation.md`
+- `/IA/IA.Prompts/PromptFramework/RuleSets/RuleSet-Documentation.md`
 
 ## Referencia de dominio
 
-- `/IA.Prompting.Templates/Referencias/Marco-Documentacion-Software-v1.md` — §15 (derivación de casos y datos de prueba), §14 (modelo de datos, fuente), §8.2 Fase 5 (pruebas), Anexo A.19 (ISO/IEC/IEEE 29119).
+- `/IA/IA.Prompts/Referencias/Marco-Documentacion-Software-v1.md` — §15 (derivación de casos y datos de prueba), §14 (modelo de datos, fuente), §8.2 Fase 5 (pruebas), Anexo A.19 (ISO/IEC/IEEE 29119).
 
 ## Fuente de entrada
 
-- Profile `/IA.Prompting.Templates/PromptFramework/Profiles/Database-Documentation.md` — provee `data-dictionary.md` + ER en dbml, que este Profile consume.
+- Profile `/IA/IA.Prompts/PromptFramework/Profiles/Database-Documentation.md` — provee `data-dictionary.md` + ER en dbml, que este Profile consume.
 
 ---
 

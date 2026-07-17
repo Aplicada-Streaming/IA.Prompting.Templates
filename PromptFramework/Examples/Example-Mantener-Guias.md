@@ -6,7 +6,7 @@
 
 # Contexto
 
-El repositorio `/IA.Prompting.Templates` contiene un framework de ingeniería de prompts con jerarquía `Prompt → Profile → RuleSet → Rules`. Las cinco guías de `/IA.Prompting.Templates/PromptFramework/Guides/` documentan el framework:
+El repositorio `/IA/IA.Prompts` contiene un framework de ingeniería de prompts con jerarquía `Prompt → Profile → RuleSet → Rules`. Las cinco guías de `/IA/IA.Prompts/PromptFramework/Guides/` documentan el framework:
 
 | Guía | Rol actual |
 |------|-----------|
@@ -28,7 +28,7 @@ Que cada guía sirva simultáneamente como marco operativo para agentes automát
 
 # Solicitudes
 
-- Leer las cinco guías de `/IA.Prompting.Templates/PromptFramework/Guides/` y el `README.md` raíz del repositorio.
+- Leer las cinco guías de `/IA/IA.Prompts/PromptFramework/Guides/` y el `README.md` raíz del repositorio.
 - Agregar a cada guía una sección `## Uso por agentes automáticos`, integrada al tono y formato del documento (tablas sobre prosa), adaptada a su rol:
   - `Readme.md`: cómo un agente resuelve la cadena `Profile → RuleSet → Rules` al recibir un prompt y cuándo consultar la referencia rápida.
   - `How-To.md`: cómo un agente construye un Tool-Prompt a partir de una idea del usuario (flujo «De una idea a un Tool-Prompt» del `README.md` raíz).
@@ -39,7 +39,7 @@ Que cada guía sirva simultáneamente como marco operativo para agentes automát
   - Estructura del prompt: unificar en el núcleo de 5 secciones — entregables dentro de `# Solicitudes`; eliminar `# Resultado esperado` de la estructura y de los ejemplos de `User-Guide.md`.
   - Contenido duplicado (tablas de selección de Profile, catálogos de componentes): un dato vive en un solo lugar; el resto lo referencia.
   - Proceso de actualización al extender el framework: alinear lo que dicen `How-To.md` (catálogos por carpeta) y `Develop-Guide.md` (tablas de la Guía Conceptual), definiendo una única lista de artefactos a actualizar.
-  - Referencias cruzadas: verificar que todos los enlaces y rutas (relativas y absolutas con base `/IA.Prompting.Templates`) apunten a archivos existentes, incluyendo mayúsculas (`README.md` vs `Readme.md`).
+  - Referencias cruzadas: verificar que todos los enlaces y rutas (relativas y absolutas con base `/IA/IA.Prompts`) apunten a archivos existentes, incluyendo mayúsculas (`README.md` vs `Readme.md`).
 - Reportar al final un resumen por archivo: qué sección se agregó y qué inconsistencias se corrigieron.
 
 ---
@@ -48,7 +48,7 @@ Que cada guía sirva simultáneamente como marco operativo para agentes automát
 
 - Modificar únicamente los documentos de `PromptFramework/Guides/` y, solo si una corrección de coherencia lo exige, el `README.md` raíz. No modificar Rules, RuleSets, Profiles, Templates, Examples ni Tool-Prompts.
 - Principio de mínima intervención: no reescribir contenido correcto ni cambiar la estructura general de cada guía.
-- Respetar las convenciones del framework: contenido en español, separadores `---` entre secciones principales, tabla de contenidos actualizada si el documento supera tres secciones, rutas absolutas con base `/IA.Prompting.Templates` en las referencias destinadas a agentes.
+- Respetar las convenciones del framework: contenido en español, separadores `---` entre secciones principales, tabla de contenidos actualizada si el documento supera tres secciones, rutas absolutas con base `/IA/IA.Prompts` en las referencias destinadas a agentes.
 - No duplicar contenido entre guías: si la sección nueva necesita material que ya existe en otra guía, referenciarlo.
 - No inventar comportamiento del framework: toda afirmación de las secciones nuevas debe derivarse de los documentos existentes.
 - No realizar commit, push ni pull request.
@@ -61,6 +61,6 @@ Que cada guía sirva simultáneamente como marco operativo para agentes automát
 
 Aplicar:
 
-- `/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-Documentation.md`
+- `/IA/IA.Prompts/PromptFramework/RuleSets/RuleSet-Documentation.md`
 
 > Nota: se referencia el RuleSet directo porque ningún Profile existente cubre el mantenimiento de la documentación del propio framework.

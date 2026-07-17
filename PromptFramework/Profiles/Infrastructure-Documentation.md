@@ -10,7 +10,7 @@ Configurar el agente para documentar infraestructuras tecnológicas de forma int
 
 ## Rule Set
 
-- `/IA.Prompting.Templates/PromptFramework/RuleSets/RuleSet-Documentation.md`
+- `/IA/IA.Prompts/PromptFramework/RuleSets/RuleSet-Documentation.md`
 
 ---
 

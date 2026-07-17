@@ -151,10 +151,10 @@ Los tres usan el **núcleo de 5 secciones** (`Contexto · Objetivo · Solicitude
 
 ### Tool-Prompts
 
-Los Tool-Prompts son prompts-herramienta de invocación directa, ubicados en `/IA.Prompting.Templates/Tool-Prompts/` (fuera de `PromptFramework/`). Se ejecutan con una sola línea en el chat, sin copiar ni completar plantillas:
+Los Tool-Prompts son prompts-herramienta de invocación directa, ubicados en `/IA/IA.Prompts/Tool-Prompts/` (fuera de `PromptFramework/`). Se ejecutan con una sola línea en el chat, sin copiar ni completar plantillas:
 
 ```
-Ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Contexto.md en <tema>
+Ejecuta /IA/IA.Prompts/Tool-Prompts/Iniciar-Contexto.md en <tema>
 ```
 
 | Tool-Prompt | Propósito |
@@ -170,7 +170,7 @@ Ejecuta /IA.Prompting.Templates/Tool-Prompts/Iniciar-Contexto.md en <tema>
 | `Actualizar-Documentacion.md` | Actualizar documentación existente de un proyecto |
 | `Revisar-Seguridad.md` | Revisión de seguridad (solo lectura) |
 
-Ver el catálogo completo con invocación y Profile de cada uno en `/IA.Prompting.Templates/Tool-Prompts/README.md`.
+Ver el catálogo completo con invocación y Profile de cada uno en `/IA/IA.Prompts/Tool-Prompts/README.md`.
 
 `Iniciar-Contexto.md` es autónomo (no carga Profiles ni RuleSets) para minimizar el consumo de tokens; es la excepción documentada a la jerarquía del framework. Ver la [Guía de Optimización de Tokens](Token-Optimization.md).
 
@@ -184,7 +184,7 @@ Los Examples son prompts completos y funcionales que demuestran el uso del frame
 | `Example-Documentar-Infra.md` | Documentación de una infraestructura Linux con Docker |
 | `Example-Mantener-Guias.md` | Mantenimiento de las guías del framework |
 
-Catálogo completo (incluidos los prompts reales): `/IA.Prompting.Templates/PromptFramework/Examples/README.md`.
+Catálogo completo (incluidos los prompts reales): `/IA/IA.Prompts/PromptFramework/Examples/README.md`.
 
 ### Guides
 
@@ -323,7 +323,7 @@ Al recibir un prompt del framework, el agente resuelve la cadena `Profile → Ru
 | 3 | Cargar el RuleSet: es solo una lista de Rules. |
 | 4 | Cargar todas las Rules listadas y ejecutar con ese comportamiento. El énfasis y los criterios de calidad los fija el Profile; sin Profile, aplican las Rules y lo que el propio prompt indique. |
 
-Las rutas de los componentes son absolutas con base `/IA.Prompting.Templates` (ver las [convenciones de la Guía de Desarrollo](Develop-Guide.md#convenciones)).
+Las rutas de los componentes son absolutas con base `/IA/IA.Prompts` (ver las [convenciones de la Guía de Desarrollo](Develop-Guide.md#convenciones)).
 
 Cuándo consultar la [Referencia rápida](#referencia-rápida):
 

@@ -21,7 +21,7 @@ Proporciona una metodología consistente para construir prompts complejos median
 ## Estructura
 
 ```
-IA.Prompting.Templates/
+IA.Prompts/
 ├── PromptFramework/
 │   ├── Rules/          # Reglas atómicas de comportamiento (7)
 │   ├── RuleSets/       # Conjuntos de reglas por dominio (Lean + Default + 3)
@@ -32,7 +32,7 @@ IA.Prompting.Templates/
 └── Tool-Prompts/       # Prompts-herramienta de invocación directa (una línea)
 ```
 
-Las referencias entre componentes usan rutas absolutas desde la raíz del workspace, con base `/IA.Prompting.Templates`.
+Las referencias entre componentes usan rutas absolutas desde la raíz del workspace, con base `/IA/IA.Prompts`.
 
 ---
 

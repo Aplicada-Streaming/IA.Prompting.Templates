@@ -53,7 +53,7 @@
 
 Aplicar:
 
-- `/IA.Prompting.Templates/PromptFramework/Profiles/[Profile].md`
+- `/IA/IA.Prompts/PromptFramework/Profiles/[Profile].md`
 
 <!--
   Nota opcional: agregá abajo, solo si hace falta, aclaraciones puntuales de ESTA corrida
