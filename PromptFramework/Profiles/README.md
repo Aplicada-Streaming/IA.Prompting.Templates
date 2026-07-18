@@ -12,6 +12,7 @@ Referencia: [Guía conceptual](../Guides/Readme.md) · [README del framework](..
 |---------|----------------|---------|-------------------------|
 | [Solution-Documentation](Solution-Documentation.md) | Evaluar y documentar una pieza de software de cualquier escala (proyecto, solución multi-proyecto o workspace) conforme al Marco de Documentación de Software, orquestando subagentes por tipo de pieza. | Solution-Documentation | …debe producir el conjunto documental completo de una solución, para humanos y agentes de IA. |
 | [Repository-Documentation](Repository-Documentation.md) | Documentar un repositorio de software: organización, arquitectura, componentes, convenciones, procesos y relaciones. | Documentation | …necesita entender y documentar un repo completo para mantenerlo y evolucionarlo. |
+| [Study-Guide-Documentation](Study-Guide-Documentation.md) | Construir una guía de estudio sobre una temática: marco de escenarios, contextos y actores, un documento por tema con preguntas guía y plantillas, y mapa conceptual de entrada. | Study-Guide | …debe formar criterio en un lector sobre un dominio completo, no solo describir un sistema existente. |
 | [Architecture-Review](Architecture-Review.md) | Analizar y documentar la arquitectura de un sistema: estructura, responsabilidades, dependencias y decisiones de diseño, con visión global. | Documentation | …busca comprender el diseño de alto nivel más que la implementación. |
 | [Code-Review](Code-Review.md) | Revisar código fuente en calidad, arquitectura, seguridad, rendimiento y mantenibilidad, separando hechos, inferencias y propuestas. | Development | …requiere una revisión técnica del código con recomendaciones fundadas. |
 | [Infrastructure-Documentation](Infrastructure-Documentation.md) | Documentar una infraestructura tecnológica de forma integral para administrarla, auditarla y reconstruirla desde cero. | Documentation | …necesita preservar el conocimiento operativo de un entorno tecnológico. |
@@ -28,6 +29,7 @@ Referencia: [Guía conceptual](../Guides/Readme.md) · [README del framework](..
 
 - **Documentar una solución completa conforme al Marco**: `Solution-Documentation` (orquesta a los demás perfiles de documentación por tipo de pieza).
 - **Documentar software**: `Repository-Documentation` (repo completo) o `Architecture-Review` (solo diseño de alto nivel).
+- **Elaborar una guía de estudio de una temática**: `Study-Guide-Documentation`.
 - **Revisar código**: `Code-Review`.
 - **Documentar infraestructura**: `Infrastructure-Documentation` (general) o `Docker-Documentation` (contenedores Docker).
 - **Documentar una base de datos**: `Database-Documentation` (diccionario + ER en dbml, solo lectura).
@@ -36,4 +38,4 @@ Referencia: [Guía conceptual](../Guides/Readme.md) · [README del framework](..
 - **Auditar la seguridad de una web/API**: `Web-Security-Audit` (pruebas autorizadas + informe OWASP, RuleSet Security-Audit).
 - **Construir/actualizar la ia-db**: `Knowledge-Indexing`.
 
-Los Profiles no se combinan entre sí: cada ejecución adopta uno. Si el trabajo abarca varios enfoques, delegar cada uno en un subagente con su Profile (ver [Rule-Agents](../Rules/Rule-Agents.md)); `Solution-Documentation` formaliza justamente esa orquestación para documentar soluciones completas. Todos se apoyan en el RuleSet Documentation, salvo `Code-Review` (Development), `Infrastructure-Audit` (Audit), `Web-Security-Audit` (Security-Audit) y `Solution-Documentation` (Solution-Documentation, que extiende Documentation).
+Los Profiles no se combinan entre sí: cada ejecución adopta uno. Si el trabajo abarca varios enfoques, delegar cada uno en un subagente con su Profile (ver [Rule-Agents](../Rules/Rule-Agents.md)); `Solution-Documentation` formaliza justamente esa orquestación para documentar soluciones completas. Todos se apoyan en el RuleSet Documentation, salvo `Code-Review` (Development), `Infrastructure-Audit` (Audit), `Web-Security-Audit` (Security-Audit), `Solution-Documentation` (Solution-Documentation) y `Study-Guide-Documentation` (Study-Guide) — estos dos últimos extienden Documentation.

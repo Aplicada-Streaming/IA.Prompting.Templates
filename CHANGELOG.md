@@ -4,6 +4,16 @@ Registro de cambios del framework de prompting. Formato basado en [Keep a Change
 
 ---
 
+## [1.10.0] — 2026-07-18
+
+### Agregado
+
+- **Profile `Profiles/Study-Guide-Documentation.md`** — construir guías de estudio: cuerpos documentales formativos sobre una temática, organizados como recorrido de aprendizaje y no como colección de fichas. Fija primero el **marco de referencia** en tres ejes (escenarios, contextos y actores) que el Prompt instancia según el tema, y recién después desarrolla un documento por unidad temática, todos con la misma estructura interna (definición → aplicación por escenario → ejemplos → preguntas guía → criterios de calidad → plantilla comentada). Completan el entregable el mapa conceptual de entrada («estoy acá → qué aplico»), los métodos y marcos alternativos del dominio, los anexos y un README con la ruta de lectura sugerida. La temática, el alcance y el destino los aporta el Prompt.
+- **RuleSet `RuleSets/RuleSet-Study-Guide.md`** — Documentation + `Rule-Dual-Audience` + `Rule-Narrative-Voice`: el entregable es prosa extensa destinada a que el lector forme criterio, de modo que suma la doble audiencia (humana y de agentes) y la voz de autoría a las reglas de documentación.
+- Alta en los tres catálogos: `Profiles/README.md` (tabla, guía de elección y nota de RuleSets), `RuleSets/Readme.md` (tabla y guía de elección) y las tablas de RuleSets y Profiles de la Guía Conceptual (`Guides/Readme.md`).
+
+---
+
 ## [1.9.0] — 2026-07-17
 
 ### Agregado

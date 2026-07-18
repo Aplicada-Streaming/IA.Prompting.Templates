@@ -111,6 +111,7 @@ Un RuleSet es **solo una lista de Rules** agrupadas para un tipo de tarea; el é
 | `RuleSet-Default.md` | All, Workflow, Evidences, Markdown |
 | `RuleSet-Documentation.md` | Default + Documentation, Indexing, Agents |
 | `RuleSet-Solution-Documentation.md` | Documentation + Dual-Audience, Drift-Control |
+| `RuleSet-Study-Guide.md` | Documentation + Dual-Audience, Narrative-Voice |
 | `RuleSet-Development.md` | Default + Agents |
 | `RuleSet-Audit.md` | Default + Indexing, Agents |
 | `RuleSet-Security-Audit.md` | Default + Indexing, Agents, Documentation, Dual-Audience, Security-Testing |
@@ -129,6 +130,7 @@ Cada Profile referencia un RuleSet, define el enfoque de trabajo, establece los 
 |---------|-----------|
 | `Solution-Documentation.md` | Documentar soluciones completas conforme al Marco de Documentación (orquestación por pieza) |
 | `Repository-Documentation.md` | Documentar repositorios de software |
+| `Study-Guide-Documentation.md` | Construir guías de estudio formativas sobre una temática |
 | `Infrastructure-Documentation.md` | Documentar infraestructuras tecnológicas |
 | `Infrastructure-Audit.md` | Auditar infraestructuras sin modificarlas |
 | `Web-Security-Audit.md` | Auditar la seguridad de una web/API y generar un informe técnico OWASP |
