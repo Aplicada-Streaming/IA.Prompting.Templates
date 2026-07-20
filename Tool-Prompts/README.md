@@ -77,8 +77,9 @@ Los Tool-Prompts se agrupan en carpetas por dominio. La carpeta forma parte de l
 
 | Tool-Prompt | Cuándo usarlo | Profile | Ejemplo de invocación |
 |-------------|---------------|---------|-----------------------|
-| [Documentar-Servidor.md](Infra/Documentar-Servidor.md) | Documentar un servidor Linux | Infrastructure-Documentation | `Lee y ejecuta /Tool-Prompts/Infra/Documentar-Servidor en <servidor>` |
-| [Revisar-Seguridad.md](Infra/Revisar-Seguridad.md) | Revisar la seguridad de un servidor o red (solo lectura) | Infrastructure-Audit | `Lee y ejecuta /Tool-Prompts/Infra/Revisar-Seguridad en <sistema>` |
+| [Crear-Documentacion-Server.md](Infra/Crear-Documentacion-Server.md) | Documentar un servidor Linux desde cero | Infrastructure-Documentation | `Lee y ejecuta /Tool-Prompts/Infra/Crear-Documentacion-Server de <servidor> en <destino>` |
+| [Actualizar-Documentacion-Server.md](Infra/Actualizar-Documentacion-Server.md) | Sincronizar documentación existente de un servidor con su estado real | Infrastructure-Documentation | `Lee y ejecuta /Tool-Prompts/Infra/Actualizar-Documentacion-Server en <destino>` |
+| [Revisar-Seguridad-Server.md](Infra/Revisar-Seguridad-Server.md) | Revisar la seguridad de un servidor o red (solo lectura) | Infrastructure-Audit | `Lee y ejecuta /Tool-Prompts/Infra/Revisar-Seguridad-Server en <sistema>` |
 
 ### Seguridad
 

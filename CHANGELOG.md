@@ -4,6 +4,24 @@ Registro de cambios del framework de prompting. Formato basado en [Keep a Change
 
 ---
 
+## [1.11.0] — 2026-07-19
+
+### Agregado
+
+- **Tool-Prompt `Tool-Prompts/Infra/Actualizar-Documentacion-Server.md`** — sincronizar la documentación existente de un servidor con su estado real: corregir lo que cambió, completar lo que falta, retirar lo que ya no existe y preservar lo válido. Cierra el par crear/actualizar en `Infra/`, en línea con el par ya existente de indexado. Parámetros: `{destino}` (ubicación de la documentación) y `{servidor}` (deducible de la propia documentación). Profile: Infrastructure-Documentation.
+
+### Cambiado
+
+- **Nomenclatura de los Tool-Prompts de `Infra/` por verbo explícito y objeto acotado**: `Documentar-Servidor.md` → `Crear-Documentacion-Server.md` (la invocación pasa a `de {servidor} en {destino}`) y `Revisar-Seguridad.md` → `Revisar-Seguridad-Server.md`. El sufijo `-Server` deja explícito el objeto auditado y evita la ambigüedad con `Seguridad/Auditoria-Seguridad.md`, que audita un portal web desde su URL.
+- **Fusión de `Indexado/` y la rama documental de `Software/` en `Tool-Prompts/Indexado-Documentado/`**: la carpeta agrupa el ciclo completo de indexar y documentar fuentes — `Iniciar-Contexto.md`, `Iniciar-Indexado.md`, `Actualizar-Indexado.md`, `Actualizar-Documentacion.md` y `Crear-Documentacion-Fuente-Software.md` (antes `Software/Documentar-Fuentes-Software.md`). `Software/` queda con `Derivar-Casos-Prueba.md`. La carpeta forma parte de la ruta de invocación, que pasa a `/Tool-Prompts/Indexado-Documentado/...`.
+- **Catálogo `Tool-Prompts/README.md`**: la tabla de la categoría Infraestructura refleja los nombres nuevos y suma `Actualizar-Documentacion-Server`.
+
+### Pendiente
+
+- El rebase de rutas de esta reorganización quedó incompleto: las cabeceras `> **Invocación**` de los archivos movidos, la tabla de carpetas y las secciones Indexado/Software de `Tool-Prompts/README.md`, el `README.md` raíz, las guías de `PromptFramework/Guides/` y `Profiles/Knowledge-Indexing.md` siguen citando las rutas anteriores. Se resuelve en una entrada posterior.
+
+---
+
 ## [1.10.0] — 2026-07-18
 
 ### Agregado
