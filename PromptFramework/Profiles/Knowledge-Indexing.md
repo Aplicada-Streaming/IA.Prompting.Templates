@@ -91,11 +91,11 @@ Sección final del README.md que captura la génesis y permite regenerar o actua
 ```markdown
 ## Manifiesto de generación
 
-- Generado por : /IA/IA.Prompts/Tool-Prompts/Indexado/Iniciar-Indexado.md
+- Generado por : /IA/IA.Prompts/Tool-Prompts/Indexado-Documentado/Iniciar-Indexado.md
 - Alcance      : <proyectos indexados>
 - Fuentes      : <raíces escaneadas: src/, docs/, scripts/, ...>
 - Generado     : <fecha> · Versión: <n.n>
-- Actualizar   : /IA/IA.Prompts/Tool-Prompts/Indexado/Actualizar-Indexado.md
+- Actualizar   : /IA/IA.Prompts/Tool-Prompts/Indexado-Documentado/Actualizar-Indexado.md
 ```
 
 ## Índices temáticos

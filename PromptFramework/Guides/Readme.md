@@ -160,28 +160,29 @@ Los tres usan el **núcleo de 5 secciones** (`Contexto · Objetivo · Solicitude
 Los Tool-Prompts son prompts-herramienta de invocación directa, ubicados en `/IA/IA.Prompts/Tool-Prompts/` (fuera de `PromptFramework/`). Se ejecutan con una sola línea en el chat, sin copiar ni completar plantillas:
 
 ```
-Ejecuta /IA/IA.Prompts/Tool-Prompts/Indexado/Iniciar-Contexto.md en <tema>
+Ejecuta /IA/IA.Prompts/Tool-Prompts/Indexado-Documentado/Iniciar-Contexto.md en <tema>
 ```
 
 Están agrupados en carpetas por dominio, y la carpeta forma parte de la ruta de invocación:
 
 | Tool-Prompt | Propósito |
 |-------------|-----------|
-| `Indexado/Iniciar-Contexto.md` | Arrancar un chat cargando el contexto mínimo de un tema |
-| `Indexado/Iniciar-Indexado.md` | Generar la ia-db de uno o más proyectos (modo proyecto o workspace federado) |
-| `Indexado/Actualizar-Indexado.md` | Sincronizar una ia-db existente con los cambios de sus proyectos |
-| `Software/Documentar-Fuentes-Software.md` | Evaluar y documentar una solución, proyecto o workspace completo (ia-db + conjunto documental) |
-| `Software/Actualizar-Documentacion.md` | Actualizar documentación existente de un proyecto |
+| `Indexado-Documentado/Iniciar-Contexto.md` | Arrancar un chat cargando el contexto mínimo de un tema |
+| `Indexado-Documentado/Iniciar-Indexado.md` | Generar la ia-db de uno o más proyectos (modo proyecto o workspace federado) |
+| `Indexado-Documentado/Actualizar-Indexado.md` | Sincronizar una ia-db existente con los cambios de sus proyectos |
+| `Indexado-Documentado/Crear-Documentacion-Fuente-Software.md` | Evaluar y documentar una solución, proyecto o workspace completo (ia-db + conjunto documental) |
+| `Indexado-Documentado/Actualizar-Documentacion.md` | Actualizar documentación existente de un proyecto |
 | `Software/Derivar-Casos-Prueba.md` | Derivar casos y datos de prueba (QA) desde el modelo de datos |
 | `BasesDatos/Documentar-BaseDatos.md` | Documentar la estructura de una base de datos (diccionario + ER en dbml) |
 | `Docker/Documentar-Docker.md` | Documentar una infraestructura Docker |
-| `Infra/Documentar-Servidor.md` | Documentar un servidor Linux |
-| `Infra/Revisar-Seguridad.md` | Revisar la seguridad de un servidor o red (solo lectura) |
+| `Infra/Crear-Documentacion-Server.md` | Documentar un servidor Linux desde cero |
+| `Infra/Actualizar-Documentacion-Server.md` | Sincronizar documentación existente de un servidor con su estado real |
+| `Infra/Revisar-Seguridad-Server.md` | Revisar la seguridad de un servidor o red (solo lectura) |
 | `Seguridad/Auditoria-Seguridad.md` | Auditar un sistema web autenticado desde su URL (OWASP), con pruebas autorizadas y no destructivas |
 
 Ver el catálogo completo con invocación y Profile de cada uno en `/IA/IA.Prompts/Tool-Prompts/README.md`.
 
-`Indexado/Iniciar-Contexto.md` es autónomo (no carga Profiles ni RuleSets) para minimizar el consumo de tokens; es la excepción documentada a la jerarquía del framework. Ver la [Guía de Optimización de Tokens](Token-Optimization.md).
+`Indexado-Documentado/Iniciar-Contexto.md` es autónomo (no carga Profiles ni RuleSets) para minimizar el consumo de tokens; es la excepción documentada a la jerarquía del framework. Ver la [Guía de Optimización de Tokens](Token-Optimization.md).
 
 ### Examples
 

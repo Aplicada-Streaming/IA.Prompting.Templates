@@ -1,8 +1,8 @@
 # Tool-Prompt — Actualizar Indexado
 
 > **Invocación**:
-> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Indexado/Actualizar-Indexado.md de {proyecto}`
-> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Indexado/Actualizar-Indexado.md del workspace` (ia-db federada en `/ia-db`)
+> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Indexado-Documentado/Actualizar-Indexado.md de {proyecto}`
+> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Indexado-Documentado/Actualizar-Indexado.md del workspace` (ia-db federada en `/ia-db`)
 
 ---
 

@@ -1,4 +1,4 @@
-# Tool-Prompt — Documentar Servidor
+# Tool-Prompt — Crear Documentación de Servidor
 
 > **Invocación**:
 > - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Infra/Crear-Documentacion-Server.md de {servidor} en {destino}`

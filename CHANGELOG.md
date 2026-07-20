@@ -4,6 +4,20 @@ Registro de cambios del framework de prompting. Formato basado en [Keep a Change
 
 ---
 
+## [1.11.1] — 2026-07-19
+
+### Corregido
+
+- **Actualización de rutas pendiente de 1.11.0**: se reescriben todas las referencias a las rutas anteriores en 13 archivos — cabeceras `> **Invocación**` de los cinco Tool-Prompts movidos, `Tool-Prompts/README.md`, `README.md` raíz, `PromptFramework/README.md`, las cuatro guías de `PromptFramework/Guides/` y `Profiles/Knowledge-Indexing.md`. `Tool-Prompts/Indexado/` pasa a `Tool-Prompts/Indexado-Documentado/`, `Software/Documentar-Fuentes-Software.md` a `Indexado-Documentado/Crear-Documentacion-Fuente-Software.md`, `Software/Actualizar-Documentacion.md` a `Indexado-Documentado/Actualizar-Documentacion.md`, `Infra/Documentar-Servidor.md` a `Infra/Crear-Documentacion-Server.md` e `Infra/Revisar-Seguridad.md` a `Infra/Revisar-Seguridad-Server.md`. El repositorio queda sin referencias rotas.
+- **Títulos de los archivos renombrados**: el `#` de nivel 1 de `Crear-Documentacion-Fuente-Software.md`, `Crear-Documentacion-Server.md` y `Revisar-Seguridad-Server.md` seguía nombrando el archivo viejo; ahora coincide con el nombre del archivo.
+
+### Cambiado
+
+- **Catálogo `Tool-Prompts/README.md`**: la sección «Indexado» pasa a «Indexado y documentación» y absorbe las filas de `Crear-Documentacion-Fuente-Software` y `Actualizar-Documentacion`, que estaban listadas bajo «Software» pese a haberse movido de carpeta. «Software» queda con `Derivar-Casos-Prueba`. Se redefinen los dominios de ambas carpetas en la tabla de organización y en el árbol de estructura de `PromptFramework/README.md`.
+- **Tabla de Tool-Prompts de la Guía Conceptual** (`Guides/Readme.md`): suma la fila de `Infra/Actualizar-Documentacion-Server.md`, que faltaba desde su alta en 1.11.0.
+
+---
+
 ## [1.11.0] — 2026-07-19
 
 ### Agregado

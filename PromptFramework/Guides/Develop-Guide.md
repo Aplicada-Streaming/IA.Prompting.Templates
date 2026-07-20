@@ -340,7 +340,7 @@ Un Example debe:
 | RuleSet | `RuleSet-[Dominio].md` | `RuleSet-Audit.md` |
 | Profile | `[Dominio]-[Tipo].md` | `Infrastructure-Audit.md` |
 | Template | `Prompt-[Nombre].md` | `Prompt-Template.md` |
-| Tool-Prompt | `[Verbo]-[Objeto].md` (en `/IA/IA.Prompts/Tool-Prompts/[Categoria]/`) | `Indexado/Iniciar-Contexto.md` |
+| Tool-Prompt | `[Verbo]-[Objeto].md` (en `/IA/IA.Prompts/Tool-Prompts/[Categoria]/`) | `Indexado-Documentado/Iniciar-Contexto.md` |
 | Example | `Example-[Descripción].md` | `Example-Auditoria.md` |
 
 ### Idioma
@@ -366,7 +366,7 @@ Al referenciar componentes del framework desde prompts, perfiles o reglas, utili
 `/IA/IA.Prompts/PromptFramework/Rules/Rule-All.md`
 `/IA/IA.Prompts/PromptFramework/RuleSets/RuleSet-Documentation.md`
 `/IA/IA.Prompts/PromptFramework/Profiles/Repository-Documentation.md`
-`/IA/IA.Prompts/Tool-Prompts/Indexado/Iniciar-Contexto.md`
+`/IA/IA.Prompts/Tool-Prompts/Indexado-Documentado/Iniciar-Contexto.md`
 ```
 
 Si el repositorio cambia de ubicación, actualizar las referencias de los documentos.
@@ -387,7 +387,7 @@ PromptFramework/
 └── Guides/                 # Documentación del framework
 
 Tool-Prompts/               # (raíz del repositorio) Prompts-herramienta de invocación directa
-├── Indexado/               # ia-db y arranque de contexto
+├── Indexado-Documentado/               # ia-db y arranque de contexto
 ├── Software/               # Código fuente: documentación de soluciones y QA
 ├── BasesDatos/             # Estructura de bases de datos
 ├── Docker/                 # Infraestructura de contenedores

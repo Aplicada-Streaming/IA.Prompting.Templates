@@ -58,9 +58,9 @@ Los Tool-Prompts operativos de la técnica:
 
 | Operación | Tool-Prompt |
 |-----------|-------------|
-| Crear la ia-db | `/IA/IA.Prompts/Tool-Prompts/Indexado/Iniciar-Indexado.md` |
-| Sincronizarla con cambios | `/IA/IA.Prompts/Tool-Prompts/Indexado/Actualizar-Indexado.md` |
-| Arrancar un chat con contexto mínimo | `/IA/IA.Prompts/Tool-Prompts/Indexado/Iniciar-Contexto.md` |
+| Crear la ia-db | `/IA/IA.Prompts/Tool-Prompts/Indexado-Documentado/Iniciar-Indexado.md` |
+| Sincronizarla con cambios | `/IA/IA.Prompts/Tool-Prompts/Indexado-Documentado/Actualizar-Indexado.md` |
+| Arrancar un chat con contexto mínimo | `/IA/IA.Prompts/Tool-Prompts/Indexado-Documentado/Iniciar-Contexto.md` |
 
 ---
 
@@ -107,4 +107,4 @@ Prácticas que el agente aplica por defecto, sin que el usuario las pida:
 | ia-db antes que el repositorio | Ante una tarea sobre un proyecto, consultar primero su ia-db (punto de entrada → índices del tema) y explorar las fuentes solo ante insuficiencia comprobada |
 | Recuperación incremental | Cargar 1–2 índices del tema consultado, no la documentación completa |
 | Referenciar antes que incluir | Citar rutas de componentes; no copiar su contenido en prompts ni entregables |
-| Sincronización al cierre | Si la tarea cambió el conocimiento del proyecto, actualizar la ia-db o proponer ejecutar `/IA/IA.Prompts/Tool-Prompts/Indexado/Actualizar-Indexado.md` |
+| Sincronización al cierre | Si la tarea cambió el conocimiento del proyecto, actualizar la ia-db o proponer ejecutar `/IA/IA.Prompts/Tool-Prompts/Indexado-Documentado/Actualizar-Indexado.md` |

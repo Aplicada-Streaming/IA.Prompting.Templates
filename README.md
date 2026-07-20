@@ -33,11 +33,11 @@ Guía de escritura y esqueletos copy-paste: [`How-To.md`](PromptFramework/Guides
 Prompts-herramienta invocables en una línea (catálogo en [Tool-Prompts/README.md](Tool-Prompts/README.md)):
 
 ```
-Ejecuta /IA/IA.Prompts/Tool-Prompts/Indexado/Iniciar-Contexto.md en <tema>
-Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Indexado/Iniciar-Indexado.md en <proyecto>
-Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Infra/Documentar-Servidor.md en <servidor>
-Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Software/Documentar-Fuentes-Software.md en la solución <origen> y deja en: <destino>
-Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Indexado/Actualizar-Indexado.md de <proyecto>
+Ejecuta /IA/IA.Prompts/Tool-Prompts/Indexado-Documentado/Iniciar-Contexto.md en <tema>
+Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Indexado-Documentado/Iniciar-Indexado.md en <proyecto>
+Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Infra/Crear-Documentacion-Server.md en <servidor>
+Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Indexado-Documentado/Crear-Documentacion-Fuente-Software.md en la solución <origen> y deja en: <destino>
+Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Indexado-Documentado/Actualizar-Indexado.md de <proyecto>
 Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Seguridad/Auditoria-Seguridad.md en <URL> con Usuario:<Usuario> y Clave:<Clave> y deja el informe en <Destino>
 ```
 

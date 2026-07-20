@@ -1,7 +1,7 @@
-# Tool-Prompt — Revisar Seguridad
+# Tool-Prompt — Revisar Seguridad de Servidor
 
 > **Invocación**:
-> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Infra/Revisar-Seguridad.md en {sistema}`
+> - `Lee y ejecuta /IA/IA.Prompts/Tool-Prompts/Infra/Revisar-Seguridad-Server.md en {sistema}`
 
 ---
 
